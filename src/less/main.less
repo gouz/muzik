@@ -13,12 +13,22 @@ body {
   scroll-snap-type: y mandatory;
 
   .🎶 {
-    @apply h-full flex items-center justify-center;
+    @apply h-full flex items-center justify-center flex-col;
     scroll-snap-align: center;
 
     .🎶--box {
-      @apply border rounded-lg shadow-md p-5 bg-blue-100;
+      @apply border rounded-lg shadow-xl p-4 bg-blue-100;
+
+      iframe {
+        @apply rounded-md overflow-hidden;
+      }
+
+      a {
+        @apply float-right text-black;
+        &:hover {
+          @apply text-blue-500 underline;
+        }
+      }
     }
   }
 }
-

@@ -36,8 +36,5 @@
     "staticPath": "src/static",
     "staticOutPath": "",
     "watcherGlob": "**"
-  },
-  "dependencies": {
-    "vanilla-lazyload": "17.5.0"
   }
 }

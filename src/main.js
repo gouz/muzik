@@ -43,6 +43,7 @@ fetch("./list.json").then((response) => {
         }
         window.location.hash = number;
         document.querySelector("#wrapper").innerHTML += template(json.list[number]);
+        document.querySelector('body').innerHTML += `<div id="info">There is <b>${json.list.length}</b> tracks in the playlist.</div>`;
     });
 });
 

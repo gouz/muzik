@@ -5,9 +5,13 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title MuziK
+    link(
+      rel="icon",
+      type="image/svg+xml",
+      href="./5340260_audio_joox_media_music_social_icon.svg"
+    )
   body
     #wrapper
-
     script(src="main.js", type="module")
     script.
       function onYouTubeIframeAPIReady() {
@@ -16,8 +20,8 @@ html(lang="en")
           width: '100%',
           videoId: window.code,
           events: {
-            'onReady': window.onPlayerReady,
-            'onStateChange': window.onPlayerStateChange
-          }
+            onReady: window.onPlayerReady,
+            onStateChange: window.onPlayerStateChange,
+          },
         });
       }

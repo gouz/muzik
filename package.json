@@ -1,0 +1,43 @@
+{
+  "name": "muzik",
+  "version": "1.0.0",
+  "description": "Like a blog, but with a list of songs I like",
+  "source": "src/index.pug",
+  "scripts": {
+    "preparcel": "rm -rf dist docs .parcel-cache",
+    "parcel": "parcel $RUN",
+    "build": "RUN=build npm run parcel -- --no-cache --no-source-maps --dist-dir docs --public-url \"./\"",
+    "watch": "RUN=watch npm run parcel",
+    "dev": "RUN=serve npm run parcel -- --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gouz/muzik.git"
+  },
+  "author": "Sylvain Gougouzian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gouz/muzik/issues"
+  },
+  "homepage": "https://github.com/gouz/muzik#readme",
+  "devDependencies": {
+    "@parcel/transformer-less": "^2.0.0",
+    "@parcel/transformer-pug": "^2.0.0",
+    "@prettier/plugin-pug": "^1.16.7",
+    "autoprefixer": "^10.3.7",
+    "parcel": "^2.0.0",
+    "parcel-reporter-static-files-copy": "^1.3.0",
+    "postcss": "^8.3.11",
+    "prettier": "^2.4.1",
+    "serve-static": "^1.14.1",
+    "tailwindcss": "^2.2.17"
+  },
+  "staticFiles": {
+    "staticPath": "src/static",
+    "staticOutPath": "",
+    "watcherGlob": "**"
+  },
+  "dependencies": {
+    "vanilla-lazyload": "^17.5.0"
+  }
+}

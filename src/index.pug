@@ -9,3 +9,15 @@ html(lang="en")
     #wrapper
 
     script(src="main.js", type="module")
+    script.
+      function onYouTubeIframeAPIReady() {
+        window.player = new YT.Player('player', {
+          height: '360',
+          width: '100%',
+          videoId: window.code,
+          events: {
+            'onReady': window.onPlayerReady,
+            'onStateChange': window.onPlayerStateChange
+          }
+        });
+      }

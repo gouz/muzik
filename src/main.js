@@ -3,19 +3,15 @@ import "./less/main.less";
 
 const template = (url) => {
     if (url.indexOf('youtube') !== -1 || url.indexOf('youtu.be') !== -1) {
-        const code = url.substring(url.lastIndexOf('/') + 1).replace('watch?v=', '');
+        window.code = url.substring(url.lastIndexOf('/') + 1).replace('watch?v=', '');
+        let tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        let firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         return `
         <div class="🎶">
             <div class="🎶--box">
-                <iframe 
-                    src="https://www.youtube.com/embed/${code}" 
-                    allowFullScreen="allowFullScreen" 
-                    width="640" height="360"
-                    allowtransparency="true" 
-                    frameborder="0"
-                    allow="autoplay"
-                >
-                </iframe>
+                <div id="player"></div>
                 <a href="#" onclick="window.location.hash = ''; window.location.reload(true); return false;">next</div>
             </div>
         </div>
@@ -24,15 +20,26 @@ const template = (url) => {
     return '';
 };
 
+window.player = {};
+
+window.onPlayerReady = (event) => {
+    event.target.playVideo();
+};
+
+window.onPlayerStateChange = (event) => {
+    if (event.data == YT.PlayerState.ENDED) {
+        window.location.hash = ''; window.location.reload(true);
+    }
+};
+
 fetch("./list.json").then((response) => {
     return response.json().then((json) => {
         let number = Math.floor(Math.random() * json.list.length);
-        if (window.location.hash != '')
-        {
+        if (window.location.hash != '') {
             number = window.location.hash.replace('#', '');
             if (number > json.list.length)
                 number = Math.floor(Math.random() * json.list.length);
-            
+
         }
         window.location.hash = number;
         document.querySelector("#wrapper").innerHTML += template(json.list[number]);

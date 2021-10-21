@@ -17,7 +17,7 @@ body {
     scroll-snap-align: center;
 
     .🎶--box {
-      @apply border rounded-lg shadow-xl p-4 bg-blue-100;
+      @apply border rounded-lg shadow-xl p-4 bg-blue-100 w-screen;
 
       iframe {
         @apply rounded-md overflow-hidden;
@@ -30,5 +30,11 @@ body {
         }
       }
     }
+  }
+}
+
+@screen md {
+  #wrapper .🎶 .🎶--box {
+    @apply w-1/2;
   }
 }

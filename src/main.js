@@ -16,7 +16,7 @@ const template = (url) => {
                     allow="autoplay"
                 >
                 </iframe>
-                <a href="#" onclick="window.location.reload(); return false;">next</div>
+                <a href="#" onclick="window.location.hash = ''; window.location.reload(true); return false;">next</div>
             </div>
         </div>
         `;
@@ -24,22 +24,18 @@ const template = (url) => {
     return '';
 };
 
-const shuffle = (array) => {
-    let currentIndex = array.length, randomIndex;
-    while (currentIndex != 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-    }
-
-    return array;
-};
-
 fetch("./list.json").then((response) => {
     return response.json().then((json) => {
-        let list = shuffle(json.list);
-        let url = list.shift();
-        document.querySelector("#wrapper").innerHTML += template(url);
+        let number = Math.floor(Math.random() * json.list.length);
+        if (window.location.hash != '')
+        {
+            number = window.location.hash.replace('#', '');
+            if (number > json.list.length)
+                number = Math.floor(Math.random() * json.list.length);
+            
+        }
+        window.location.hash = number;
+        document.querySelector("#wrapper").innerHTML += template(json.list[number]);
     });
 });
 

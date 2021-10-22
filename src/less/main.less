@@ -6,10 +6,14 @@ body {
 }
 
 #wrapper {
-  @apply h-full overflow-auto;
+  @apply h-full overflow-auto flex flex-col w-full;
+
+  h1 {
+    @apply top-24 text-center text-xl w-full;
+  }
 
   .🎶 {
-    @apply h-full flex items-center justify-center flex-col;
+    @apply flex items-center justify-center flex-col flex-grow;
 
     .🎶--box {
       @apply border rounded-lg shadow-xl p-4 bg-blue-100 w-screen h-1/2;
@@ -29,11 +33,7 @@ body {
 }
 
 #info {
-  @apply fixed top-5 right-5 text-xs;
-}
-
-h1 {
-  @apply fixed top-24 text-center text-xl w-full;
+  @apply fixed bottom-5 right-5 text-xs;
 }
 
 @screen md {

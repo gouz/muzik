@@ -24,7 +24,7 @@ window.player = {};
 
 window.onPlayerReady = (event) => {
     event.target.playVideo();
-    document.querySelector("body").innerHTML += `<h1>${window.player.playerInfo.videoData.title}</h1>`;
+    document.querySelector("h1").innerHTML = window.player.playerInfo.videoData.title;
 };
 
 window.onPlayerStateChange = (event) => {

@@ -24,6 +24,7 @@ window.player = {};
 
 window.onPlayerReady = (event) => {
     event.target.playVideo();
+    document.querySelector("body").innerHTML += `<h1>${window.player.playerInfo.videoData.title}</h1>`;
 };
 
 window.onPlayerStateChange = (event) => {

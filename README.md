@@ -14,4 +14,4 @@ npm run build
 - [ ] SHA1 for urls, then the list can be shuffled with no consequences
 - [ ] SoundCloud integration
 - [ ] Background color according to the media
-- [ ] Preview should be adjusted to the size of the media
+- [X] Preview should be adjusted to the size of the media

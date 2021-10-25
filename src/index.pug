@@ -17,8 +17,6 @@ html(lang="en")
     script.
       function onYouTubeIframeAPIReady() {
         window.player = new YT.Player('player', {
-          height: '100%',
-          width: '100%',
           videoId: window.code,
           events: {
             onReady: window.onPlayerReady,

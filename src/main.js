@@ -1,23 +1,33 @@
 import "./main.css";
 import "./less/main.less";
+import './js/soundcloud';
 
 const template = (url) => {
+    let content = '';
     if (url.indexOf('youtube') !== -1 || url.indexOf('youtu.be') !== -1) {
         window.code = url.substring(url.lastIndexOf('/') + 1).replace('watch?v=', '');
         let tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         let firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        return `
+        content = `<div id="player"></div>`;
+    }
+    if (url.indexOf('soundcloud') !== -1) {
+        content = `<iframe src="https://w.soundcloud.com/player/?url=${url.replace(':', '%3A') + '&amp;auto_play=true'}" scrolling="no" frameborder="no" allow="autoplay"></iframe>`;
+        setTimeout(() => {
+            SC.Widget(document.querySelector('iframe')).bind(SC.Widget.Events.FINISH, () => {
+                window.location.hash = ''; window.location.reload(true);
+            });
+        }, 1000);
+    }
+    return `
         <div class="🎶">
             <div class="🎶--box">
-                <div id="player"></div>
+                ${content}
                 <a href="#" onclick="window.location.hash = ''; window.location.reload(true); return false;">next</div>
             </div>
         </div>
         `;
-    }
-    return '';
 };
 
 window.player = {};

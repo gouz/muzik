@@ -21,7 +21,6 @@ const template = (url) => {
             });
             soundcloud.bind(SC.Widget.Events.READY, () => {
                 soundcloud.getCurrentSound((currentSound) => {
-                    console.log(currentSound)
                     document.querySelector("h1").innerHTML = currentSound.title;
                 });
             });

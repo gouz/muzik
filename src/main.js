@@ -48,7 +48,7 @@ const template = (url) => {
                     document.querySelector("h1").innerHTML = currentSound.title;
                     // artwork
                     let artwork_url = null;
-                    if (typeof currentSound.artwork_url == 'undefined')
+                    if (currentSound.artwork_url !== null)
                         artwork_url = currentSound.artwork_url;
                     else
                         artwork_url = currentSound.user.avatar_url;

@@ -2,6 +2,8 @@ import "./main.css";
 import "./less/main.less";
 import './js/soundcloud';
 
+let hash = require('object-hash');
+
 const template = (url) => {
     let content = '';
     if (url.indexOf('youtube') !== -1 || url.indexOf('youtu.be') !== -1) {
@@ -111,14 +113,18 @@ window.changeBG = (url) => {
 
 fetch("./list.json").then((response) => {
     return response.json().then((json) => {
-        let number = Math.floor(Math.random() * json.list.length);
-        if (window.location.hash != '') {
-            number = window.location.hash.replace('#', '') - 1;
-            if (number > json.list.length || number < 1)
-                number = Math.floor(Math.random() * json.list.length);
-
+        let number = -1;
+        if ('' !== window.location.hash) {
+            const test = window.location.hash.substr(1);
+            for (let i = 0; i < json.list.length; i++)
+                if (test === hash(json.list[i])) {
+                    number = i;
+                    break;
+                }
         }
-        window.location.hash = number + 1;
+        if (-1 === number)
+            number = Math.floor(Math.random() * json.list.length);
+        window.location.hash = hash(json.list[number]);
         document.querySelector("#wrapper").innerHTML += template(json.list[number]);
         document.querySelector('body').innerHTML += `<div id="info">There is <b>${json.list.length}</b> tracks in the playlist.</div>`;
     });

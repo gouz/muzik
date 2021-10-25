@@ -11,7 +11,7 @@ npm run build
 
 ## @TODO
 
-- [ ] SHA1 for urls, then the list can be shuffled with no consequences
+- [X] SHA1 for urls, then the list can be shuffled with no consequences
 - [X] SoundCloud integration
 - [X] Background color according to the media (soundcloud only)
 - [X] Preview should be adjusted to the size of the media

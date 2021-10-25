@@ -36,5 +36,8 @@
     "staticPath": "src/static",
     "staticOutPath": "",
     "watcherGlob": "**"
+  },
+  "dependencies": {
+    "object-hash": "^2.2.0"
   }
 }

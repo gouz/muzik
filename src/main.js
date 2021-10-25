@@ -15,8 +15,15 @@ const template = (url) => {
     if (url.indexOf('soundcloud') !== -1) {
         content = `<iframe src="https://w.soundcloud.com/player/?url=${url.replace(':', '%3A') + '&amp;auto_play=true'}" scrolling="no" frameborder="no" allow="autoplay"></iframe>`;
         setTimeout(() => {
-            SC.Widget(document.querySelector('iframe')).bind(SC.Widget.Events.FINISH, () => {
+            let soundcloud = SC.Widget(document.querySelector('iframe'));
+            soundcloud.bind(SC.Widget.Events.FINISH, () => {
                 window.location.hash = ''; window.location.reload(true);
+            });
+            soundcloud.bind(SC.Widget.Events.READY, () => {
+                soundcloud.getCurrentSound((currentSound) => {
+                    console.log(currentSound)
+                    document.querySelector("h1").innerHTML = currentSound.title;
+                });
             });
         }, 1000);
     }

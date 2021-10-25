@@ -15,3 +15,4 @@ npm run build
 - [ ] SoundCloud integration
 - [ ] Background color according to the media
 - [X] Preview should be adjusted to the size of the media
+- [ ] Sharing og:datas

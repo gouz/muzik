@@ -1,31 +1,42 @@
 html,
 body {
-  @apply h-full bg-blue-200;
+  @apply h-full bg-blue-200 overflow-hidden;
   margin: 0;
   padding: 0;
 }
 
+#bg {
+  @apply absolute opacity-100 z-0 top-0;
+  transform: scale(1.4);
+  filter: blur(20px);
+}
+
 #wrapper {
-  @apply h-full overflow-auto flex flex-col w-full;
+  @apply h-full overflow-auto flex flex-col w-full relative z-10;
 
   h1 {
-    @apply top-24 text-center text-xl w-full pt-8;
+    @apply text-center text-3xl pt-8 font-bold text-white;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #666;
+    text-shadow: #666 2px 2px 5px;
   }
 
   .🎶 {
     @apply flex items-center justify-center flex-col flex-grow;
 
     .🎶--box {
-      @apply border rounded-lg shadow-xl p-4 bg-blue-100 relative max-w-full;
+      @apply border rounded-lg shadow-xl p-4 relative max-w-full;
+      background-color: rgba(255, 255, 255, 0.6);
 
       iframe {
         @apply rounded-md overflow-hidden max-w-full;
       }
 
       a {
-        @apply text-black mt-4 absolute right-0 -bottom-10;
+        @apply mt-4 absolute right-0 -bottom-10 bg-gray-200 px-2 py-1 rounded-lg;
         &:hover {
-          @apply text-blue-100 underline;
+          @apply underline;
         }
       }
     }
@@ -33,5 +44,5 @@ body {
 }
 
 #info {
-  @apply fixed bottom-5 right-5 text-xs;
+  @apply fixed bottom-5 right-5 text-xs bg-gray-200 px-2 py-1 rounded-lg z-10;
 }

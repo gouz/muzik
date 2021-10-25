@@ -14,13 +14,4 @@ html(lang="en")
     #wrapper
       h1
     script(src="main.js", type="module")
-    script.
-      function onYouTubeIframeAPIReady() {
-        window.player = new YT.Player('player', {
-          videoId: window.code,
-          events: {
-            onReady: window.onPlayerReady,
-            onStateChange: window.onPlayerStateChange,
-          },
-        });
-      }
+

@@ -13,7 +13,7 @@ const template = (url) => {
         window.player = {};
         window.onPlayerReady = (event) => {
             event.target.playVideo();
-            document.querySelector("h1").innerHTML = window.player.getvVideoData().title;
+            document.querySelector("h1").innerHTML = window.player.getVideoData().title;
         };
         window.onPlayerStateChange = (event) => {
             if (event.data == YT.PlayerState.ENDED) {

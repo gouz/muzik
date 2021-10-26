@@ -2,18 +2,16 @@ import "./main.css";
 import "./less/main.less";
 import './js/soundcloud';
 import FastAverageColor from 'fast-average-color';
+import hash from 'object-hash';
 
 import list from './list.json';
 
-const hash = require('object-hash');
-
-const template = (url) => {
-    let content = '';
+const manageSound = (url) => {
     if (url.indexOf('youtube') !== -1 || url.indexOf('youtu.be') !== -1) {
         window.player = {};
         window.onPlayerReady = (event) => {
             event.target.playVideo();
-            document.querySelector("h1").innerHTML = window.player.getVideoData().title;
+            changeTitle(window.player.getVideoData().title);
         };
         window.onPlayerStateChange = (event) => {
             if (event.data == YT.PlayerState.ENDED) {
@@ -34,15 +32,15 @@ const template = (url) => {
         tag.src = "https://www.youtube.com/iframe_api";
         let firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        content = `<div id="player"></div>`;
+        changeContent(`<div id="player"></div>`);
 
     }
     if (url.indexOf('soundcloud') !== -1) {
-        content = `<iframe src="https://w.soundcloud.com/player/?url=${url.replace(':', '%3A') + '&amp;auto_play=true'}" 
+        changeContent(`<iframe src="https://w.soundcloud.com/player/?url=${url.replace(':', '%3A') + '&amp;auto_play=true'}" 
                            scrolling="no" 
                            frameborder="no" 
                            width="640"
-                           allow="autoplay"></iframe>`;
+                           allow="autoplay"></iframe>`);
         setTimeout(() => {
             window.player = SC.Widget(document.querySelector('iframe'));
             window.player.bind(SC.Widget.Events.FINISH, () => {
@@ -50,26 +48,17 @@ const template = (url) => {
             });
             window.player.bind(SC.Widget.Events.READY, () => {
                 window.player.getCurrentSound((currentSound) => {
-                    document.querySelector("h1").innerHTML = currentSound.title;
-                    // artwork
+                    changeTitle(currentSound.title);
                     let artwork_url = null;
                     if (currentSound.artwork_url !== null)
                         artwork_url = currentSound.artwork_url;
                     else
                         artwork_url = currentSound.user.avatar_url;
-                    window.changeBG(artwork_url);
+                    changeBG(artwork_url);
                 });
             });
-        }, 1000);
+        }, 10);
     }
-    return `
-        <div class="🎶">
-            <div class="🎶--box">
-                ${content}
-                <a href="#" onclick="window.next();">next</div>
-            </div>
-        </div>
-        `;
 };
 
 window.next = () => {
@@ -78,7 +67,7 @@ window.next = () => {
     return false;
 }
 
-window.changeBG = (url) => {
+const changeBG = (url) => {
     window.bg = document.createElement("canvas");
     window.bg.width = window.innerWidth
         || document.documentElement.clientWidth
@@ -106,6 +95,22 @@ window.changeBG = (url) => {
     img.src = url;
 };
 
+const changeTitle = (title) => {
+    document.querySelector("h1").innerHTML = title;
+    document.querySelector('title').innerHTML = title;
+};
+
+const changeContent = (html) => {
+    document.querySelector("#wrapper").innerHTML += `
+    <div class="🎶">
+        <div class="🎶--box">
+            ${html}
+            <a href="#" onclick="window.next();">next</div>
+        </div>
+    </div>
+    `;
+};
+
 let number = -1;
 if ('' !== window.location.hash) {
     const test = window.location.hash.substr(1);
@@ -118,6 +123,6 @@ if ('' !== window.location.hash) {
 if (-1 === number)
     number = Math.floor(Math.random() * list.list.length);
 window.location.hash = hash(list.list[number]);
-document.querySelector("#wrapper").innerHTML += template(list.list[number]);
+manageSound(list.list[number]);
 document.querySelector('body').innerHTML += `<div id="info">There is <b>${list.list.length}</b> tracks in the playlist.</div>`;
 

@@ -12,7 +12,7 @@ const template = (url) => {
         window.player = {};
         window.onPlayerReady = (event) => {
             event.target.playVideo();
-            document.querySelector("h1").innerHTML = window.player.playerInfo.videoData.title;
+            document.querySelector("h1").innerHTML = window.player.getvVideoData().title;
         };
         window.onPlayerStateChange = (event) => {
             if (event.data == YT.PlayerState.ENDED) {

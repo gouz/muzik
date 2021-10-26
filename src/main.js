@@ -1,10 +1,11 @@
 import "./main.css";
 import "./less/main.less";
 import './js/soundcloud';
+import FastAverageColor from 'fast-average-color';
 
 import list from './list.json';
 
-let hash = require('object-hash');
+const hash = require('object-hash');
 
 const template = (url) => {
     let content = '';
@@ -87,17 +88,21 @@ window.changeBG = (url) => {
         || document.body.clientHeight;
     // soundcloud artwork are squarred
     if (window.bg.width > window.bg.height)
-        window,bg.width = window.bg.height;
+        window, bg.width = window.bg.height;
     else
-        window,bg.height = window.bg.width;
+        window, bg.height = window.bg.width;
     window.bg.id = "bg";
     document.querySelector('body').appendChild(window.bg);
     let img = new Image;
-    img.onload = () => {
+    img.crossOrigin = "Anonymous";
+    img.addEventListener('load', () => {
         let ctx = document.querySelector('#bg').getContext('2d');
         ctx.drawImage(img, 0, 0, window.bg.width, window.bg.height);
-        document.querySelector('body').style.backgroundColor = '#000';
-    };
+        const fac = new FastAverageColor();
+        fac.getColorAsync(img).then(color => {
+            document.querySelector('body').style.backgroundColor = color.rgba;
+        })
+    }, false);
     img.src = url;
 };
 

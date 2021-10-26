@@ -29,13 +29,7 @@
     "parcel-reporter-static-files-copy": "1.3.0",
     "postcss": "8.3.11",
     "prettier": "2.4.1",
-    "serve-static": "1.14.1",
     "tailwindcss": "2.2.17"
-  },
-  "staticFiles": {
-    "staticPath": "src/static",
-    "staticOutPath": "",
-    "watcherGlob": "**"
   },
   "dependencies": {
     "object-hash": "^2.2.0"

@@ -2,6 +2,8 @@ import "./main.css";
 import "./less/main.less";
 import './js/soundcloud';
 
+import list from './list.json';
+
 let hash = require('object-hash');
 
 const template = (url) => {
@@ -83,50 +85,34 @@ window.changeBG = (url) => {
     window.bg.height = window.innerHeight
         || document.documentElement.clientHeight
         || document.body.clientHeight;
+    // soundcloud artwork are squarred
+    if (window.bg.width > window.bg.height)
+        window,bg.width = window.bg.height;
+    else
+        window,bg.height = window.bg.width;
     window.bg.id = "bg";
     document.querySelector('body').appendChild(window.bg);
     let img = new Image;
     img.onload = () => {
         let ctx = document.querySelector('#bg').getContext('2d');
         ctx.drawImage(img, 0, 0, window.bg.width, window.bg.height);
-        try {
-            let data = context.getImageData(0, 0, window.bg.width, window.bg.height);
-            let length = data.data.length;
-            let blockSize = 5;
-            let rgb = { r: 0, g: 0, b: 0 };
-            while ((i += blockSize * 4) < length) {
-                ++count;
-                rgb.r += data.data[i];
-                rgb.g += data.data[i + 1];
-                rgb.b += data.data[i + 2];
-            }
-            rgb.r = ~~(rgb.r / count);
-            rgb.g = ~~(rgb.g / count);
-            rgb.b = ~~(rgb.b / count);
-            document.querySelector('body').style.backgroundColor = `rgb(${rbg.r}, ${rgb.b}, ${rgb.g})`;
-        } catch (e) {
-            document.querySelector('body').style.backgroundColor = '#000';
-        }
+        document.querySelector('body').style.backgroundColor = '#000';
     };
     img.src = url;
 };
 
-fetch("./list.json").then((response) => {
-    return response.json().then((json) => {
-        let number = -1;
-        if ('' !== window.location.hash) {
-            const test = window.location.hash.substr(1);
-            for (let i = 0; i < json.list.length; i++)
-                if (test === hash(json.list[i])) {
-                    number = i;
-                    break;
-                }
+let number = -1;
+if ('' !== window.location.hash) {
+    const test = window.location.hash.substr(1);
+    for (let i = 0; i < list.list.length; i++)
+        if (test === hash(list.list[i])) {
+            number = i;
+            break;
         }
-        if (-1 === number)
-            number = Math.floor(Math.random() * json.list.length);
-        window.location.hash = hash(json.list[number]);
-        document.querySelector("#wrapper").innerHTML += template(json.list[number]);
-        document.querySelector('body').innerHTML += `<div id="info">There is <b>${json.list.length}</b> tracks in the playlist.</div>`;
-    });
-});
+}
+if (-1 === number)
+    number = Math.floor(Math.random() * list.list.length);
+window.location.hash = hash(list.list[number]);
+document.querySelector("#wrapper").innerHTML += template(list.list[number]);
+document.querySelector('body').innerHTML += `<div id="info">There is <b>${list.list.length}</b> tracks in the playlist.</div>`;
 

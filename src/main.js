@@ -26,6 +26,7 @@ const manageSound = (url) => {
                     onStateChange: window.onPlayerStateChange,
                 },
             });
+            changeBG(`http://img.youtube.com/vi/${window.code}/0.jpg`);
         }
         window.code = url.substring(url.lastIndexOf('/') + 1).replace('watch?v=', '');
         let tag = document.createElement('script');

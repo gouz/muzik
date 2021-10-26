@@ -26,7 +26,7 @@ const manageSound = (url) => {
                     onStateChange: window.onPlayerStateChange,
                 },
             });
-            changeBG(`http://img.youtube.com/vi/${window.code}/0.jpg`);
+            changeBG(`http://img.youtube.com/vi/${window.code}/0.jpg`, false);
         }
         window.code = url.substring(url.lastIndexOf('/') + 1).replace('watch?v=', '');
         let tag = document.createElement('script');
@@ -55,7 +55,7 @@ const manageSound = (url) => {
                         artwork_url = currentSound.artwork_url;
                     else
                         artwork_url = currentSound.user.avatar_url;
-                    changeBG(artwork_url);
+                    changeBG(artwork_url, true);
                 });
             });
         }, 10);
@@ -68,7 +68,7 @@ window.next = () => {
     return false;
 }
 
-const changeBG = (url) => {
+const changeBG = (url, squarred) => {
     window.bg = document.createElement("canvas");
     window.bg.width = window.innerWidth
         || document.documentElement.clientWidth
@@ -76,11 +76,12 @@ const changeBG = (url) => {
     window.bg.height = window.innerHeight
         || document.documentElement.clientHeight
         || document.body.clientHeight;
-    // soundcloud artwork are squarred
-    if (window.bg.width > window.bg.height)
-        window, bg.width = window.bg.height;
-    else
-        window, bg.height = window.bg.width;
+    if (squarred) {
+        if (window.bg.width > window.bg.height)
+            window, bg.width = window.bg.height;
+        else
+            window, bg.height = window.bg.width;
+    }
     window.bg.id = "bg";
     document.querySelector('body').appendChild(window.bg);
     let img = new Image;

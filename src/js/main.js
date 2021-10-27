@@ -1,10 +1,10 @@
-import "./main.css";
-import "./less/main.less";
-import './js/soundcloud';
+import "../css/main.css";
+import "../less/main.less";
+import './soundcloud';
 import FastAverageColor from 'fast-average-color';
 import hash from 'object-hash';
 
-import list from './list.json';
+import list from '../json/list.json';
 
 const manageSound = (url) => {
     window.location.hash = hash(url);

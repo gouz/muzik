@@ -13,6 +13,7 @@ const manageSound = (url) => {
         window.onPlayerReady = (event) => {
             event.target.playVideo();
             changeTitle(window.player.getVideoData().title);
+            changeMeta(window.player.getVideoData().title, `https://i.ytimg.com/vi/${window.code}/default.jpg`);
         };
         window.onPlayerStateChange = (event) => {
             if (event.data == YT.PlayerState.ENDED) {
@@ -27,7 +28,7 @@ const manageSound = (url) => {
                     onStateChange: window.onPlayerStateChange,
                 },
             });
-            changeBG(`https://img.youtube.com/vi/${window.code}/default.jpg`, false);
+            changeBG(`https://i.ytimg.com/vi/${window.code}/default.jpg`, false, false);
         }
         window.code = url.substring(url.lastIndexOf('/') + 1).replace('watch?v=', '');
         let tag = document.createElement('script');
@@ -56,7 +57,8 @@ const manageSound = (url) => {
                         artwork_url = currentSound.artwork_url;
                     else
                         artwork_url = currentSound.user.avatar_url;
-                    changeBG(artwork_url, true);
+                    changeBG(artwork_url, true, true);
+                    changeMeta(currentSound.title, artwork_url);
                 });
             });
         }, 10);
@@ -69,7 +71,7 @@ window.next = () => {
     return false;
 }
 
-const changeBG = (url, squarred) => {
+const changeBG = (url, squarred, cors) => {
     window.bg = document.createElement("canvas");
     window.bg.width = window.innerWidth
         || document.documentElement.clientWidth
@@ -86,21 +88,33 @@ const changeBG = (url, squarred) => {
     window.bg.id = "bg";
     document.querySelector('body').appendChild(window.bg);
     let img = new Image;
-    img.crossOrigin = "Anonymous";
+    if (cors)
+        img.crossOrigin = "Anonymous";
     img.addEventListener('load', () => {
         let ctx = document.querySelector('#bg').getContext('2d');
         ctx.drawImage(img, 0, 0, window.bg.width, window.bg.height);
-        const fac = new FastAverageColor();
-        fac.getColorAsync(img).then(color => {
-            document.querySelector('body').style.backgroundColor = color.rgba;
-        })
+        if (cors) {
+            const fac = new FastAverageColor();
+            fac.getColorAsync(img).then(color => {
+                document.querySelector('body').style.backgroundColor = color.rgba;
+            });
+        }
+        else {
+            document.querySelector('body').style.backgroundColor = "#000";
+        }
     }, false);
     img.src = url;
 };
 
 const changeTitle = (title) => {
-    document.querySelector("h1").innerHTML = title;
+    document.querySelector('h1').innerHTML = title;
     document.querySelector('title').innerHTML = title;
+};
+
+const changeMeta = (title, img) => {
+    document.querySelector('meta[property="og:title"]').setAttribute('content', title);
+    document.querySelector('meta[property="og:url"]').setAttribute('content', window.location);
+    document.querySelector('meta[property="og:image"]').setAttribute('content', img);
 };
 
 const changeContent = (html) => {

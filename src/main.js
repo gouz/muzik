@@ -7,6 +7,7 @@ import hash from 'object-hash';
 import list from './list.json';
 
 const manageSound = (url) => {
+    window.location.hash = hash(url);
     if (url.indexOf('youtube') !== -1 || url.indexOf('youtu.be') !== -1) {
         window.player = {};
         window.onPlayerReady = (event) => {
@@ -26,7 +27,7 @@ const manageSound = (url) => {
                     onStateChange: window.onPlayerStateChange,
                 },
             });
-            changeBG(`http://img.youtube.com/vi/${window.code}/0.jpg`, false);
+            changeBG(`https://img.youtube.com/vi/${window.code}/default.jpg`, false);
         }
         window.code = url.substring(url.lastIndexOf('/') + 1).replace('watch?v=', '');
         let tag = document.createElement('script');
@@ -124,7 +125,6 @@ if ('' !== window.location.hash) {
 }
 if (-1 === number)
     number = Math.floor(Math.random() * list.list.length);
-window.location.hash = hash(list.list[number]);
 manageSound(list.list[number]);
 document.querySelector('body').innerHTML += `<div id="info">There is <b>${list.list.length}</b> tracks in the playlist.</div>`;
 

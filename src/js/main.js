@@ -11,6 +11,7 @@ const manageSound = (url) => {
     if (url.indexOf('youtube') !== -1 || url.indexOf('youtu.be') !== -1) {
         window.player = {};
         window.onPlayerReady = (event) => {
+            window.setVolume(document.querySelector('#volume').value);
             event.target.playVideo();
             changeTitle(window.player.getVideoData().title);
             changeMeta(window.player.getVideoData().title, `https://i.ytimg.com/vi/${window.code}/default.jpg`);
@@ -59,6 +60,7 @@ const manageSound = (url) => {
                         artwork_url = currentSound.user.avatar_url;
                     changeBG(artwork_url, true, true);
                     changeMeta(currentSound.title, artwork_url);
+                    window.setVolume(document.querySelector('#volume').value);
                 });
             });
         }, 10);
@@ -69,6 +71,10 @@ window.next = () => {
     window.location.hash = '';
     window.location.reload(true);
     return false;
+}
+
+window.setVolume = (volume) => {
+    window.player.setVolume(volume);
 }
 
 const changeBG = (url, squarred, cors) => {
@@ -119,10 +125,9 @@ const changeMeta = (title, img) => {
 
 const changeContent = (html) => {
     document.querySelector("#wrapper").innerHTML += `
-    <div class="🎶">
-        <div class="🎶--box">
+    <div id="🎶">
+        <div id="🎶--box">
             ${html}
-            <a href="#" onclick="window.next();">⏭</div>
         </div>
     </div>
     `;

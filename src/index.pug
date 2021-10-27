@@ -16,5 +16,20 @@ html(lang="en")
     meta(property="og:image", content="")
   body
     h1
-    #wrapper
+    #app
+      #wrapper
+        #controls
+          #volume-control
+            input#volume(
+              type="range",
+              min="0",
+              max="100",
+              step="1",
+              value="82",
+              title="volume",
+              onchange="window.setVolume(this.value)",
+              oninput="window.setVolume(this.value)"
+            )
+          #next
+            a(href="#", onclick="window.next();", title="new song") ⏭
     script(src="./js/main.js", type="module")

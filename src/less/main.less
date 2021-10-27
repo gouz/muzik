@@ -33,25 +33,43 @@ h1 {
   text-shadow: #666 2px 2px 5px;
 }
 
-#wrapper {
-  @apply h-full overflow-auto flex flex-col w-full relative z-10;
+#app {
+  @apply h-full overflow-auto flex flex-col relative z-10 items-center justify-center;
 
-  .🎶 {
-    @apply flex items-center justify-center flex-col flex-grow;
+  #wrapper {
+    @apply flex flex-col-reverse gap-y-4;
 
-    .🎶--box {
-      @apply p-4 relative max-w-full;
-      &:extend(.bg);
+    #controls {
+      @apply flex flex-row items-stretch gap-x-4;
 
-      iframe {
-        @apply rounded-md overflow-hidden max-w-full;
+      #volume-control {
+        @apply flex items-center justify-center px-2 py-1 flex-grow;
+        &:extend(.bg);
+
+        input {
+          @apply w-full;
+        }
       }
 
-      a {
-        @apply mt-4 absolute right-0 -bottom-10 px-2 py-1 rounded-lg;
+      #next {
+        @apply px-2 py-1;
         &:extend(.bg);
-        &:hover {
+
+        a:hover {
           @apply underline;
+        }
+      }
+    }
+
+    #🎶 {
+      @apply flex items-center justify-center flex-col;
+
+      #🎶--box {
+        @apply p-4 relative max-w-full;
+        &:extend(.bg);
+
+        iframe {
+          @apply rounded-md overflow-hidden max-w-full;
         }
       }
     }

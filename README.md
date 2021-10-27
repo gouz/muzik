@@ -6,6 +6,12 @@ Website : https://gouz.github.io/muzik/
 To build you own, change the `src/static/list.json` file and run 
 
 ```sh
+npm run dev
+```
+
+To publish
+
+```sh
 npm run build
 ```
 

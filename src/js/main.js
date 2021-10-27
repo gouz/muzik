@@ -145,5 +145,5 @@ if ('' !== window.location.hash) {
 if (-1 === number)
     number = Math.floor(Math.random() * list.list.length);
 manageSound(list.list[number]);
-document.querySelector('body').innerHTML += `<div id="info"><b>${list.list.length}</b> tracks in the playlist.</div>`;
+document.querySelector('#infos').innerHTML += `<b>${list.list.length}</b> tracks in the playlist.`;
 

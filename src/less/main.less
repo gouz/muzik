@@ -25,16 +25,16 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+h1 {
+  @apply text-center text-3xl pt-8 font-bold text-white absolute w-full z-10;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #666;
+  text-shadow: #666 2px 2px 5px;
+}
+
 #wrapper {
   @apply h-full overflow-auto flex flex-col w-full relative z-10;
-
-  h1 {
-    @apply text-center text-3xl pt-8 font-bold text-white;
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #666;
-    text-shadow: #666 2px 2px 5px;
-  }
 
   .🎶 {
     @apply flex items-center justify-center flex-col flex-grow;

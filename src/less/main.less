@@ -20,6 +20,11 @@ body {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
+.bg-black {
+  @apply text-white;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 #wrapper {
   @apply h-full overflow-auto flex flex-col w-full relative z-10;
 
@@ -56,4 +61,5 @@ body {
 #info {
   @apply fixed bottom-5 right-5 text-xs px-2 py-1 rounded-lg z-10;
   &:extend(.bg);
+  &:extend(.bg-black);
 }

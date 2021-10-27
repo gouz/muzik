@@ -20,6 +20,7 @@ html(lang="en")
       #wrapper
         #controls
           #volume-control
+            span 🔈
             input#volume(
               type="range",
               min="0",
@@ -30,6 +31,7 @@ html(lang="en")
               onchange="window.setVolume(this.value)",
               oninput="window.setVolume(this.value)"
             )
+            span 🔊
           #next
-            a(href="#", onclick="window.next();", title="new song") ⏭
+            a(href="#", onclick="window.next();", title="new song") 🎵
     script(src="./js/main.js", type="module")

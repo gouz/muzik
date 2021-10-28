@@ -46,17 +46,24 @@ h1 {
         @apply flex items-center justify-center px-2 py-1 flex-grow;
         &:extend(.bg);
 
+        &:hover {
+          &:extend(.bg-black);
+        }
+
         input {
           @apply w-full;
         }
       }
 
       #next {
-        @apply px-2 py-1;
         &:extend(.bg);
 
-        a:hover {
-          @apply underline;
+        &:hover {
+          &:extend(.bg-black);
+        }
+
+        a {
+          @apply px-2 py-1 block;
         }
       }
     }

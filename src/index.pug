@@ -1,19 +1,19 @@
 doctype html
-html(lang="en")
+html(lang='en')
   head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title MuziK
     link(
-      rel="icon",
-      type="image/svg+xml",
-      href="./img/5340260_audio_joox_media_music_social_icon.svg"
+      rel='icon',
+      type='image/svg+xml',
+      href='./img/5340260_audio_joox_media_music_social_icon.svg'
     )
-    meta(property="og:title", content="")
-    meta(property="og:type", content="music.song")
-    meta(property="og:url", content="")
-    meta(property="og:image", content="")
+    meta(property='og:title', content='')
+    meta(property='og:type', content='music.song')
+    meta(property='og:url', content='')
+    meta(property='og:image', content='')
   body
     h1
     #app
@@ -22,19 +22,22 @@ html(lang="en")
           #volume-control
             span 🔈
             input#volume(
-              type="range",
-              min="0",
-              max="100",
-              step="1",
-              value="82",
-              title="volume",
-              onchange="window.setVolume(this.value)",
-              oninput="window.setVolume(this.value)"
+              type='range',
+              min='0',
+              max='100',
+              step='1',
+              title='volume',
+              defaultValue='82',
+              onchange='window.setVolume(this.value)'
             )
             span 🔊
           #next
-            a(href="#", onclick="window.next();", title="new song") 🎵
+            a(href='#', onclick='window.next();', title='new song') 🎵
     #infos
-      a(href="https://github.com/gouz/muzik", title="source code", target="_blank") 📝
+      a(
+        href='https://github.com/gouz/muzik',
+        title='source code',
+        target='_blank'
+      ) 📝
       span /&nbsp;
-    script(src="./js/main.js", type="module")
+    script(src='./js/main.js', type='module')

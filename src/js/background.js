@@ -55,5 +55,5 @@ window.moveBG = () => {
     window.bg.style.marginTop = `-${-2 + Math.floor(5 * Math.random())}%`;
     window.bg.style.marginLeft = `-${-2 + Math.floor(5 * Math.random())}%`;
     window.moveBG();
-  }, 2000);
+  }, 5000);
 };

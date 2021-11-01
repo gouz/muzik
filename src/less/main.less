@@ -5,13 +5,6 @@ body {
   padding: 0;
 }
 
-#bg {
-  @apply absolute opacity-100 z-0 transform transition-all top-0 left-0;
-  transform: scale(1.4);
-  filter: blur(20px);
-  transition-duration: 2000ms;
-}
-
 .bg {
   @apply border rounded-lg shadow-xl;
   background-color: rgba(255, 255, 255, 0.4);
@@ -30,58 +23,11 @@ h1 {
   text-shadow: #666 2px 2px 5px;
 }
 
-#app {
-  @apply h-full overflow-auto flex flex-col relative z-20 items-center justify-center;
-
-  #wrapper {
-    @apply flex flex-col-reverse gap-y-4;
-
-    #controls {
-      @apply flex flex-row items-stretch gap-x-4;
-
-      #volume-control {
-        @apply flex items-center justify-center px-2 py-1 flex-grow;
-        &:extend(.bg);
-
-        &:hover {
-          &:extend(.bg-black);
-        }
-
-        input {
-          @apply w-full;
-        }
-      }
-
-      #next {
-        &:extend(.bg);
-
-        &:hover {
-          &:extend(.bg-black);
-        }
-
-        a {
-          @apply px-2 py-1 block;
-        }
-      }
-    }
-
-    #🎶 {
-      @apply flex items-center justify-center flex-col;
-
-      #🎶--box {
-        @apply p-4 relative max-w-full;
-        &:extend(.bg);
-
-        iframe {
-          @apply rounded-md overflow-hidden max-w-full;
-        }
-      }
-    }
-  }
-}
-
 #infos {
   @apply fixed bottom-5 right-5 text-xs px-2 py-1 rounded-lg z-30;
   &:extend(.bg);
   &:extend(.bg-black);
 }
+
+@import './_background.less';
+@import './_player.less';

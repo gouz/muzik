@@ -1,0 +1,49 @@
+#app {
+  @apply h-full overflow-auto flex flex-col relative z-20 items-center justify-center;
+
+  #wrapper {
+    @apply flex flex-col-reverse gap-y-4;
+
+    #controls {
+      @apply flex flex-row items-stretch gap-x-4;
+
+      #volume-control {
+        @apply flex items-center justify-center px-2 py-1 flex-grow;
+        &:extend(.bg);
+
+        &:hover {
+          &:extend(.bg-black);
+        }
+
+        input {
+          @apply w-full;
+        }
+      }
+
+      #next {
+        &:extend(.bg);
+
+        &:hover {
+          &:extend(.bg-black);
+        }
+
+        a {
+          @apply px-2 py-1 block;
+        }
+      }
+    }
+
+    #🎶 {
+      @apply flex items-center justify-center flex-col;
+
+      #🎶--box {
+        @apply p-4 relative max-w-full;
+        &:extend(.bg);
+
+        iframe {
+          @apply rounded-md overflow-hidden max-w-full;
+        }
+      }
+    }
+  }
+}

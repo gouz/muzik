@@ -52,6 +52,9 @@ window.moveBG = () => {
   setTimeout(() => {
     window.bg.style.marginTop = `-${-2 + Math.floor(5 * Math.random())}%`;
     window.bg.style.marginLeft = `-${-2 + Math.floor(5 * Math.random())}%`;
+    window.bg.style.transform = `scale(${
+      1.2 + Math.floor(5 * Math.random()) / 10
+    })`;
     window.moveBG();
   }, 5000);
 };

@@ -16,7 +16,7 @@ window.changeMeta = (title, img) => {
 };
 
 window.changeContent = (html) => {
-  document.querySelector('#wrapper').innerHTML += `
+  document.querySelector('#player-wrapper').innerHTML = `
           <div id="🎶">
               <div id="🎶--box">
                   ${html}

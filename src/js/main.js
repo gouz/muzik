@@ -1,6 +1,7 @@
 import '../css/main.css';
 import '../less/main.less';
-import './soundcloud';
+import './lib/soundcloud';
+import './lib/youtube';
 import './player';
 import './dom';
 import './next';
@@ -40,8 +41,7 @@ ready(() => {
         break;
       }
   }
-  if (-1 === number) number = Math.floor(Math.random() * list.list.length);
-  window.manageSound(list.list[number]);
+  window.nextSong(number);
   document.querySelector(
     '#infos'
   ).innerHTML += `<b>${list.list.length}</b> tracks in the playlist.`;

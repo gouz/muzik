@@ -1,8 +1,10 @@
 document.addEventListener('keypress', (e) => {
-  if ('n' == e.key) window.next();
+  if ('n' == e.key) window.nextSong(-1);
   else {
-    if ('+' == e.key) document.querySelector('#volume').value += 5;
-    if ('-' == e.key) document.querySelector('#volume').value -= 5;
-    window.setVolume(document.querySelector('#volume').value);
+    let vol = parseInt(document.querySelector('#volume').value);
+    if ('+' == e.key) vol += 5;
+    if ('-' == e.key) vol -= 5;
+    document.querySelector('#volume').value = vol;
+    window.setVolume(vol);
   }
 });

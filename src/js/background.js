@@ -1,7 +1,7 @@
 import FastAverageColor from 'fast-average-color';
 
 window.changeBG = (url, squared, cors) => {
-  window.bg = document.createElement('canvas');
+  window.bg = document.querySelector('#bg');
   window.bg.width =
     window.innerWidth ||
     document.documentElement.clientWidth ||
@@ -10,14 +10,12 @@ window.changeBG = (url, squared, cors) => {
     window.innerHeight ||
     document.documentElement.clientHeight ||
     document.body.clientHeight;
-  window.bg.id = 'bg';
   document.querySelector('body').appendChild(window.bg);
   let img = new Image();
   if (cors) img.crossOrigin = 'Anonymous';
   img.addEventListener(
     'load',
     () => {
-      window.bg = document.querySelector('#bg');
       let ctx = window.bg.getContext('2d');
       let newW = window.bg.width;
       if (window.bg.height < window.bg.width && squared)

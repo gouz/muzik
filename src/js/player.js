@@ -2,7 +2,7 @@ import hash from 'object-hash';
 
 window.manageSound = (url) => {
   window.location.hash = hash(url);
-  if (url.indexOf('youtube') !== -1 || url.indexOf('youtu.be') !== -1) {
+  if (url.indexOf('/') === -1) {
     window.player = {};
     window.onPlayerReady = (event) => {
       window.setVolume(sessionStorage.getItem('vol').replace('_', ''));
@@ -33,20 +33,15 @@ window.manageSound = (url) => {
         false
       );
     };
-    window.code = url
-      .substring(url.lastIndexOf('/') + 1)
-      .replace('watch?v=', '');
+    window.code = url;
     let tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
     let firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     window.changeContent(`<div id="player"></div>`);
-  }
-  if (url.indexOf('soundcloud') !== -1) {
+  } else {
     window.changeContent(`
-      <iframe src="https://w.soundcloud.com/player/?url=${
-        url.replace(':', '%3A') + '&amp;auto_play=true'
-      }" 
+      <iframe src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com${url}&amp;auto_play=true" 
       scrolling="no" 
       frameborder="no" 
       width="640"

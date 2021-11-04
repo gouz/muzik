@@ -15,12 +15,11 @@ window.changeMeta = (title, img) => {
     .setAttribute('content', img);
 };
 
-window.changeContent = (html) => {
-  document.querySelector('#player-wrapper').innerHTML = `
-          <div id="🎶">
-              <div id="🎶--box">
-                  ${html}
-              </div>
-          </div>
-      `;
+window.hideAndSeek = () => {
+  document.querySelector('#jukebox--youtube').style.display = 'none';
+  document.querySelector('#jukebox--soundcloud').style.display = 'none';
+  if ('youtube' == window.soundOrigin)
+    document.querySelector('#jukebox--youtube').style.display = 'block';
+  else if ('soundcloud' == window.soundOrigin)
+    document.querySelector('#jukebox--soundcloud').style.display = 'block';
 };

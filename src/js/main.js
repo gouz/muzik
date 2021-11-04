@@ -1,7 +1,6 @@
 import '../css/main.css';
 import '../less/main.less';
 import './lib/soundcloud';
-import './lib/youtube';
 import './player';
 import './dom';
 import './next';

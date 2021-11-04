@@ -12,6 +12,8 @@ import hash from 'object-hash';
 
 import list from '../json/list.json';
 
+const version = '1.5.0';
+
 const ready = (fn) => {
   if (document.readyState != 'loading') {
     fn();
@@ -43,5 +45,5 @@ ready(() => {
   window.nextSong(number);
   document.querySelector(
     '#infos'
-  ).innerHTML += `<b>${list.list.length}</b> tracks in the playlist.`;
+  ).innerHTML += `<b>${list.list.length}</b> tracks in the playlist. <i>v${version}</i>`;
 });

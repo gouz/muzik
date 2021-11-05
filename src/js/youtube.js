@@ -3,10 +3,6 @@ window.youtubePlayer = null;
 
 window.youtubeLoaded = () => {
   window.changeTitle(window.youtubePlayer.getVideoData().title);
-  window.changeMeta(
-    window.youtubePlayer.getVideoData().title,
-    `https://i.ytimg.com/vi/${window.code}/default.jpg`
-  );
   window.changeBG(
     `https://i.ytimg.com/vi/${window.code}/default.jpg`,
     false,

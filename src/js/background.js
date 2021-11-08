@@ -41,7 +41,6 @@ window.changeBG = (url, squared, cors) => {
       } else {
         document.querySelector('body').style.backgroundColor = '#000';
       }
-      window.moveBG();
     },
     false
   );

@@ -46,4 +46,5 @@ ready(() => {
   document.querySelector(
     '#infos'
   ).innerHTML += `<b>${list.list.length}</b> tracks in the playlist. <i>v${version}</i>`;
+  window.moveBG();
 });

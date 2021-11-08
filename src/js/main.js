@@ -1,6 +1,5 @@
 import '../css/main.css';
 import '../less/main.less';
-import './lib/soundcloud';
 import './player';
 import './dom';
 import './next';

@@ -1,6 +1,6 @@
 {
   "name": "muzik",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Like a blog, but with a list of songs I like",
   "source": "src/index.pug",
   "scripts": {

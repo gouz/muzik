@@ -22,7 +22,7 @@
   "homepage": "https://github.com/gouz/muzik#readme",
   "devDependencies": {
     "@parcel/transformer-less": "2.0.0",
-    "@parcel/transformer-pug": "2.0.0",
+    "@parcel/transformer-pug": "2.0.1",
     "@prettier/plugin-pug": "1.17.1",
     "autoprefixer": "10.4.0",
     "parcel": "2.0.0",

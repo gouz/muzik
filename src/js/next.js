@@ -1,5 +1,6 @@
 import list from '../json/list.json';
-import hash from 'object-hash';
+
+const sha1 = require('sha1');
 
 window.nextSong = (number) => {
   if ('youtube' == window.soundOrigin && null != window.youtubePlayer)
@@ -10,7 +11,7 @@ window.nextSong = (number) => {
   )
     window.soundCloudPlayer.pause();
   if (-1 === number) number = Math.floor(Math.random() * list.list.length);
-  window.location.hash = hash(list.list[number]);
+  window.location.hash = sha1(list.list[number]);
   window.manageSound(list.list[number]);
   return false;
 };

@@ -7,7 +7,7 @@ import './background';
 import './volume';
 import './keyboard';
 
-import hash from 'object-hash';
+const sha1 = require('sha1');
 
 import list from '../json/list.json';
 
@@ -36,7 +36,7 @@ ready(() => {
   if ('' !== window.location.hash) {
     const test = window.location.hash.substr(1);
     for (let i = 0; i < list.list.length; i++)
-      if (test === hash(list.list[i])) {
+      if (test === sha1(list.list[i])) {
         number = i;
         break;
       }

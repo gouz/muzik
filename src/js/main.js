@@ -7,11 +7,7 @@ import './background';
 import './volume';
 import './keyboard';
 
-const sha1 = require('./lib/js-sha1');
-
-import list from '../json/list.json';
-
-const version = '1.6.0';
+window.sha1 = require('./lib/js-sha1');
 
 const ready = (fn) => {
   if (document.readyState != 'loading') {
@@ -21,10 +17,9 @@ const ready = (fn) => {
   }
 };
 
-window.$volume = document.querySelector('#volume');
-window.bg = document.querySelector('#bg');
-
 ready(() => {
+  window.$volume = document.querySelector('#volume');
+  window.bg = document.querySelector('#bg');
   window.bg.width =
     window.innerWidth ||
     document.documentElement.clientWidth ||
@@ -44,18 +39,25 @@ ready(() => {
     }
   }, 10);
 
-  let number = -1;
-  if ('' !== window.location.hash) {
-    const test = window.location.hash.substr(1);
-    for (let i = 0; i < list.list.length; i++)
-      if (test === sha1(list.list[i])) {
-        number = i;
-        break;
+  fetch('./list.json')
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      window.list = json.list;
+      let number = -1;
+      if ('' !== window.location.hash) {
+        const test = window.location.hash.substr(1);
+        for (let i = 0; i < window.list.length; i++)
+          if (test === sha1(window.list[i])) {
+            number = i;
+            break;
+          }
       }
-  }
-  window.nextSong(number);
-  document.querySelector(
-    '#infos'
-  ).innerHTML += `<b>${list.list.length}</b> tracks in the playlist. <i>v${version}</i>`;
-  window.moveBG();
+      window.nextSong(number);
+      document.querySelector(
+        '#infos'
+      ).innerHTML += `<b>${window.list.length}</b> tracks in the playlist. <i>1.7.0</i>`;
+      window.moveBG();
+    });
 });

@@ -7,7 +7,7 @@ import './background';
 import './volume';
 import './keyboard';
 
-const sha1 = require('sha1');
+const sha1 = require('./lib/js-sha1');
 
 import list from '../json/list.json';
 

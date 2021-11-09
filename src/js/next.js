@@ -1,6 +1,6 @@
 import list from '../json/list.json';
 
-const sha1 = require('sha1');
+const sha1 = require('./lib/js-sha1');
 
 window.nextSong = (number) => {
   if ('youtube' == window.soundOrigin && null != window.youtubePlayer)

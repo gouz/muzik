@@ -8,7 +8,7 @@ window.soundCloudLoaded = () => {
     if (currentSound.artwork_url !== null)
       artwork_url = currentSound.artwork_url;
     else artwork_url = currentSound.user.avatar_url;
-    window.changeBG(artwork_url, true, true);
+    window.changeBG(artwork_url);
     window.setVolume(sessionStorage.getItem('vol').replace('_', ''));
     window.soundCloudPlayer.play();
   });

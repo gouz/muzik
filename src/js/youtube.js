@@ -3,11 +3,7 @@ window.youtubePlayer = null;
 
 window.youtubeLoaded = () => {
   window.changeTitle(window.youtubePlayer.getVideoData().title);
-  window.changeBG(
-    `https://i.ytimg.com/vi/${window.code}/default.jpg`,
-    false,
-    false
-  );
+  window.changeBG(`https://i.ytimg.com/vi/${window.code}/default.jpg`);
 };
 
 window.onPlayerStateChange = (event) => {

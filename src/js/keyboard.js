@@ -1,10 +1,10 @@
 document.addEventListener('keypress', (e) => {
   if ('n' == e.key) window.nextSong(-1);
   else {
-    let vol = parseInt(document.querySelector('#volume').value);
+    let vol = parseInt(window.$volume.value);
     if ('+' == e.key) vol += 5;
     if ('-' == e.key) vol -= 5;
-    document.querySelector('#volume').value = vol;
+    window.$volume.value = vol;
     window.setVolume(vol);
   }
 });

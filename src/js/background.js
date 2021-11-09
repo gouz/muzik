@@ -1,46 +1,21 @@
-import FastAverageColor from 'fast-average-color';
-
-window.changeBG = (url, squared, cors) => {
-  window.bg = document.querySelector('#bg');
-  window.bg.width =
-    window.innerWidth ||
-    document.documentElement.clientWidth ||
-    document.body.clientWidth;
-  window.bg.height =
-    window.innerHeight ||
-    document.documentElement.clientHeight ||
-    document.body.clientHeight;
-  document.querySelector('body').appendChild(window.bg);
+window.changeBG = (url) => {
   let img = new Image();
-  if (cors) img.crossOrigin = 'Anonymous';
+  if ('soundcloud' == window.soundOrigin) img.crossOrigin = 'Anonymous';
   img.addEventListener(
     'load',
     () => {
       let ctx = window.bg.getContext('2d');
-      let newW = window.bg.width;
-      if (window.bg.height < window.bg.width && squared)
-        newW = window.bg.height;
-      let newY = window.bg.height;
-      if (window.bg.height > window.bg.width && squared) newY = window.bg.width;
       ctx.drawImage(
         img,
         0,
         0,
         img.width,
         img.height,
-        (window.bg.width - newW) / 2,
-        (window.bg.height - newY) / 2,
-        newW,
-        newY
+        0,
+        0,
+        window.bg.width,
+        window.bg.height
       );
-      if (cors) {
-        const fac = new FastAverageColor();
-        fac.getColorAsync(img).then((color) => {
-          document.querySelector('body').style.backgroundColor = color.rgba;
-        });
-      } else {
-        document.querySelector('body').style.backgroundColor = '#000';
-      }
     },
     false
   );

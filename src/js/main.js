@@ -11,7 +11,7 @@ const sha1 = require('sha1');
 
 import list from '../json/list.json';
 
-const version = '1.5.0';
+const version = '1.6.0';
 
 const ready = (fn) => {
   if (document.readyState != 'loading') {
@@ -21,13 +21,25 @@ const ready = (fn) => {
   }
 };
 
+window.$volume = document.querySelector('#volume');
+window.bg = document.querySelector('#bg');
+
 ready(() => {
+  window.bg.width =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+  window.bg.height =
+    window.innerHeight ||
+    document.documentElement.clientHeight ||
+    document.body.clientHeight;
+
   setTimeout(() => {
     const currentVol = sessionStorage.getItem('vol');
     if (currentVol !== null) {
-      document.querySelector('#volume').value = currentVol.replace('_', '');
+      window.$volume.value = currentVol.replace('_', '');
     } else {
-      document.querySelector('#volume').value = 82;
+      window.$volume.value = 82;
       sessionStorage.setItem('vol', '_82');
     }
   }, 10);

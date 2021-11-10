@@ -28,7 +28,11 @@ window.pos = -1;
 
 window.getLink = () => {
   navigator.clipboard
-    .writeText(`${window.location.origin}/#${sha1(window.list[window.pos])}`)
+    .writeText(
+      `${window.location.origin}${window.location.pathname}/#${sha1(
+        window.list[window.pos]
+      )}`
+    )
     .then(() => {
       alert('Link copied to clipboard');
     });

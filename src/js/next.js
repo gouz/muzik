@@ -7,7 +7,12 @@ window.nextSong = (number) => {
   )
     window.soundCloudPlayer.pause();
   if (-1 === number) number = Math.floor(Math.random() * window.list.length);
-  window.location.hash = window.sha1(window.list[number]);
+  document
+    .querySelector('#link a')
+    .setAttribute(
+      'href',
+      `${window.location.origin}/#${window.sha1(window.list[number])}`
+    );
   window.manageSound(window.list[number]);
   return false;
 };

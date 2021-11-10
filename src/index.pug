@@ -24,7 +24,11 @@ html(lang='en')
               )
         #controls
           #link
-            a(href='#') 🔗
+            a(
+              href='javascript:void(0);',
+              onclick='window.getLink()',
+              title='Link to share'
+            ) 🔗
           #volume-control
             span 🔈
             input#volume(
@@ -39,7 +43,11 @@ html(lang='en')
             )
             span 🔊
           #next
-            a(href='#', onclick='window.nextSong(-1);', title='new song (n)') 🎵
+            a(
+              href='javascript:void(0);',
+              onclick='window.nextSong();',
+              title='new song (n)'
+            ) 🎵
     #infos
       a(
         href='https://github.com/gouz/muzik',

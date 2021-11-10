@@ -1,4 +1,6 @@
-window.nextSong = (number) => {
+window.nextSong = () => {
+  window.pos++;
+  if (window.pos >= window.list.length) window.pos = 0;
   if ('youtube' == window.soundOrigin && null != window.youtubePlayer)
     window.youtubePlayer.stopVideo();
   else if (
@@ -6,13 +8,6 @@ window.nextSong = (number) => {
     null != window.soundCloudPlayer
   )
     window.soundCloudPlayer.pause();
-  if (-1 === number) number = Math.floor(Math.random() * window.list.length);
-  document
-    .querySelector('#link a')
-    .setAttribute(
-      'href',
-      `${window.location.origin}/#${window.sha1(window.list[number])}`
-    );
-  window.manageSound(window.list[number]);
+  window.manageSound();
   return false;
 };

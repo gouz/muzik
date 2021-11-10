@@ -7,7 +7,7 @@ import './background';
 import './volume';
 import './keyboard';
 
-window.sha1 = require('./lib/js-sha1');
+const sha1 = require('./lib/js-sha1');
 
 const ready = (fn) => {
   if (document.readyState != 'loading') {
@@ -15,6 +15,23 @@ const ready = (fn) => {
   } else {
     document.addEventListener('DOMContentLoaded', fn);
   }
+};
+
+const shuffle = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+};
+
+window.pos = -1;
+
+window.getLink = () => {
+  navigator.clipboard
+    .writeText(`${window.location.origin}/#${sha1(window.list[window.pos])}`)
+    .then(() => {
+      alert('Link copied to clipboard');
+    });
 };
 
 ready(() => {
@@ -45,16 +62,17 @@ ready(() => {
     })
     .then((json) => {
       window.list = json.list;
-      let number = -1;
+      shuffle(window.list);
       if ('' !== window.location.hash) {
         const test = window.location.hash.substr(1);
         for (let i = 0; i < window.list.length; i++)
           if (test === sha1(window.list[i])) {
-            number = i;
+            window.list.splice(i, 1);
+            window.list.unshift(test);
             break;
           }
       }
-      window.nextSong(number);
+      window.nextSong();
       document.querySelector(
         '#infos'
       ).innerHTML += `<b>${window.list.length}</b> tracks in the playlist. <i>1.8.0</i>`;

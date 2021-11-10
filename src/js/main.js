@@ -29,7 +29,7 @@ window.pos = -1;
 window.getLink = () => {
   navigator.clipboard
     .writeText(
-      `${window.location.origin}${window.location.pathname}/#${sha1(
+      `${window.location.origin}${window.location.pathname}#${sha1(
         window.list[window.pos]
       )}`
     )

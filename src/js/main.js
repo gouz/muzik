@@ -57,7 +57,7 @@ ready(() => {
       window.nextSong(number);
       document.querySelector(
         '#infos'
-      ).innerHTML += `<b>${window.list.length}</b> tracks in the playlist. <i>1.7.0</i>`;
+      ).innerHTML += `<b>${window.list.length}</b> tracks in the playlist. <i>1.8.0</i>`;
       window.moveBG();
     });
 });

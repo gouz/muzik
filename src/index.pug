@@ -10,6 +10,18 @@ html(lang='en')
     h1
     #app
       #wrapper
+        #title
+        #jukebox
+          #jukebox--box
+            #jukebox--youtube
+              #player
+            #jukebox--soundcloud
+              iframe(
+                scrolling='no',
+                frameborder='no',
+                width='640',
+                allow='autoplay'
+              )
         #controls
           #volume-control
             span 🔈
@@ -26,17 +38,6 @@ html(lang='en')
             span 🔊
           #next
             a(href='#', onclick='window.nextSong(-1);', title='new song (n)') 🎵
-        #jukebox
-          #jukebox--box
-            #jukebox--youtube
-              #player
-            #jukebox--soundcloud
-              iframe(
-                scrolling='no',
-                frameborder='no',
-                width='640',
-                allow='autoplay'
-              )
     #infos
       a(
         href='https://github.com/gouz/muzik',

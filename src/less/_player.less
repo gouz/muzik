@@ -2,7 +2,26 @@
   @apply h-full overflow-auto flex flex-col relative z-20 items-center justify-center;
 
   #wrapper {
-    @apply flex flex-col-reverse gap-y-4;
+    @apply flex flex-col gap-y-4;
+
+    #title {
+      @apply flex items-center justify-center px-2 py-1;
+      &:extend(.bg);
+      &:extend(.bg-black);
+    }
+
+    #jukebox {
+      @apply flex items-center justify-center flex-col;
+
+      #jukebox--box {
+        @apply p-4 relative max-w-full;
+        &:extend(.bg);
+
+        iframe {
+          @apply rounded-md overflow-hidden max-w-full;
+        }
+      }
+    }
 
     #controls {
       @apply flex flex-row items-stretch gap-x-4;
@@ -29,19 +48,6 @@
 
         a {
           @apply px-2 py-1 block;
-        }
-      }
-    }
-
-    #jukebox {
-      @apply flex items-center justify-center flex-col;
-
-      #jukebox--box {
-        @apply p-4 relative max-w-full;
-        &:extend(.bg);
-
-        iframe {
-          @apply rounded-md overflow-hidden max-w-full;
         }
       }
     }

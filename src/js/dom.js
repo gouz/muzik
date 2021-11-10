@@ -1,5 +1,5 @@
 window.changeTitle = (title) => {
-  document.querySelector('h1').innerHTML = title;
+  document.querySelector('#title').innerHTML = title;
   document.querySelector('title').innerHTML = title;
 };
 

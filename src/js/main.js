@@ -71,8 +71,9 @@ ready(() => {
         const test = window.location.hash.substr(1);
         for (let i = 0; i < window.list.length; i++)
           if (test === sha1(window.list[i])) {
+            let u = window.list[i];
             window.list.splice(i, 1);
-            window.list.unshift(test);
+            window.list.unshift(u);
             break;
           }
       }

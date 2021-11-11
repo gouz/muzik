@@ -11,3 +11,15 @@ window.hideAndSeek = () => {
   else if ('soundcloud' == window.soundOrigin)
     document.querySelector('#jukebox--soundcloud').style.display = 'block';
 };
+
+window.changeMeta = (title, img) => {
+  document
+    .querySelector('meta[property="og:title"]')
+    .setAttribute('content', title);
+  document
+    .querySelector('meta[property="og:url"]')
+    .setAttribute('content', window.location);
+  document
+    .querySelector('meta[property="og:image"]')
+    .setAttribute('content', img);
+};

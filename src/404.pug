@@ -1,0 +1,60 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title MuziK
+    link(rel='icon', type='image/svg+xml', href='./img/favicon.svg')
+  body
+    h1
+    #app
+      #wrapper
+        #title
+        #jukebox
+          #jukebox--box
+            #jukebox--youtube
+              #player
+            #jukebox--soundcloud
+              iframe(
+                scrolling='no',
+                frameborder='no',
+                width='640',
+                allow='autoplay'
+              )
+        #controls
+          #link
+            a(
+              href='javascript:void(0);',
+              onclick='window.getLink()',
+              title='Link to share'
+            ) 🔗
+          #volume-control
+            span 🔈
+            input#volume(
+              type='range',
+              min='0',
+              max='100',
+              step='1',
+              title='volume',
+              defaultValue='82',
+              onchange='window.setVolume(this.value)',
+              oninput='window.setVolume(this.value)'
+            )
+            span 🔊
+          #next
+            a(
+              href='javascript:void(0);',
+              onclick='window.nextSong();',
+              title='new song (n)'
+            ) 🎵
+    #infos
+      a(
+        href='https://github.com/gouz/muzik',
+        title='source code',
+        target='_blank'
+      ) 📝
+      span /&nbsp;
+    canvas#bg
+    script(src='https://w.soundcloud.com/player/api.js')
+    script(src='./js/404.js', type='module')

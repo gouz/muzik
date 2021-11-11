@@ -27,9 +27,7 @@ const shuffle = (array) => {
 window.pos = -1;
 
 window.generateLink = () => {
-  return `${window.location.origin}${window.location.pathname}${sha1(
-    window.list[window.pos]
-  )}`;
+  return `${window.location.origin}/muzik/${sha1(window.list[window.pos])}`;
 };
 
 ready(() => {

@@ -2,7 +2,7 @@ import '../css/main.css';
 import '../less/main.less';
 import './player';
 import './dom';
-import './next';
+import './actions';
 import './background';
 import './volume';
 import './keyboard';
@@ -26,16 +26,10 @@ const shuffle = (array) => {
 
 window.pos = -1;
 
-window.getLink = () => {
-  navigator.clipboard
-    .writeText(
-      `${window.location.origin}${window.location.pathname}#${sha1(
-        window.list[window.pos]
-      )}`
-    )
-    .then(() => {
-      alert('Link copied to clipboard');
-    });
+window.generateLink = () => {
+  return `${window.location.origin}${window.location.pathname}/${sha1(
+    window.list[window.pos]
+  )}`;
 };
 
 ready(() => {
@@ -67,20 +61,10 @@ ready(() => {
     .then((json) => {
       window.list = json.list;
       shuffle(window.list);
-      if ('' !== window.location.hash) {
-        const test = window.location.hash.substr(1);
-        for (let i = 0; i < window.list.length; i++)
-          if (test === sha1(window.list[i])) {
-            let u = window.list[i];
-            window.list.splice(i, 1);
-            window.list.unshift(u);
-            break;
-          }
-      }
       window.nextSong();
       document.querySelector(
         '#infos'
-      ).innerHTML += `<b>${window.list.length}</b> tracks in the playlist. <i>1.8.0</i>`;
+      ).innerHTML += `<b>${window.list.length}</b> tracks in the playlist. <i>1.9.0</i>`;
       window.moveBG();
     });
 });

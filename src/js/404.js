@@ -2,7 +2,7 @@ import '../css/main.css';
 import '../less/main.less';
 import './player';
 import './dom';
-import './next';
+import './actions';
 import './background';
 import './volume';
 import './keyboard';
@@ -67,7 +67,7 @@ ready(() => {
     .then((json) => {
       window.list = json.list;
       shuffle(window.list);
-      const slug = location.pathname.slice(1);
+      const slug = location.pathname.slice(7);
       if ('' !== slug) {
         for (let i = 0; i < window.list.length; i++)
           if (slug === sha1(window.list[i])) {
@@ -80,7 +80,7 @@ ready(() => {
       window.nextSong();
       document.querySelector(
         '#infos'
-      ).innerHTML += `<b>${window.list.length}</b> tracks in the playlist. <i>1.8.0</i>`;
+      ).innerHTML += `<b>${window.list.length}</b> tracks in the playlist. <i>1.9.0</i>`;
       window.moveBG();
     });
 });

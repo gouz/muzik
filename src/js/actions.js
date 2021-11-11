@@ -11,3 +11,9 @@ window.nextSong = () => {
   window.manageSound();
   return false;
 };
+
+window.getLink = () => {
+  navigator.clipboard.writeText(window.generateLink()).then(() => {
+    alert('Link copied to clipboard');
+  });
+};

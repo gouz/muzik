@@ -3,6 +3,7 @@ import './soundcloud';
 
 window.manageSound = () => {
   window.code = window.list[window.pos];
+  window.history.pushState({}, '', window.generateLink());
   if (window.code.indexOf('/') === -1) {
     window.soundOrigin = 'youtube';
     if (window.isYTIready) window.youtubePlayer.loadVideoById(window.code);

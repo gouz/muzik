@@ -42,16 +42,6 @@ ready(() => {
     document.documentElement.clientHeight ||
     document.body.clientHeight;
 
-  setTimeout(() => {
-    const currentVol = sessionStorage.getItem('vol');
-    if (currentVol !== null) {
-      window.$volume.value = currentVol.replace('_', '');
-    } else {
-      window.$volume.value = 82;
-      sessionStorage.setItem('vol', '_82');
-    }
-  }, 10);
-
   fetch('./list.json')
     .then((response) => {
       return response.json();
@@ -59,6 +49,16 @@ ready(() => {
     .then((json) => {
       window.list = json.list;
       shuffle(window.list);
+      const slug = location.pathname.slice(7);
+      if ('' !== slug) {
+        for (let i = 0; i < window.list.length; i++)
+          if (slug === sha1(window.list[i])) {
+            let u = window.list[i];
+            window.list.splice(i, 1);
+            window.list.unshift(u);
+            break;
+          }
+      }
       window.nextSong();
       document.querySelector(
         '#infos'

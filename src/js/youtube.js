@@ -36,7 +36,7 @@ window.onYouTubeIframeAPIReady = () => {
 };
 
 window.onPlayerReady = (event) => {
-  window.setVolume(sessionStorage.getItem('vol').replace('_', ''));
+  window.setVolume(window.$volume.value);
   event.target.playVideo();
   window.youtubeLoaded();
 };

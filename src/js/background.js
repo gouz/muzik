@@ -23,6 +23,7 @@ window.changeBG = (url) => {
 };
 
 window.moveBG = () => {
+  /*
   setTimeout(() => {
     window.bg.style.marginTop = `-${-2 + Math.floor(5 * Math.random())}%`;
     window.bg.style.marginLeft = `-${-2 + Math.floor(5 * Math.random())}%`;
@@ -31,4 +32,5 @@ window.moveBG = () => {
     })`;
     window.moveBG();
   }, 5000);
+  */
 };

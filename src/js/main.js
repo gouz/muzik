@@ -1,19 +1,19 @@
-import '../css/main.css';
-import '../less/main.less';
-import './player';
-import './dom';
-import './actions';
-import './background';
-import './volume';
-import './keyboard';
+import "../css/main.css";
+import "../less/main.less";
+import "./player";
+import "./dom";
+import "./actions";
+import "./background";
+import "./volume";
+import "./keyboard";
 
-const sha1 = require('./lib/js-sha1');
+const sha1 = require("./lib/js-sha1");
 
 const ready = (fn) => {
-  if (document.readyState != 'loading') {
+  if (document.readyState != "loading") {
     fn();
   } else {
-    document.addEventListener('DOMContentLoaded', fn);
+    document.addEventListener("DOMContentLoaded", fn);
   }
 };
 
@@ -31,8 +31,8 @@ window.generateLink = () => {
 };
 
 ready(() => {
-  window.$volume = document.querySelector('#volume');
-  window.bg = document.querySelector('#bg');
+  window.$volume = document.querySelector("#volume");
+  window.bg = document.querySelector("#bg");
   window.bg.width =
     window.innerWidth ||
     document.documentElement.clientWidth ||
@@ -42,7 +42,7 @@ ready(() => {
     document.documentElement.clientHeight ||
     document.body.clientHeight;
 
-  fetch('./list.json')
+  fetch("./list.v2.json")
     .then((response) => {
       return response.json();
     })
@@ -50,7 +50,7 @@ ready(() => {
       window.list = json.list;
       shuffle(window.list);
       const slug = location.pathname.slice(7);
-      if ('' !== slug) {
+      if ("" !== slug) {
         for (let i = 0; i < window.list.length; i++)
           if (slug === sha1(window.list[i])) {
             let u = window.list[i];
@@ -61,7 +61,7 @@ ready(() => {
       }
       window.nextSong();
       document.querySelector(
-        '#infos'
+        "#infos"
       ).innerHTML += `<b>${window.list.length}</b> tracks in the playlist. <i>1.9.0</i>`;
       window.moveBG();
     });

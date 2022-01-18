@@ -45,7 +45,6 @@ export class SoundCloud {
       }, 100);
     });
     this.player.bind(SC.Widget.Events.SEEK, (e) => {
-      console.log(e.currentPosition);
       this.position = e.currentPosition;
     });
   };

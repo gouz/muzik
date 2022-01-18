@@ -1,54 +1,121 @@
 #app {
-  @apply h-full overflow-auto flex flex-col relative z-20 items-center justify-center;
+  @apply h-full w-full flex items-center justify-center;
 
-  #wrapper {
-    @apply flex flex-col gap-y-4;
+  #player {
+    @apply max-w-sm mx-auto p-6 w-96 flex items-center justify-center flex-col overflow-hidden border shadow-md rounded-lg bg-slate-900 border-slate-700 shadow-slate-800;
 
-    #title {
-      @apply flex items-center justify-center px-2 py-1;
-      &:extend(.bg);
-      &:extend(.bg-black);
+    #illustration-wrapper {
+      @apply w-full px-4 my-6;
+
+      #illustration {
+        @apply relative w-full rounded-lg overflow-hidden;
+
+        #artwork {
+          @apply bg-white w-full overflow-hidden rounded-lg shadow-slate-50 shadow z-10 relative transition-all duration-500 bg-cover bg-center;
+
+          &:after {
+            @apply block;
+            padding-bottom: 75%;
+            content: "";
+          }
+        }
+
+        #video {
+          @apply w-8 absolute bottom-1 right-1 z-50;
+
+          svg {
+            @apply fill-slate-800;
+          }
+
+          &:hover {
+            svg {
+              @apply fill-slate-300;
+            }
+          }
+        }
+
+        #youtube-player {
+          @apply absolute inset-0 w-full h-full;
+
+          &.over {
+            @apply z-20;
+          }
+        }
+        #soundcloud-player {
+          @apply hidden;
+        }
+      }
     }
 
-    #jukebox {
-      @apply flex items-center justify-center flex-col;
+    #title {
+      @apply text-white font-bold tracking-wider leading-5 mb-2 text-ellipsis overflow-hidden whitespace-nowrap w-full text-xl;
+    }
 
-      #jukebox--box {
-        @apply p-4 relative max-w-full;
-        &:extend(.bg);
+    #artist {
+      @apply text-gray-500 uppercase text-sm whitespace-nowrap text-ellipsis w-full overflow-hidden mb-2;
+    }
 
-        iframe {
-          @apply rounded-md overflow-hidden max-w-full;
+    #timeline {
+      @apply w-full;
+      input {
+        @apply w-full;
+      }
+
+      #time {
+        @apply flex items-center justify-between;
+
+        #time-current,
+        #time-total {
+          @apply text-white text-xs px-1;
         }
       }
     }
 
     #controls {
-      @apply flex flex-row items-stretch gap-x-4;
+      @apply flex justify-center items-center;
 
-      #volume-control {
-        @apply flex items-center justify-center px-2 py-1 flex-grow;
-        &:extend(.bg);
+      svg {
+        @apply fill-slate-100;
 
         &:hover {
-          &:extend(.bg-black);
-        }
-
-        input {
-          @apply w-full;
+          @apply fill-slate-600;
         }
       }
 
-      #next,
-      #link {
-        &:extend(.bg);
+      #play,
+      #pause {
+        @apply w-24;
+      }
 
-        &:hover {
-          &:extend(.bg-black);
+      #previous,
+      #next {
+        @apply w-16;
+      }
+
+      .disabled {
+        svg {
+          @apply fill-slate-700;
         }
+      }
+    }
 
-        a {
-          @apply px-2 py-1 block;
+    #utils {
+      @apply flex items-center justify-between w-full mt-8;
+
+      a {
+        @apply w-8;
+
+        svg {
+          @apply fill-slate-500;
+
+          &:hover {
+            @apply fill-slate-300;
+          }
+        }
+        &.active {
+          svg {
+            @apply fill-slate-400;
+          }
         }
       }
     }

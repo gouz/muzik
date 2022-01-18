@@ -1,0 +1,54 @@
+:root {
+  --muzik-track-color: #cbd5e1;
+  --muzik-thumb-color: #f1f5f9;
+  --muzik-thumb-color-hover: #64748b;
+}
+
+input[type="range"] {
+  @apply appearance-none h-2 bg-slate-700 rounded bg-no-repeat;
+  background-image: linear-gradient(
+    var(--muzik-track-color),
+    var(--muzik-track-color)
+  );
+  background-size: 0% 100%;
+}
+
+/* Input Thumb */
+input[type="range"]::-webkit-slider-thumb {
+  @apply appearance-none w-4 h-4 rounded-full transition-all duration-300 ease-in-out drop-shadow-sm cursor-ew-resize;
+  background: var(--muzik-thumb-color);
+}
+
+input[type="range"]::-moz-range-thumb {
+  @apply appearance-none w-4 h-4 rounded-full transition-all duration-300 ease-in-out drop-shadow-sm cursor-ew-resize;
+  background: var(--muzik-thumb-color);
+}
+
+input[type="range"]::-ms-thumb {
+  @apply appearance-none w-4 h-4 rounded-full transition-all duration-300 ease-in-out drop-shadow-md cursor-ew-resize;
+  background: var(--muzik-thumb-color-hover);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: var(--muzik-thumb-color-hover);
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  background: var(--muzik-thumb-color-hover);
+}
+
+input[type="range"]::-ms-thumb:hover {
+  background: var(--muzik-thumb-color);
+}
+
+input[type="range"]::-webkit-slider-runnable-thumb {
+  @apply appearance-none shadow-none bg-transparent border-none;
+}
+
+input[type="range"]::-moz-range-thumb {
+  @apply appearance-none shadow-none bg-transparent border-none;
+}
+
+input[type="range"]::-ms-thumb {
+  @apply appearance-none shadow-none bg-transparent border-none;
+}

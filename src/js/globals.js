@@ -1,4 +1,4 @@
-import { convertHMS, getAverageRGB } from "./utils";
+import { convertHMS, getAverageRGB, LightenDarkenColor } from "./utils";
 
 window.muzik = {};
 
@@ -9,7 +9,7 @@ window.muzik.loadMeta = (meta) => {
   document.getElementById("time-total").textContent = convertHMS(meta.duration);
   document.getElementById("timestamp").max = Math.round(meta.duration);
   let artist = meta.artist;
-  let title = meta.artist;
+  let title = meta.title;
   if (
     typeof window.muzik.song.artist != "undefined" &&
     "" != window.muzik.song.artist
@@ -22,9 +22,7 @@ window.muzik.loadMeta = (meta) => {
     title = window.muzik.song.title;
   document.getElementById("artist").textContent = artist;
   document.getElementById("title").textContent = title;
-  if ("youtube" != window.muzik.song.type) {
-    window.muzik.changeAmbiance(meta.img);
-  }
+  window.muzik.changeAmbiance(meta.img);
   if ("mediaSession" in navigator) {
     navigator.mediaSession.metadata = new MediaMetadata({
       title: title,
@@ -90,5 +88,19 @@ window.muzik.seek = (time) => {
 };
 
 window.muzik.changeAmbiance = (imageUrl) => {
-  //console.log(getAverageRGB(imageUrl));
+  if ("youtube" != window.muzik.song.type) {
+    getAverageRGB(imageUrl).then((color) => {
+      document.getElementById("colors").innerHTML = `
+      :root {
+          --muzik-track-color: ${LightenDarkenColor(color, 30)};
+          --muzik-thumb-color: ${color};
+          --muzik-thumb-color-hover: ${LightenDarkenColor(color, -30)};
+      }
+
+      body {
+        background-color: ${color};
+      }
+    `;
+    });
+  }
 };

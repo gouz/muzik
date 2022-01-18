@@ -44,15 +44,15 @@ export class SoundCloud {
         });
       }, 100);
     });
-    this.player.bind(SC.Widget.Events.SEEK, (e) => {
-      this.position = e.currentPosition;
-    });
   };
 
   load = () => {
     if (this.isReady) {
       this.player.load(window.muzik.song.code, {
         auto_play: "true",
+        callback: () => {
+          this.loaded();
+        },
       });
     } else {
       this.init();

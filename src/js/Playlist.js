@@ -11,6 +11,7 @@ export class Playlist {
     }
     this.currentTrack = 0;
     window.muzik.song = null;
+    this.load();
   }
 
   shuffle = (array) => {

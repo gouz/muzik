@@ -41,6 +41,5 @@ ready(() => {
         list,
         window.location.hash.substring(1)
       );
-      window.muzik.playlist.load();
     });
 });

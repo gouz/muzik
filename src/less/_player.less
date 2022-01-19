@@ -48,11 +48,23 @@
     }
 
     #title {
-      @apply text-white font-bold tracking-wider leading-5 mb-2 text-ellipsis overflow-hidden whitespace-nowrap w-full text-xl h-5;
+      @apply text-white font-bold tracking-wider leading-5 mb-2 w-full text-xl h-6 truncate transition-transform cursor-default;
+      transition-duration: 1000ms;
+
+      &:hover {
+        @apply text-clip -translate-x-full overflow-visible;
+        transition-duration: 10000ms;
+      }
     }
 
     #artist {
-      @apply text-gray-500 uppercase text-sm whitespace-nowrap text-ellipsis w-full overflow-hidden mb-2 h-4;
+      @apply text-gray-500 uppercase text-sm w-full truncate mb-2 h-5 transition-transform cursor-default;
+      transition-duration: 1000ms;
+
+      &:hover {
+        @apply text-clip -translate-x-full overflow-visible;
+        transition-duration: 10000ms;
+      }
     }
 
     #timeline {
@@ -129,6 +141,16 @@
         input {
           @apply transform -rotate-90 w-24;
           transform-origin: 0 0;
+
+          &::-webkit-slider-thumb {
+            @apply cursor-ns-resize;
+          }
+          &::-moz-range-thumb {
+            @apply cursor-ns-resize;
+          }
+          &::-ms-thumb {
+            @apply cursor-ns-resize;
+          }
         }
       }
     }

@@ -4,7 +4,7 @@ Like a blog, but with a list of songs I like
 
 Website : https://gouz.github.io/muzik/
 
-To build you own, change the `static/list.json` file and run
+To build you own, change the `static/list.v2.json` file and run
 
 ```sh
 npm run dev

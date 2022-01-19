@@ -67,14 +67,18 @@ window.muzik.loadMeta = (meta) => {
   }
 };
 
-window.muzik.play = () => {
-  window.muzik.$play.classList.add("hide");
-  window.muzik.$pause.classList.remove("hide");
+window.muzik.defineTimer = () => {
   window.muzik.timer = setInterval(() => {
     const ct = window.muzik.player[window.muzik.song.type].getTime();
     window.muzik.$timeCurrent.textContent = convertHMS(ct);
     niceTrackBar(window.muzik.$timestamp, ct);
   }, 300);
+};
+
+window.muzik.play = () => {
+  window.muzik.$play.classList.add("hide");
+  window.muzik.$pause.classList.remove("hide");
+  window.muzik.defineTimer();
   window.muzik.player[window.muzik.song.type].play();
 };
 
@@ -101,11 +105,14 @@ window.muzik.showClip = () => {
   }
 };
 
-window.muzik.seek = (time) => {
-  clearInterval(window.muzik.timer);
+window.muzik.seek = (time, onplayer) => {
   window.muzik.$timeCurrent.textContent = convertHMS(time);
   niceTrackBar(window.muzik.$timestamp, time);
-  window.muzik.player[window.muzik.song.type].seek(time);
+  clearInterval(window.muzik.timer);
+  if (onplayer) {
+    window.muzik.player[window.muzik.song.type].seek(time);
+    window.muzik.defineTimer();
+  }
 };
 
 window.muzik.changeAmbiance = (imageUrl) => {

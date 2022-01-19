@@ -35,8 +35,9 @@ html(lang="en")
             max="100",
             step="1",
             value="0",
-            oninput="window.muzik.seek(this.value);",
-            onchange="window.muzik.seek(this.value);"
+            oninput="window.muzik.seek(this.value, false);",
+            onmouseup="window.muzik.seek(this.value, true);",
+            ontouchend="window.muzik.seek(this.value, true);"
           )
           #time
             #time-current 00:00

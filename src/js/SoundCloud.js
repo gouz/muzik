@@ -3,7 +3,6 @@ export class SoundCloud {
     this.isReady = false;
     this.player = null;
     this.position = 0;
-    this.interval = null;
   }
 
   loaded = () => {
@@ -33,17 +32,22 @@ export class SoundCloud {
         `https://w.soundcloud.com/player/?url=https%3A//soundcloud.com${window.muzik.song.code}&amp;auto_play=true`
       );
     this.player = SC.Widget("soundcloud-player");
-    this.player.bind(SC.Widget.Events.FINISH, () => {
-      clearInterval(this.interval);
-      window.muzik.next(false);
-    });
+
     this.player.bind(SC.Widget.Events.READY, () => {
-      this.loaded();
-      this.interval = setInterval(() => {
+      this.player.bind(SC.Widget.Events.PLAY_PROGRESS, () => {
         this.player.getPosition((p) => {
           this.position = p;
         });
-      }, 100);
+      });
+      this.player.bind(SC.Widget.Events.FINISH, () => {
+        window.muzik.next(false);
+      });
+      this.player.bind(SC.Widget.Events.PLAY, function () {
+        if (this.position >= 0) {
+          this.player.seekTo(this.position);
+        }
+      });
+      this.loaded();
     });
   };
 
@@ -69,7 +73,14 @@ export class SoundCloud {
   };
 
   seek = (time) => {
-    this.player.seekTo(time * 1000);
+    this.position = time * 1000;
+    this.player.isPaused((p) => {
+      if (p == true) {
+        this.player.play();
+      } else {
+        this.player.seekTo(time * 1000);
+      }
+    });
   };
 
   getTime = () => {

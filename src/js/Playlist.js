@@ -22,10 +22,12 @@ export class Playlist {
 
   load = () => {
     const $clip = window.muzik.$video;
-    $clip.classList.remove("hide");
     if ("soundcloud" == this.list[this.currentTrack].type) {
       $clip.classList.add("hide");
-      document.getElementById("youtube-player").classList.remove("over");
+      document.getElementById("youtube-player").classList.add("hide");
+    } else if ("youtube" == this.list[this.currentTrack].type) {
+      $clip.classList.remove("hide");
+      document.getElementById("youtube-player").classList.remove("hide");
     }
     if (this.currentTrack == 0) {
       window.muzik.$previous.classList.add("disabled");

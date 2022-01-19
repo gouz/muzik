@@ -22,6 +22,7 @@ ready(() => {
     youtube: new Youtube(),
     soundcloud: new SoundCloud(),
   };
+  window.muzik.initMediaSessionHandler();
   niceTrackBar(window.muzik.$volumeRange, 50);
   fetch("./list.v2.json")
     .then((response) => {

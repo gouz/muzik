@@ -52,6 +52,11 @@ window.muzik.loadMeta = (meta) => {
   window.muzik.$artist.textContent = artist;
   window.muzik.$title.textContent = title;
   window.muzik.changeAmbiance(meta.img);
+  window.muzik.notify({
+    artwork: meta.img,
+    artist: artist,
+    title: title,
+  });
   if ("mediaSession" in navigator) {
     navigator.mediaSession.metadata = new MediaMetadata({
       title: title,
@@ -185,4 +190,49 @@ window.muzik.share = () => {
   navigator.clipboard.writeText(window.location).then(() => {
     alert("Link copied to clipboard");
   });
+};
+
+window.muzik.initMediaSessionHandler = () => {
+  if ("mediaSession" in navigator) {
+    navigator.mediaSession.setActionHandler("play", function () {
+      window.muzik.play();
+    });
+    navigator.mediaSession.setActionHandler("pause", function () {
+      window.muzik.pause();
+    });
+    navigator.mediaSession.setActionHandler("stop", function () {
+      window.muzik.pause();
+    });
+    navigator.mediaSession.setActionHandler("seekto", function (details) {
+      window.muzik.seek(details.seekTime);
+    });
+    navigator.mediaSession.setActionHandler("previoustrack", function () {
+      window.muzik.previous();
+    });
+    navigator.mediaSession.setActionHandler("nexttrack", function () {
+      window.muzik.next();
+    });
+  }
+};
+
+window.muzik.notify = (obj) => {
+  if (window.Notification) {
+    if (Notification.permission === "granted") {
+      new Notification("MuziK", {
+        body: `${obj.artist} - ${obj.title}`,
+        icon: obj.artwork,
+      });
+    } else {
+      Notification.requestPermission()
+        .then((p) => {
+          if (p === "granted") {
+            new Notification("MuziK", {
+              body: `${obj.artist} - ${obj.title}`,
+              icon: obj.artwork,
+            });
+          }
+        })
+        .catch(() => {});
+    }
+  }
 };

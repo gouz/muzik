@@ -23,7 +23,7 @@ async function getAverageRGB(src) {
 
     let img = new Image();
     img.src = src;
-    img.crossOrigin = "";
+    img.crossOrigin = "Anonymous";
 
     img.onload = () => {
       context.drawImage(img, 0, 0, 1, 1);
@@ -58,4 +58,12 @@ function LightenDarkenColor(color, percent) {
   return "#" + RR + GG + BB;
 }
 
-export { convertHMS, getAverageRGB, LightenDarkenColor };
+function niceTrackBar(el, ct) {
+  el.value = ct;
+  const min = el.min;
+  const max = el.max;
+  const val = el.value;
+  el.style.backgroundSize = ((val - min) * 100) / (max - min) + 1 + "% 100%";
+}
+
+export { convertHMS, getAverageRGB, LightenDarkenColor, niceTrackBar };

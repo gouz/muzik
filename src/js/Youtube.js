@@ -17,8 +17,9 @@ export class Youtube {
         artist: this.player.getVideoData().artist,
         title: this.player.getVideoData().title,
       });
+      this.setVolume(window.muzik.$volumeRange.value);
     } else if (YT.PlayerState.ENDED == event.data) {
-      window.muzik.next();
+      window.muzik.next(false);
     }
   };
 
@@ -44,6 +45,10 @@ export class Youtube {
 
   getTime = () => {
     return this.player.getCurrentTime();
+  };
+
+  setVolume = (vol) => {
+    this.player.setVolume(vol);
   };
 
   init = () => {

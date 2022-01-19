@@ -14,18 +14,22 @@ export class Playlist {
   };
 
   load = () => {
-    const $clip = document.getElementById("video");
+    const $clip = window.muzik.$video;
     $clip.classList.remove("hide");
     if ("soundcloud" == this.list[this.currentTrack].type) {
       $clip.classList.add("hide");
+      window.muzik.$youtubePlayer.classList.remove("over");
     }
     if (this.currentTrack == 0) {
-      document.getElementById("previous").classList.add("disabled");
-    } else if (this.currentTrack == this.list.length - 1) {
-      document.getElementById("next").classList.add("disabled");
+      window.muzik.$previous.classList.add("disabled");
+    } else if (
+      this.currentTrack == this.list.length - 1 &&
+      1 != window.muzik.repeat_mode
+    ) {
+      window.muzik.$next.classList.add("disabled");
     } else {
-      document.getElementById("previous").classList.remove("disabled");
-      document.getElementById("next").classList.remove("disabled");
+      window.muzik.$previous.classList.remove("disabled");
+      window.muzik.$next.classList.remove("disabled");
     }
     if (
       null != window.muzik.song &&
@@ -40,15 +44,25 @@ export class Playlist {
   previous = () => {
     this.currentTrack--;
     if (this.currentTrack <= 0) {
-      this.currentTrack = 0;
+      if (1 == window.muzik.repeat_mode) {
+        this.currentTrack = this.list.length - 1;
+      } else {
+        this.currentTrack = 0;
+      }
     }
     this.load();
   };
 
-  next = () => {
-    this.currentTrack++;
+  next = (force) => {
+    if (force || 2 != window.muzik.repeat_mode) {
+      this.currentTrack++;
+    }
     if (this.currentTrack >= this.list.length) {
-      this.currentTrack = this.list.length - 1;
+      if (1 == window.muzik.repeat_mode) {
+        this.currentTrack = 0;
+      } else {
+        this.currentTrack = this.list.length - 1;
+      }
     }
     this.load();
   };

@@ -7,6 +7,7 @@ import "./keyboard";
 import { Playlist } from "./Playlist";
 import { Youtube } from "./Youtube";
 import { SoundCloud } from "./SoundCloud";
+import { niceTrackBar } from "./utils";
 
 const ready = (fn) => {
   if (document.readyState != "loading") {
@@ -21,6 +22,7 @@ ready(() => {
     youtube: new Youtube(),
     soundcloud: new SoundCloud(),
   };
+  niceTrackBar(window.muzik.$volumeRange, 50);
   fetch("./list.v2.json")
     .then((response) => {
       return response.json();

@@ -24,12 +24,12 @@
           @apply w-8 absolute bottom-1 right-1 z-50;
 
           svg {
-            @apply fill-slate-800;
+            @apply fill-slate-300;
           }
 
           &:hover {
             svg {
-              @apply fill-slate-300;
+              @apply fill-slate-800;
             }
           }
         }
@@ -100,7 +100,7 @@
     }
 
     #utils {
-      @apply flex items-center justify-between w-full mt-8;
+      @apply flex items-center justify-between w-full mt-8 relative;
 
       a {
         @apply w-8;
@@ -109,13 +109,26 @@
           @apply fill-slate-500;
 
           &:hover {
-            @apply fill-slate-300;
+            @apply fill-slate-100;
           }
         }
         &.active {
           svg {
-            @apply fill-slate-400;
+            @apply fill-slate-300;
           }
+
+          &:hover {
+            @apply fill-slate-100;
+          }
+        }
+      }
+
+      #volume-wrapper {
+        @apply absolute right-0 w-4 bottom-8;
+
+        input {
+          @apply transform -rotate-90 w-24;
+          transform-origin: 0 0;
         }
       }
     }

@@ -19,22 +19,21 @@ export class SoundCloud {
         artist: currentSound.user.full_name,
         title: currentSound.title,
       });
+      this.setVolume(window.muzik.$volumeRange.value);
       this.player.play();
     });
   };
 
   init = () => {
     this.isReady = true;
-    document
-      .getElementById("soundcloud-player")
-      .setAttribute(
-        "src",
-        `https://w.soundcloud.com/player/?url=https%3A//soundcloud.com${window.muzik.song.code}&amp;auto_play=true`
-      );
-    this.player = SC.Widget("soundcloud-player");
+    window.muzik.$soundcloudPlayer.setAttribute(
+      "src",
+      `https://w.soundcloud.com/player/?url=https%3A//soundcloud.com${window.muzik.song.code}&amp;auto_play=true`
+    );
+    this.player = SC.Widget(window.muzik.$soundcloudPlayer);
     this.player.bind(SC.Widget.Events.FINISH, () => {
       clearInterval(this.interval);
-      window.muzik.next();
+      window.muzik.next(false);
     });
     this.player.bind(SC.Widget.Events.READY, () => {
       this.loaded();
@@ -73,5 +72,9 @@ export class SoundCloud {
 
   getTime = () => {
     return Math.round(this.position / 1000);
+  };
+
+  setVolume = (vol) => {
+    this.player.setVolume(vol);
   };
 }

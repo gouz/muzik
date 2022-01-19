@@ -50,21 +50,37 @@ html(lang="en")
             include pug/play
           a#pause.hide(href="javascript:window.muzik.pause();", title="pause")
             include pug/pause
-          a#next(href="javascript:window.muzik.next();", title="next")
+          a#next(href="javascript:window.muzik.next(true);", title="next")
             include pug/next
-        #utils.hide
-          a#playlist(href="#", title="playlist")
+        #utils
+          a#playlist.hide(href="#", title="playlist")
             include pug/playlist
-          a#repeat(href="#", title="repeat")
+          a#repeat(href="javascript:window.muzik.repeat();", title="repeat")
             include pug/repeat
-          a#repeat1(href="#", title="repeat one")
+          a#repeat1.hide.active(
+            href="javascript:window.muzik.repeat();",
+            title="repeat one"
+          )
             include pug/repeat1
-          a#shuffle(href="#", title="shuffle")
+          a#shuffle.hide(href="#", title="shuffle")
             include pug/shuffle
-          a#share(href="#", title="share")
+          a#share.hide(href="#", title="share")
             include pug/share
-          a#volume(href="#", title="volume")
+          a#volume(
+            href="javascript:window.muzik.showVolume();",
+            title="volume"
+          )
             include pug/volume
+          #volume-wrapper.hide
+            input#volume-range(
+              type="range",
+              min="1",
+              max="100",
+              step="1",
+              value="50",
+              oninput="window.muzik.volume(this.value);",
+              onchange="window.muzik.volume(this.value);"
+            )
 
     script(src="https://w.soundcloud.com/player/api.js")
     script(src="./js/main.js", type="module")

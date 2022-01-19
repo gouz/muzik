@@ -3,10 +3,12 @@ export class Playlist {
   constructor(list, id) {
     this.list = list;
     this.shuffle(this.list);
-    const index = this.list.findIndex((x) => sha1(x.code) == id);
-    const song = this.list[index];
-    this.list.splice(index, 1);
-    this.list.unshift(song);
+    if (typeof id != undefined) {
+      const index = this.list.findIndex((x) => sha1(x.code) == id);
+      const song = this.list[index];
+      this.list.splice(index, 1);
+      this.list.unshift(song);
+    }
     this.currentTrack = 0;
     window.muzik.song = null;
   }

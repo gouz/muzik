@@ -17,9 +17,12 @@ window.muzik = {
   $next: document.getElementById("next"),
   $pause: document.getElementById("pause"),
   $play: document.getElementById("play"),
+  $playlistList: document.getElementById("playlist-list"),
+  $playlistWrapper: document.getElementById("playlist-wrapper"),
   $previous: document.getElementById("previous"),
   $repeat: document.getElementById("repeat"),
   $repeat1: document.getElementById("repeat1"),
+  $shuffle: document.getElementById("shuffle"),
   $themeColor: document.getElementById("theme-color"),
   $timeCurrent: document.getElementById("time-current"),
   $timestamp: document.getElementById("timestamp"),
@@ -97,12 +100,16 @@ window.muzik.pause = () => {
 
 window.muzik.previous = () => {
   clearInterval(window.muzik.timer);
-  window.muzik.playlist.previous();
+  if (!window.muzik.$previous.classList.contains("disabled")) {
+    window.muzik.playlist.previous();
+  }
 };
 
 window.muzik.next = (force) => {
   clearInterval(window.muzik.timer);
-  window.muzik.playlist.next(force);
+  if (!window.muzik.$next.classList.contains("disabled")) {
+    window.muzik.playlist.next(force);
+  }
 };
 
 window.muzik.showClip = () => {
@@ -242,5 +249,18 @@ window.muzik.notify = (obj) => {
         })
         .catch(() => {});
     }
+  }
+};
+
+window.muzik.togglePlaylist = () => {
+  window.muzik.$playlistWrapper.classList.toggle("hide");
+};
+
+window.muzik.shuffle = () => {
+  window.muzik.$shuffle.classList.toggle("active");
+  if (window.muzik.$shuffle.classList.contains("active")) {
+    window.muzik.$previous.classList.add("disabled");
+  } else if (window.muzik.playlist.currentTrack != 0) {
+    window.muzik.$previous.classList.remove("disabled");
   }
 };

@@ -2,7 +2,7 @@
   @apply h-full w-full flex items-center justify-center;
 
   #player {
-    @apply max-w-sm mx-auto p-6 w-96 flex items-center justify-center flex-col overflow-hidden border shadow-md rounded-lg bg-slate-900 border-slate-700 shadow-slate-800;
+    @apply max-w-sm mx-auto p-6 w-96 flex items-center justify-center flex-col overflow-hidden border shadow-md rounded-lg bg-slate-900 border-slate-700 shadow-slate-800 relative;
 
     #illustration-wrapper {
       @apply w-full px-4 my-6;
@@ -121,16 +121,16 @@
           @apply fill-slate-500;
 
           &:hover {
-            @apply fill-slate-100;
+            @apply fill-slate-50;
           }
         }
         &.active {
           svg {
-            @apply fill-slate-300;
+            @apply fill-slate-100;
           }
 
           &:hover {
-            @apply fill-slate-100;
+            @apply fill-slate-50;
           }
         }
       }
@@ -150,6 +150,57 @@
           }
           &::-ms-thumb {
             @apply cursor-ns-resize;
+          }
+        }
+      }
+    }
+
+    #playlist-wrapper {
+      @apply absolute w-full h-full p-4 bg-slate-700 z-50;
+
+      #playlist-box {
+        @apply flex w-full h-full flex-col items-stretch;
+
+        #playlist-close {
+          @apply text-left w-full mt-2;
+
+          svg {
+            @apply fill-slate-500 w-6 h-6 inline-block;
+          }
+
+          &:hover {
+            svg {
+              @apply fill-gray-300;
+            }
+          }
+        }
+
+        #playlist-container {
+          @apply flex-grow w-full bg-slate-800 rounded-lg overflow-y-scroll overflow-x-hidden;
+
+          ul {
+            @apply list-none block w-full p-2;
+
+            li {
+              @apply block leading-4 w-full;
+
+              a {
+                @apply text-xs text-slate-200 truncate transition-transform cursor-default w-full;
+                transition-duration: 1000ms;
+
+                &:hover {
+                  @apply text-slate-400 text-clip -translate-x-full overflow-visible;
+                  transition-duration: 10000ms;
+                }
+              }
+
+              &.current {
+                @apply bg-slate-900;
+                a {
+                  @apply text-yellow-300;
+                }
+              }
+            }
           }
         }
       }

@@ -9,6 +9,19 @@ export class Playlist {
       this.list.splice(index, 1);
       this.list.unshift(song);
     }
+    let html = "";
+    this.list.forEach((s) => {
+      html += `
+        <li>
+          <a href="javascript:window.muzik.playlist.playSong('${sha1(
+            s.code
+          )}');">
+            ${s.artist} | ${s.title}
+          </a>
+        </li>
+      `;
+    });
+    window.muzik.$playlistList.innerHTML = html;
     this.currentTrack = 0;
     window.muzik.song = null;
     this.load();
@@ -38,7 +51,9 @@ export class Playlist {
     ) {
       window.muzik.$next.classList.add("disabled");
     } else {
-      window.muzik.$previous.classList.remove("disabled");
+      if (!window.muzik.$shuffle.classList.contains("active")) {
+        window.muzik.$previous.classList.remove("disabled");
+      }
       window.muzik.$next.classList.remove("disabled");
     }
     if (
@@ -49,6 +64,13 @@ export class Playlist {
     }
     window.muzik.song = this.list[this.currentTrack];
     window.muzik.player[window.muzik.song.type].load();
+    const lic = window.muzik.$playlistList.querySelector("li.current");
+    if (lic != undefined) {
+      lic.classList.remove("current");
+    }
+    window.muzik.$playlistList
+      .querySelectorAll("li")
+      [this.currentTrack].classList.add("current");
   };
 
   previous = () => {
@@ -65,7 +87,11 @@ export class Playlist {
 
   next = (force) => {
     if (force || 2 != window.muzik.repeat_mode) {
-      this.currentTrack++;
+      if (window.muzik.$shuffle.classList.contains("active")) {
+        this.currentTrack = Math.floor(Math.random() * this.list.length);
+      } else {
+        this.currentTrack++;
+      }
     }
     if (this.currentTrack >= this.list.length) {
       if (1 == window.muzik.repeat_mode) {
@@ -75,5 +101,12 @@ export class Playlist {
       }
     }
     this.load();
+  };
+
+  playSong = (slug) => {
+    const index = this.list.findIndex((x) => sha1(x.code) == slug);
+    console.log(index);
+    this.currentTrack = index - 1;
+    this.next(true);
   };
 }

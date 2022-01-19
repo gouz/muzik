@@ -18,6 +18,7 @@ window.muzik = {
   $previous: document.getElementById("previous"),
   $repeat: document.getElementById("repeat"),
   $repeat1: document.getElementById("repeat1"),
+  $themeColor: document.getElementById("theme-color"),
   $timeCurrent: document.getElementById("time-current"),
   $timestamp: document.getElementById("timestamp"),
   $timeTotal: document.getElementById("time-total"),
@@ -124,6 +125,7 @@ window.muzik.changeAmbiance = (imageUrl) => {
         padding-bottom: 100% !important;
       }
     `;
+      window.muzik.$themeColor.content = color;
     });
   } else {
     let color = "#f1f5f9";
@@ -138,6 +140,7 @@ window.muzik.changeAmbiance = (imageUrl) => {
         background-color: #475577;
       }
     `;
+    window.muzik.$themeColor.content = color;
   }
 };
 

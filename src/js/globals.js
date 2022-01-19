@@ -35,6 +35,8 @@ window.muzik.loadMeta = (meta) => {
   window.muzik.$timeCurrent.textContent = convertHMS(0);
   window.muzik.$timeTotal.textContent = convertHMS(meta.duration);
   window.muzik.$timestamp.max = Math.round(meta.duration);
+  window.muzik.$artist.textContent = "&nbsp;";
+  window.muzik.$title.textContent = "&nbsp;";
   let artist = meta.artist;
   let title = meta.title;
   if (

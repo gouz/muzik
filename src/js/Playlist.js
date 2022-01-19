@@ -3,7 +3,7 @@ export class Playlist {
   constructor(list, id) {
     this.list = list;
     this.shuffle(this.list);
-    if (typeof id != undefined) {
+    if (id != "") {
       const index = this.list.findIndex((x) => sha1(x.code) == id);
       const song = this.list[index];
       this.list.splice(index, 1);
@@ -25,7 +25,7 @@ export class Playlist {
     $clip.classList.remove("hide");
     if ("soundcloud" == this.list[this.currentTrack].type) {
       $clip.classList.add("hide");
-      window.muzik.$youtubePlayer.classList.remove("over");
+      document.getElementById("youtube-player").classList.remove("over");
     }
     if (this.currentTrack == 0) {
       window.muzik.$previous.classList.add("disabled");

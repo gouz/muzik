@@ -5,6 +5,7 @@ import {
   getAverageRGB,
   LightenDarkenColor,
   niceTrackBar,
+  luma,
 } from "./utils";
 
 window.muzik = {
@@ -110,6 +111,9 @@ window.muzik.seek = (time) => {
 window.muzik.changeAmbiance = (imageUrl) => {
   if ("youtube" != window.muzik.song.type) {
     getAverageRGB(imageUrl).then((color) => {
+      if (luma(color)) {
+        color = LightenDarkenColor(color, 70);
+      }
       window.muzik.$colors.innerHTML = `
       :root {
           --muzik-track-color: ${LightenDarkenColor(color, 30)};

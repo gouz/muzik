@@ -38,24 +38,32 @@ async function getAverageRGB(src) {
   });
 }
 
-function LightenDarkenColor(color, percent) {
-  // https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
-  let R = parseInt(color.substring(1, 3), 16);
-  let G = parseInt(color.substring(3, 5), 16);
-  let B = parseInt(color.substring(5, 7), 16);
+function LightenDarkenColor(col, amt) {
+  var usePound = false;
 
-  R = parseInt((R * (100 + percent)) / 100);
-  G = parseInt((G * (100 + percent)) / 100);
-  B = parseInt((B * (100 + percent)) / 100);
+  if (col[0] == "#") {
+    col = col.slice(1);
+    usePound = true;
+  }
 
-  R = R < 255 ? R : 255;
-  G = G < 255 ? G : 255;
-  B = B < 255 ? B : 255;
+  var num = parseInt(col, 16);
 
-  let RR = R.toString(16).length == 1 ? "0" + R.toString(16) : R.toString(16);
-  let GG = G.toString(16).length == 1 ? "0" + G.toString(16) : G.toString(16);
-  let BB = B.toString(16).length == 1 ? "0" + B.toString(16) : B.toString(16);
-  return "#" + RR + GG + BB;
+  var r = (num >> 16) + amt;
+
+  if (r > 255) r = 255;
+  else if (r < 0) r = 0;
+
+  var b = ((num >> 8) & 0x00ff) + amt;
+
+  if (b > 255) b = 255;
+  else if (b < 0) b = 0;
+
+  var g = (num & 0x0000ff) + amt;
+
+  if (g > 255) g = 255;
+  else if (g < 0) g = 0;
+
+  return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
 }
 
 function niceTrackBar(el, ct) {
@@ -66,4 +74,15 @@ function niceTrackBar(el, ct) {
   el.style.backgroundSize = ((val - min) * 100) / (max - min) + 1 + "% 100%";
 }
 
-export { convertHMS, getAverageRGB, LightenDarkenColor, niceTrackBar };
+function luma(c) {
+  // https://stackoverflow.com/questions/12043187/how-to-check-if-hex-color-is-too-black
+  c = c.substring(1); // strip #
+  let rgb = parseInt(c, 16); // convert rrggbb to decimal
+  let r = (rgb >> 16) & 0xff; // extract red
+  let g = (rgb >> 8) & 0xff; // extract green
+  let b = (rgb >> 0) & 0xff; // extract blue
+  let luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+  return luma < 40;
+}
+
+export { convertHMS, getAverageRGB, LightenDarkenColor, niceTrackBar, luma };

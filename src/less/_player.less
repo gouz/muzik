@@ -14,7 +14,7 @@
           @apply bg-white w-full overflow-hidden rounded-lg shadow-slate-50 shadow z-10 relative transition-all duration-500 bg-cover bg-center;
 
           &:after {
-            @apply block;
+            @apply block transition-all duration-500;
             padding-bottom: 75%;
             content: "";
           }
@@ -48,11 +48,11 @@
     }
 
     #title {
-      @apply text-white font-bold tracking-wider leading-5 mb-2 text-ellipsis overflow-hidden whitespace-nowrap w-full text-xl;
+      @apply text-white font-bold tracking-wider leading-5 mb-2 text-ellipsis overflow-hidden whitespace-nowrap w-full text-xl h-5;
     }
 
     #artist {
-      @apply text-gray-500 uppercase text-sm whitespace-nowrap text-ellipsis w-full overflow-hidden mb-2;
+      @apply text-gray-500 uppercase text-sm whitespace-nowrap text-ellipsis w-full overflow-hidden mb-2 h-4;
     }
 
     #timeline {

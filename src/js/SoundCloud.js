@@ -26,11 +26,13 @@ export class SoundCloud {
 
   init = () => {
     this.isReady = true;
-    window.muzik.$soundcloudPlayer.setAttribute(
-      "src",
-      `https://w.soundcloud.com/player/?url=https%3A//soundcloud.com${window.muzik.song.code}&amp;auto_play=true`
-    );
-    this.player = SC.Widget(window.muzik.$soundcloudPlayer);
+    document
+      .getElementById("soundcloud-player")
+      .setAttribute(
+        "src",
+        `https://w.soundcloud.com/player/?url=https%3A//soundcloud.com${window.muzik.song.code}&amp;auto_play=true`
+      );
+    this.player = SC.Widget("soundcloud-player");
     this.player.bind(SC.Widget.Events.FINISH, () => {
       clearInterval(this.interval);
       window.muzik.next(false);

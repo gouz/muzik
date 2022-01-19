@@ -1,4 +1,5 @@
-import { doc } from "prettier";
+import sha1 from "./lib/js-sha1";
+
 import {
   convertHMS,
   getAverageRGB,
@@ -17,7 +18,6 @@ window.muzik = {
   $previous: document.getElementById("previous"),
   $repeat: document.getElementById("repeat"),
   $repeat1: document.getElementById("repeat1"),
-  $soundcloudPlayer: document.getElementById("soundcloud-player"),
   $timeCurrent: document.getElementById("time-current"),
   $timestamp: document.getElementById("timestamp"),
   $timeTotal: document.getElementById("time-total"),
@@ -26,17 +26,15 @@ window.muzik = {
   $volume: document.getElementById("volume"),
   $volumeRange: document.getElementById("volume-range"),
   $volumeWrapper: document.getElementById("volume-wrapper"),
-  $youtubePlayer: document.getElementById("youtube-player"),
 };
 
 window.muzik.loadMeta = (meta) => {
   window.muzik.play();
+  window.location.hash = sha1(window.muzik.song.code);
   window.muzik.$artwork.style.backgroundImage = `url(${meta.img})`;
   window.muzik.$timeCurrent.textContent = convertHMS(0);
   window.muzik.$timeTotal.textContent = convertHMS(meta.duration);
   window.muzik.$timestamp.max = Math.round(meta.duration);
-  window.muzik.$artist.textContent = "&nbsp;";
-  window.muzik.$title.textContent = "&nbsp;";
   let artist = meta.artist;
   let title = meta.title;
   if (
@@ -97,7 +95,7 @@ window.muzik.next = (force) => {
 
 window.muzik.showClip = () => {
   if ("youtube" == window.muzik.song.type) {
-    window.muzik.$youtubePlayer.classList.toggle("over");
+    document.getElementById("youtube-player").classList.toggle("over");
   }
 };
 
@@ -120,6 +118,10 @@ window.muzik.changeAmbiance = (imageUrl) => {
 
       body {
         background-color: ${color};
+      }
+
+      #artwork::after {
+        padding-bottom: 100% !important;
       }
     `;
     });
@@ -163,4 +165,10 @@ window.muzik.showVolume = () => {
 window.muzik.volume = (value) => {
   niceTrackBar(window.muzik.$volumeRange, value);
   window.muzik.player[window.muzik.song.type].setVolume(value);
+};
+
+window.muzik.share = () => {
+  navigator.clipboard.writeText(window.location).then(() => {
+    alert("Link copied to clipboard");
+  });
 };

@@ -37,7 +37,10 @@ ready(() => {
         y.type = "soundcloud";
         list.push(y);
       });
-      window.muzik.playlist = new Playlist(list);
+      window.muzik.playlist = new Playlist(
+        list,
+        window.location.hash.substring(1)
+      );
       window.muzik.playlist.load();
     });
 });

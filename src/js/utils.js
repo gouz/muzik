@@ -71,7 +71,7 @@ function niceTrackBar(el, ct) {
   const min = el.min;
   const max = el.max;
   const val = el.value;
-  el.style.backgroundSize = ((val - min) * 100) / (max - min) + 1 + "% 100%";
+  el.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
 }
 
 function luma(c) {

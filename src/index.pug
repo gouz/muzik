@@ -31,7 +31,7 @@ html(lang="en")
         #timeline
           input#timestamp(
             type="range",
-            min="1",
+            min="0",
             max="100",
             step="1",
             value="0",
@@ -73,10 +73,15 @@ html(lang="en")
             title="volume"
           )
             include pug/volume
+          a#muted.hide(
+            href="javascript:window.muzik.showVolume();",
+            title="volume"
+          )
+            include pug/mute
           #volume-wrapper.hide
             input#volume-range(
               type="range",
-              min="1",
+              min="0",
               max="100",
               step="1",
               value="50",

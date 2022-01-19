@@ -588,23 +588,23 @@
       },
       {
         "code": "eimgRedLkkU",
-        "artist" : "Empire Of The Sun",
+        "artist": "Empire Of The Sun",
         "title": "Walking On A Dream"
       },
       {
         "code": "jb1jBn0uEOc",
-        "title": "MGMT - Kids (Soulwax Remix) High Quality Full Track",
-        "duration": "5:44"
+        "artist": "MGMT",
+        "title": "Kids (Soulwax Remix)"
       },
       {
         "code": "aHjpOzsQ9YI",
-        "title": "Crystallize - Lindsey Stirling (Dubstep Violin Original Song)",
-        "duration": "4:59"
+        "artist": "Lindsey Stirling",
+        "title": "Crystallize"
       },
       {
         "code": "kXYiU_JCYtU",
-        "title": "Numb [Official Music Video] - Linkin Park",
-        "duration": "3:06"
+        "artist": "Linkin Park",
+        "title": "Numb"
       },
       {
         "code": "sAOLJVsk9mA",
@@ -3360,11 +3360,6 @@
       },
       {
         "code": "/kieren-leonardo-hovasapian/the-hobbit-over-the-misty",
-        "title": "",
-        "duration": ""
-      },
-      {
-        "code": "/mexicaninstituteofsound/instituto-mexicano-del-sonido",
         "title": "",
         "duration": ""
       },

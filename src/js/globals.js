@@ -13,6 +13,7 @@ window.muzik = {
   $artist: document.getElementById("artist"),
   $artwork: document.getElementById("artwork"),
   $colors: document.getElementById("colors"),
+  $muted: document.getElementById("muted"),
   $next: document.getElementById("next"),
   $pause: document.getElementById("pause"),
   $play: document.getElementById("play"),
@@ -182,6 +183,13 @@ window.muzik.showVolume = () => {
 };
 
 window.muzik.volume = (value) => {
+  if (0 == value) {
+    window.muzik.$muted.classList.remove("hide");
+    window.muzik.$volume.classList.add("hide");
+  } else {
+    window.muzik.$muted.classList.add("hide");
+    window.muzik.$volume.classList.remove("hide");
+  }
   niceTrackBar(window.muzik.$volumeRange, value);
   window.muzik.player[window.muzik.song.type].setVolume(value);
 };
@@ -218,16 +226,16 @@ window.muzik.initMediaSessionHandler = () => {
 window.muzik.notify = (obj) => {
   if (window.Notification) {
     if (Notification.permission === "granted") {
-      new Notification("MuziK", {
-        body: `${obj.artist} - ${obj.title}`,
+      new Notification(obj.artist, {
+        body: obj.title,
         icon: obj.artwork,
       });
     } else {
       Notification.requestPermission()
         .then((p) => {
           if (p === "granted") {
-            new Notification("MuziK", {
-              body: `${obj.artist} - ${obj.title}`,
+            new Notification(obj.artist, {
+              body: obj.title,
               icon: obj.artwork,
             });
           }

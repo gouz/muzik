@@ -2545,6 +2545,51 @@
         "code": "a6_53qOtV3o",
         "artist": "Massilia Sound System",
         "title": "Au marché du soleil"
+      },
+      {
+        "code": "hhi_sohqBUU",
+        "artist": "Bassmelodie Feat. Maier - Hauff",
+        "title": "Rhino Ride"
+      },
+      {
+        "code": "3TVIcXKkTv4",
+        "artist": "Breakbot",
+        "title": "Star Tripper (from Star Wars Headspace)"
+      },
+      {
+        "code": "UxoL0E5BgA8",
+        "artist": "Headphone Activist",
+        "title": "Oceanography"
+      },
+      {
+        "code": "vpi7bzO7rKo",
+        "artist": "Cyberwave Orchestra",
+        "title": "Guardian Angel"
+      },
+      {
+        "code": "uqx6ouls2Dc",
+        "artist": "Sensi Sye",
+        "title": "Only You"
+      },
+      {
+        "code": "CX1yrjMb4Z4",
+        "artist": "Dirtyphonics",
+        "title": "Hoverboard"
+      },
+      {
+        "code": "moc_cVoNGXA",
+        "artist": "JayKode",
+        "title": "Too Future. Guest Mix 046"
+      },
+      {
+        "code": "JZfOht7ap7g",
+        "artist": "Matos",
+        "title": "Montrose"
+      },
+      {
+        "code": "NF65d49Vqeg",
+        "artist": "Mahmut Orhan",
+        "title": "Game Of Thrones"
       }
     ],
     "soundcloud": [
@@ -2671,7 +2716,7 @@
       {
         "code": "/gouz/children",
         "artist": "Sylvain Gougouzian",
-        "title": "Sylvain Gougouzian - Children"
+        "title": "Children"
       },
       {
         "code": "/djdanst/divenire-rework",
@@ -2716,7 +2761,7 @@
       {
         "code": "/schtefen/encore-sur-la-plage-gouz",
         "artist": "Sylvain Gougouzian",
-        "title": "Sylvain Gougouzian - Encore sur la plage (Schtefen remix)"
+        "title": "Encore sur la plage (Schtefen remix)"
       },
       {
         "code": "/schtefen/runners-gouz-schtefen",
@@ -2732,6 +2777,46 @@
         "code": "/metastaz/the-lost-album2",
         "artist": "Metastaz",
         "title": "THE LOST ALBUM#2"
+      },
+      {
+        "code": "/djtomahawkmunich/autobahn-mondoexotica-rmx",
+        "artist": "Autobahn",
+        "title": "MondoExotica RMX"
+      },
+      {
+        "code": "/lightsandmotion/utopia",
+        "artist": "Lights & Motion",
+        "title": "Utopia"
+      },
+      {
+        "code": "/bel-mendoza/american-horror-story-coven",
+        "artist": "James S. Levine",
+        "title": "Lala Lala Song"
+      },
+      {
+        "code": "/safaabda/epic-music-mix-of-sadness-iii",
+        "artist": "NoArtist",
+        "title": "Epic music mix of sadness III"
+      },
+      {
+        "code": "/roro-as/epic-music-mix-of-sadness-ii",
+        "artist": "NoArtist",
+        "title": "Epic music mix of sadness II"
+      },
+      {
+        "code": "/moby/the-day-orchestral-instrumental",
+        "artist": "Moby",
+        "title": "The Day (Orchestral Instrumental)"
+      },
+      {
+        "code": "/dramcore/rammstein-zwitter-dramcore-bootleg",
+        "artist": "Rammstein",
+        "title": "Zwitter (Dramcore Bootleg)"
+      },
+      {
+        "code": "/metasonica/metasonica-blade-runner",
+        "artist": "Metasonica",
+        "title": "Blade Runner [Soundtrack]"
       }
     ]
   }

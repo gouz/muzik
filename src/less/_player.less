@@ -179,16 +179,37 @@
 }
 
 #playlist-container {
-  @apply flex-grow w-full bg-slate-800 rounded-lg overflow-y-scroll overflow-x-hidden;
+  @apply flex-grow w-full bg-slate-800 rounded-lg overflow-y-scroll overflow-x-hidden scroll-smooth;
+
+  @bg-color: rgb(71 85 105);
+  @fg-color: rgb(203 213 225);
+
+  scrollbar-width: thin;
+  scrollbar-color: @fg-color @bg-color;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: @bg-color;
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: @fg-color;
+    border-radius: 20px;
+    border: 1px solid @bg-color;
+  }
 
   ul {
-    @apply list-none block w-full p-2;
+    @apply list-none block w-full;
 
     li {
-      @apply block leading-4 w-full;
+      @apply block w-full px-2 py-1;
 
       a {
-        @apply text-xs text-slate-200 truncate transition-transform cursor-default w-full;
+        @apply text-sm text-slate-200 truncate transition-transform cursor-default block w-full;
         transition-duration: 1000ms;
 
         &:hover {

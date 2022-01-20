@@ -1,6 +1,6 @@
 {
   "name": "muzik",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Like a blog, but with a list of songs I like",
   "source": [
     "src/index.pug"

@@ -165,7 +165,7 @@ window.muzik.changeAmbiance = (imageUrl) => {
         background-color: #475577;
       }
     `;
-    window.muzik.$themeColor.content = color;
+    window.muzik.$themeColor.content = "#475577";
   }
 };
 

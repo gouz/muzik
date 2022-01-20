@@ -1,0 +1,43 @@
+#utils {
+  @apply flex items-center justify-between w-full mt-8 relative;
+
+  a {
+    @apply w-8;
+
+    svg {
+      @apply fill-slate-500;
+
+      &:hover {
+        @apply fill-slate-50;
+      }
+    }
+    &.active {
+      svg {
+        @apply fill-slate-100;
+      }
+
+      &:hover {
+        @apply fill-slate-50;
+      }
+    }
+  }
+}
+
+#volume-wrapper {
+  @apply absolute right-0 w-4 bottom-8;
+
+  input {
+    @apply transform -rotate-90 w-24;
+    transform-origin: 0 0;
+
+    &::-webkit-slider-thumb {
+      @apply cursor-ns-resize;
+    }
+    &::-moz-range-thumb {
+      @apply cursor-ns-resize;
+    }
+    &::-ms-thumb {
+      @apply cursor-ns-resize;
+    }
+  }
+}

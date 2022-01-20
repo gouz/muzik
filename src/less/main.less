@@ -19,5 +19,28 @@ body {
   display: none !important;
 }
 
+#app {
+  @apply h-full w-full flex items-center justify-center;
+}
+
+#help {
+  @apply w-8 h-8 absolute right-1 top-1;
+
+  svg {
+    @apply fill-slate-800;
+  }
+
+  &:hover {
+    svg {
+      @apply fill-slate-400;
+    }
+  }
+}
+
 @import "./_inputRange.less";
 @import "./_player.less";
+@import "./_illustration.less";
+@import "./_timeline.less";
+@import "./_controls.less";
+@import "./_utils.less";
+@import "./_playlist.less";

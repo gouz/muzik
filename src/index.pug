@@ -9,107 +9,20 @@ html(lang="en")
     link(rel="icon", type="image/svg+xml", href="./img/favicon.svg")
     style#colors
   body
+    a#help(
+      href="https://github.com/gouz/muzik#keyboard-shortcuts",
+      target="_blank"
+    )
+      include pug/icons/help
     #app
       #player
-        #illustration-wrapper
-          #illustration
-            #artwork
-            a#video(
-              href="javascript:window.muzik.showClip();",
-              title="View clip"
-            )
-              include pug/video
-            #youtube-player
-            iframe#soundcloud-player(
-              scrolling="no",
-              frameborder="no",
-              width="100%",
-              allow="autoplay"
-            )
+        include pug/artwork
         #title
         #artist
-        #timeline
-          input#timestamp(
-            type="range",
-            min="0",
-            max="100",
-            step="1",
-            value="0",
-            oninput="window.muzik.seek(this.value, false);",
-            onmouseup="window.muzik.seek(this.value, true);",
-            ontouchend="window.muzik.seek(this.value, true);"
-          )
-          #time
-            #time-current 00:00
-            #time-total 00:00
-        #controls 
-          a#previous.disabled(
-            href="javascript:window.muzik.previous();",
-            title="previous"
-          )
-            include pug/previous
-          a#play(href="javascript:window.muzik.play();", title="play")
-            include pug/play
-          a#pause.hide(href="javascript:window.muzik.pause();", title="pause")
-            include pug/pause
-          a#next(href="javascript:window.muzik.next(true);", title="next")
-            include pug/next
-        #utils
-          a#playlist(
-            href="javascript:window.muzik.togglePlaylist();",
-            title="playlist"
-          )
-            include pug/playlist
-          a#repeat(href="javascript:window.muzik.repeat();", title="repeat")
-            include pug/repeat
-          a#repeat1.hide.active(
-            href="javascript:window.muzik.repeat();",
-            title="repeat one"
-          )
-            include pug/repeat1
-          a#shuffle(href="javascript:window.muzik.shuffle();", title="shuffle")
-            include pug/shuffle
-          a#share(href="javascript:window.muzik.share();", title="share")
-            include pug/share
-          a#volume(
-            href="javascript:window.muzik.showVolume();",
-            title="volume"
-          )
-            include pug/volume
-          a#muted.hide(
-            href="javascript:window.muzik.showVolume();",
-            title="volume"
-          )
-            include pug/mute
-          #volume-wrapper.hide
-            input#volume-range(
-              type="range",
-              min="0",
-              max="100",
-              step="1",
-              value="50",
-              oninput="window.muzik.volume(this.value);",
-              onchange="window.muzik.volume(this.value);"
-            )
-        #playlist-wrapper.hide
-          #playlist-box 
-            #playlist-container
-              ul#playlist-list
-            #playlist-bottom
-              a#playlist-close(
-                href="javascript:window.muzik.togglePlaylist();",
-                title="close"
-              )
-                include pug/close
-              #search-wrapper
-                input#search-field(
-                  type="text",
-                  oninput="javascript:window.muzik.search(this.value);",
-                  onfocus="javascript:window.muzik.toggleKeyTrack();",
-                  onblur="javascript:window.muzik.toggleKeyTrack();"
-                )
-                #search
-                  include pug/search
+        include pug/timeline
+        include pug/controls
+        include pug/utils
+        include pug/playlist
 
     script(src="https://w.soundcloud.com/player/api.js")
     script(src="./js/main.js", type="module")

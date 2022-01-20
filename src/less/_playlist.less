@@ -1,0 +1,91 @@
+#playlist-wrapper {
+  @apply absolute w-full h-full p-4 bg-slate-700 z-50;
+}
+
+#playlist-box {
+  @apply flex w-full h-full flex-col items-stretch;
+}
+
+#playlist-container {
+  @apply flex-grow w-full bg-slate-800 rounded-lg overflow-y-scroll overflow-x-hidden scroll-smooth;
+
+  @bg-color: rgb(71 85 105);
+  @fg-color: rgb(203 213 225);
+
+  scrollbar-width: thin;
+  scrollbar-color: @fg-color @bg-color;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: @bg-color;
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: @fg-color;
+    border-radius: 20px;
+    border: 1px solid @bg-color;
+  }
+
+  ul {
+    @apply list-none block w-full;
+
+    li {
+      @apply block w-full px-2 py-1;
+
+      a {
+        @apply text-sm text-slate-200 truncate transition-transform cursor-default block w-full;
+        transition-duration: 1000ms;
+
+        &:hover {
+          @apply text-slate-400 text-clip -translate-x-full overflow-visible;
+          transition-duration: 10000ms;
+        }
+      }
+
+      &.current {
+        @apply bg-slate-900;
+        a {
+          @apply text-yellow-300;
+        }
+      }
+    }
+  }
+}
+
+#playlist-bottom {
+  @apply flex items-center pt-2;
+}
+
+#playlist-close {
+  @apply text-left w-6 h-6 inline-block mr-2;
+
+  svg {
+    @apply fill-slate-500;
+  }
+
+  &:hover {
+    svg {
+      @apply fill-gray-300;
+    }
+  }
+}
+
+#search-wrapper {
+  @apply relative flex-grow;
+}
+
+#search-field {
+  @apply w-full h-8 bg-slate-400 rounded-lg pr-2 pl-7;
+}
+
+#search {
+  @apply absolute top-1 left-1;
+
+  svg {
+    @apply inline-block w-6 h-6 fill-slate-800;
+  }
+}

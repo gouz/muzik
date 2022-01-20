@@ -1,0 +1,12 @@
+#controls 
+  a#previous.disabled(
+    href="javascript:window.muzik.previous();",
+    title="previous"
+  )
+    include icons/previous
+  a#play(href="javascript:window.muzik.play();", title="play")
+    include icons/play
+  a#pause.hide(href="javascript:window.muzik.pause();", title="pause")
+    include icons/pause
+  a#next(href="javascript:window.muzik.next(true);", title="next")
+    include icons/next

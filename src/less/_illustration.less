@@ -1,0 +1,31 @@
+#illustration-wrapper {
+  @apply w-full px-4 my-6;
+}
+
+#illustration {
+  @apply relative w-full rounded-lg overflow-hidden;
+}
+
+#artwork {
+  @apply bg-white w-full overflow-hidden rounded-lg shadow-slate-50 shadow z-10 relative transition-all duration-500 bg-cover bg-center;
+
+  &:after {
+    @apply block transition-all duration-500;
+    padding-bottom: 75%;
+    content: "";
+  }
+}
+
+#video {
+  @apply w-8 absolute bottom-1 right-1 z-50;
+
+  svg {
+    @apply fill-slate-300;
+  }
+
+  &:hover {
+    svg {
+      @apply fill-slate-800;
+    }
+  }
+}

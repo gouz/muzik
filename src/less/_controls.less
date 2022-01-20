@@ -1,0 +1,26 @@
+#controls {
+  @apply flex justify-center items-center;
+
+  svg {
+    fill: var(--muzik-thumb-color);
+
+    &:hover {
+      fill: var(--muzik-thumb-color-hover);
+    }
+  }
+  .disabled {
+    svg {
+      @apply fill-slate-700;
+    }
+  }
+}
+
+#play,
+#pause {
+  @apply w-24;
+}
+
+#previous,
+#next {
+  @apply w-16;
+}

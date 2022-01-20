@@ -1,207 +1,206 @@
 #app {
   @apply h-full w-full flex items-center justify-center;
+}
 
-  #player {
-    @apply max-w-sm mx-auto p-6 w-96 flex items-center justify-center flex-col overflow-hidden border shadow-md rounded-lg bg-slate-900 border-slate-700 shadow-slate-800 relative;
+#player {
+  @apply max-w-sm mx-auto p-6 w-96 flex items-center justify-center flex-col overflow-hidden border shadow-md rounded-lg bg-slate-900 border-slate-700 shadow-slate-800 relative;
+}
 
-    #illustration-wrapper {
-      @apply w-full px-4 my-6;
+#illustration-wrapper {
+  @apply w-full px-4 my-6;
+}
 
-      #illustration {
-        @apply relative w-full rounded-lg overflow-hidden;
+#illustration {
+  @apply relative w-full rounded-lg overflow-hidden;
+}
 
-        #artwork {
-          @apply bg-white w-full overflow-hidden rounded-lg shadow-slate-50 shadow z-10 relative transition-all duration-500 bg-cover bg-center;
+#artwork {
+  @apply bg-white w-full overflow-hidden rounded-lg shadow-slate-50 shadow z-10 relative transition-all duration-500 bg-cover bg-center;
 
-          &:after {
-            @apply block transition-all duration-500;
-            padding-bottom: 75%;
-            content: "";
-          }
-        }
+  &:after {
+    @apply block transition-all duration-500;
+    padding-bottom: 75%;
+    content: "";
+  }
+}
 
-        #video {
-          @apply w-8 absolute bottom-1 right-1 z-50;
+#video {
+  @apply w-8 absolute bottom-1 right-1 z-50;
 
-          svg {
-            @apply fill-slate-300;
-          }
+  svg {
+    @apply fill-slate-300;
+  }
 
-          &:hover {
-            svg {
-              @apply fill-slate-800;
-            }
-          }
-        }
-
-        #youtube-player {
-          @apply absolute inset-0 w-full h-full;
-
-          &.over {
-            @apply z-20;
-          }
-        }
-        #soundcloud-player {
-          @apply hidden;
-        }
-      }
+  &:hover {
+    svg {
+      @apply fill-slate-800;
     }
+  }
+}
 
-    #title {
-      @apply text-white font-bold tracking-wider leading-5 mb-2 w-full text-xl h-6 truncate transition-transform cursor-default;
-      transition-duration: 1000ms;
+#youtube-player {
+  @apply absolute inset-0 w-full h-full;
+
+  &.over {
+    @apply z-20;
+  }
+}
+#soundcloud-player {
+  @apply hidden;
+}
+
+#title {
+  @apply text-white font-bold tracking-wider leading-5 mb-2 w-full text-xl h-6 truncate transition-transform cursor-default;
+  transition-duration: 1000ms;
+
+  &:hover {
+    @apply text-clip -translate-x-full overflow-visible;
+    transition-duration: 10000ms;
+  }
+}
+
+#artist {
+  @apply text-gray-500 uppercase text-sm w-full truncate mb-2 h-5 transition-transform cursor-default;
+  transition-duration: 1000ms;
+
+  &:hover {
+    @apply text-clip -translate-x-full overflow-visible;
+    transition-duration: 10000ms;
+  }
+}
+
+#timeline {
+  @apply w-full;
+  input {
+    @apply w-full;
+  }
+}
+
+#time {
+  @apply flex items-center justify-between;
+}
+
+#time-current,
+#time-total {
+  @apply text-white text-xs px-1;
+}
+
+#controls {
+  @apply flex justify-center items-center;
+
+  svg {
+    fill: var(--muzik-thumb-color);
+
+    &:hover {
+      fill: var(--muzik-thumb-color-hover);
+    }
+  }
+  .disabled {
+    svg {
+      @apply fill-slate-700;
+    }
+  }
+}
+
+#play,
+#pause {
+  @apply w-24;
+}
+
+#previous,
+#next {
+  @apply w-16;
+}
+
+#utils {
+  @apply flex items-center justify-between w-full mt-8 relative;
+
+  a {
+    @apply w-8;
+
+    svg {
+      @apply fill-slate-500;
 
       &:hover {
-        @apply text-clip -translate-x-full overflow-visible;
-        transition-duration: 10000ms;
+        @apply fill-slate-50;
       }
     }
-
-    #artist {
-      @apply text-gray-500 uppercase text-sm w-full truncate mb-2 h-5 transition-transform cursor-default;
-      transition-duration: 1000ms;
-
-      &:hover {
-        @apply text-clip -translate-x-full overflow-visible;
-        transition-duration: 10000ms;
-      }
-    }
-
-    #timeline {
-      @apply w-full;
-      input {
-        @apply w-full;
-      }
-
-      #time {
-        @apply flex items-center justify-between;
-
-        #time-current,
-        #time-total {
-          @apply text-white text-xs px-1;
-        }
-      }
-    }
-
-    #controls {
-      @apply flex justify-center items-center;
-
+    &.active {
       svg {
-        fill: var(--muzik-thumb-color);
-
-        &:hover {
-          fill: var(--muzik-thumb-color-hover);
-        }
+        @apply fill-slate-100;
       }
 
-      #play,
-      #pause {
-        @apply w-24;
-      }
-
-      #previous,
-      #next {
-        @apply w-16;
-      }
-
-      .disabled {
-        svg {
-          @apply fill-slate-700;
-        }
+      &:hover {
+        @apply fill-slate-50;
       }
     }
+  }
+}
 
-    #utils {
-      @apply flex items-center justify-between w-full mt-8 relative;
+#volume-wrapper {
+  @apply absolute right-0 w-4 bottom-8;
+
+  input {
+    @apply transform -rotate-90 w-24;
+    transform-origin: 0 0;
+
+    &::-webkit-slider-thumb {
+      @apply cursor-ns-resize;
+    }
+    &::-moz-range-thumb {
+      @apply cursor-ns-resize;
+    }
+    &::-ms-thumb {
+      @apply cursor-ns-resize;
+    }
+  }
+}
+
+#playlist-wrapper {
+  @apply absolute w-full h-full p-4 bg-slate-700 z-50;
+}
+
+#playlist-box {
+  @apply flex w-full h-full flex-col items-stretch;
+}
+
+#playlist-close {
+  @apply text-left w-full mt-2;
+
+  svg {
+    @apply fill-slate-500 w-6 h-6 inline-block;
+  }
+
+  &:hover {
+    svg {
+      @apply fill-gray-300;
+    }
+  }
+}
+
+#playlist-container {
+  @apply flex-grow w-full bg-slate-800 rounded-lg overflow-y-scroll overflow-x-hidden;
+
+  ul {
+    @apply list-none block w-full p-2;
+
+    li {
+      @apply block leading-4 w-full;
 
       a {
-        @apply w-8;
+        @apply text-xs text-slate-200 truncate transition-transform cursor-default w-full;
+        transition-duration: 1000ms;
 
-        svg {
-          @apply fill-slate-500;
-
-          &:hover {
-            @apply fill-slate-50;
-          }
-        }
-        &.active {
-          svg {
-            @apply fill-slate-100;
-          }
-
-          &:hover {
-            @apply fill-slate-50;
-          }
+        &:hover {
+          @apply text-slate-400 text-clip -translate-x-full overflow-visible;
+          transition-duration: 10000ms;
         }
       }
 
-      #volume-wrapper {
-        @apply absolute right-0 w-4 bottom-8;
-
-        input {
-          @apply transform -rotate-90 w-24;
-          transform-origin: 0 0;
-
-          &::-webkit-slider-thumb {
-            @apply cursor-ns-resize;
-          }
-          &::-moz-range-thumb {
-            @apply cursor-ns-resize;
-          }
-          &::-ms-thumb {
-            @apply cursor-ns-resize;
-          }
-        }
-      }
-    }
-
-    #playlist-wrapper {
-      @apply absolute w-full h-full p-4 bg-slate-700 z-50;
-
-      #playlist-box {
-        @apply flex w-full h-full flex-col items-stretch;
-
-        #playlist-close {
-          @apply text-left w-full mt-2;
-
-          svg {
-            @apply fill-slate-500 w-6 h-6 inline-block;
-          }
-
-          &:hover {
-            svg {
-              @apply fill-gray-300;
-            }
-          }
-        }
-
-        #playlist-container {
-          @apply flex-grow w-full bg-slate-800 rounded-lg overflow-y-scroll overflow-x-hidden;
-
-          ul {
-            @apply list-none block w-full p-2;
-
-            li {
-              @apply block leading-4 w-full;
-
-              a {
-                @apply text-xs text-slate-200 truncate transition-transform cursor-default w-full;
-                transition-duration: 1000ms;
-
-                &:hover {
-                  @apply text-slate-400 text-clip -translate-x-full overflow-visible;
-                  transition-duration: 10000ms;
-                }
-              }
-
-              &.current {
-                @apply bg-slate-900;
-                a {
-                  @apply text-yellow-300;
-                }
-              }
-            }
-          }
+      &.current {
+        @apply bg-slate-900;
+        a {
+          @apply text-yellow-300;
         }
       }
     }

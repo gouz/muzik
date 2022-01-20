@@ -1,5 +1,8 @@
 module.exports = {
-  content: ["./src/**/*.pug"],
+  mode: "jit",
+  content: {
+    files: ["./src/**/*.pug"],
+  },
   theme: {
     extend: {},
   },

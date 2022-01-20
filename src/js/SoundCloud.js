@@ -1,6 +1,7 @@
 export class SoundCloud {
   constructor() {
     this.isReady = false;
+    this.isPlaying = false;
     this.player = null;
     this.position = 0;
   }
@@ -42,7 +43,11 @@ export class SoundCloud {
       this.player.bind(SC.Widget.Events.FINISH, () => {
         window.muzik.next(false);
       });
-      this.player.bind(SC.Widget.Events.PLAY, function () {
+      this.player.bind(SC.Widget.Events.PAUSE, () => {
+        this.isPlaying = false;
+      });
+      this.player.bind(SC.Widget.Events.PLAY, () => {
+        this.isPlaying = true;
         if (this.position >= 0) {
           this.player.seekTo(this.position);
         }
@@ -66,10 +71,12 @@ export class SoundCloud {
 
   play = () => {
     this.player.play();
+    this.isPlaying = true;
   };
 
   pause = () => {
     this.player.pause();
+    this.isPlaying = false;
   };
 
   seek = (time) => {

@@ -10,6 +10,7 @@ import {
 
 window.muzik = {
   repeat_mode: 0, // 1 = all, 2 = one
+  track_keypress: true,
   $artist: document.getElementById("artist"),
   $artwork: document.getElementById("artwork"),
   $colors: document.getElementById("colors"),
@@ -78,10 +79,15 @@ window.muzik.loadMeta = (meta) => {
 };
 
 window.muzik.defineTimer = () => {
+  clearInterval(window.muzik.timer);
   window.muzik.timer = setInterval(() => {
     const ct = window.muzik.player[window.muzik.song.type].getTime();
     window.muzik.$timeCurrent.textContent = convertHMS(ct);
     niceTrackBar(window.muzik.$timestamp, ct);
+    if (!window.muzik.player[window.muzik.song.type].isPlaying) {
+      window.muzik.$play.classList.remove("hide");
+      window.muzik.$pause.classList.add("hide");
+    }
   }, 300);
 };
 
@@ -277,4 +283,8 @@ window.muzik.search = (text) => {
       li.classList.add("hide");
     }
   });
+};
+
+window.muzik.toggleKeyTrack = () => {
+  window.muzik.track_keypress = !window.muzik.track_keypress;
 };

@@ -1,6 +1,7 @@
 export class Youtube {
   constructor() {
     this.isReady = false;
+    this.isPlaying = false;
     this.player = null;
   }
 
@@ -17,9 +18,12 @@ export class Youtube {
         artist: this.player.getVideoData().artist,
         title: this.player.getVideoData().title,
       });
+      this.isPlaying = true;
       this.setVolume(window.muzik.$volumeRange.value);
     } else if (YT.PlayerState.ENDED == event.data) {
       window.muzik.next(false);
+    } else if (YT.PlayerState.PAUSED == event.data) {
+      this.isPlaying = false;
     }
   };
 
@@ -37,6 +41,7 @@ export class Youtube {
 
   pause = () => {
     this.player.pauseVideo();
+    this.isPlaying = false;
   };
 
   seek = (time) => {

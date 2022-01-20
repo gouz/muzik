@@ -104,7 +104,9 @@ html(lang="en")
               #search-wrapper
                 input#search-field(
                   type="text",
-                  oninput="javascript:window.muzik.search(this.value);"
+                  oninput="javascript:window.muzik.search(this.value);",
+                  onfocus="javascript:window.muzik.toggleKeyTrack();",
+                  onblur="javascript:window.muzik.toggleKeyTrack();"
                 )
                 #search
                   include pug/search

@@ -95,11 +95,19 @@ html(lang="en")
           #playlist-box 
             #playlist-container
               ul#playlist-list
-            a#playlist-close(
-              href="javascript:window.muzik.togglePlaylist();",
-              title="close"
-            )
-              include pug/close
+            #playlist-bottom
+              a#playlist-close(
+                href="javascript:window.muzik.togglePlaylist();",
+                title="close"
+              )
+                include pug/close
+              #search-wrapper
+                input#search-field(
+                  type="text",
+                  oninput="javascript:window.muzik.search(this.value);"
+                )
+                #search
+                  include pug/search
 
     script(src="https://w.soundcloud.com/player/api.js")
     script(src="./js/main.js", type="module")

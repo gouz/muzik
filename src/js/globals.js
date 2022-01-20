@@ -22,6 +22,7 @@ window.muzik = {
   $previous: document.getElementById("previous"),
   $repeat: document.getElementById("repeat"),
   $repeat1: document.getElementById("repeat1"),
+  $searchField: document.getElementById("search-field"),
   $shuffle: document.getElementById("shuffle"),
   $themeColor: document.getElementById("theme-color"),
   $timeCurrent: document.getElementById("time-current"),
@@ -254,6 +255,8 @@ window.muzik.notify = (obj) => {
 
 window.muzik.togglePlaylist = () => {
   window.muzik.$playlistWrapper.classList.toggle("hide");
+  window.muzik.$songs.forEach((li) => li.classList.remove("hide"));
+  window.muzik.$searchField.value = "";
 };
 
 window.muzik.shuffle = () => {
@@ -263,4 +266,15 @@ window.muzik.shuffle = () => {
   } else if (window.muzik.playlist.currentTrack != 0) {
     window.muzik.$previous.classList.remove("disabled");
   }
+};
+
+window.muzik.search = (text) => {
+  text = text.toLowerCase();
+  window.muzik.$songs.forEach((li) => {
+    if (li.textContent.toLowerCase().includes(text)) {
+      li.classList.remove("hide");
+    } else {
+      li.classList.add("hide");
+    }
+  });
 };

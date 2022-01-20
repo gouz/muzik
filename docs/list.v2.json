@@ -2,6 +2,71 @@
   "list": {
     "youtube": [
       {
+        "code": "ryR9A8-Nl0Q",
+        "artist": "Skrillex",
+        "title": "ORCHESTRAL SUITE BY VARIEN"
+      },
+      {
+        "code": "_sZUdUGvuKI",
+        "artist": "The Outrunners",
+        "title": "Running for Love And Money"
+      },
+      {
+        "code": "CV65tWCZALI",
+        "artist": "Sébastien Tellier",
+        "title": "L'amour et la violence"
+      },
+      {
+        "code": "P3Xl_kZ0tIQ",
+        "artist": "One T & Cool T",
+        "title": "The Magic Key (LeMarquis & Tilka Remix)"
+      },
+      {
+        "code": "EBAzlNJonO8",
+        "artist": "Fever Ray",
+        "title": "If I Had A Heart"
+      },
+      {
+        "code": "4OfJ7wwWirk",
+        "artist": "Wardruna",
+        "title": "Fehu (acoustic)"
+      },
+      {
+        "code": "mSXyr6im7kk",
+        "artist": "Youth Lagoon",
+        "title": "Mute"
+      },
+      {
+        "code": "AnoGYG3HpxQ",
+        "artist": "Dash Berlin feat. Jonathan Mendelsohn",
+        "title": "World Falls Apart"
+      },
+      {
+        "code": "jQ4lTA-9Yus",
+        "artist": "Wardruna",
+        "title": "Algir - Tognatale"
+      },
+      {
+        "code": "hNUJCH3CeR8",
+        "artist": "Wardruna",
+        "title": "Helvegen"
+      },
+      {
+        "code": "O5S4SjQsOjo",
+        "artist": "CloZee",
+        "title": "Koto"
+      },
+      {
+        "code": "vKWjrnWCUIk",
+        "artist": "Sigur Ros",
+        "title": "Sæglópur (ENiGMA Dubz Remix)"
+      },
+      {
+        "code": "qoq8B8ThgEM",
+        "artist": "Salim – Sulaiman",
+        "title": "Tujh Mein Rab Dikhta Hai"
+      },
+      {
         "code": "Y0zbHmQhKME",
         "artist": "Thylacine",
         "title": "Live set @Château de Versailles"
@@ -2593,6 +2658,31 @@
       }
     ],
     "soundcloud": [
+      {
+        "code": "/rac/depechemoderac",
+        "artist": "Depeche Mode",
+        "title": "Enjoy The Silence (RAC Mix)"
+      },
+      {
+        "code": "/moby/moby-all-sides-gone",
+        "artist": "Moby",
+        "title": "All Sides Gone"
+      },
+      {
+        "code": "/thevoyager12/sidera",
+        "artist": "Traxx",
+        "title": "Sidera"
+      },
+      {
+        "code": "/you-cross-the-line/the-voice-in-my-head",
+        "artist": "You Cross The Line",
+        "title": "The Voice in my Head"
+      },
+      {
+        "code": "/pandora-journey/2-hours-epic-music-mix-most-inspirational-powerful-music-inspirational-mix",
+        "artist": "NoArtist",
+        "title": "2 - Hours Epic Music Mix - Most Inspirational & Powerful Music - Inspirational Mix"
+      },
       {
         "code": "/toucansounds/considering-all",
         "artist": "ToucanSounds",

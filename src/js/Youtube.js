@@ -64,6 +64,7 @@ export class Youtube {
           modestbranding: 1,
           rel: 0,
           origin: window.location.origin,
+          width: 320,
         },
         videoId: window.muzik.song.code,
         host: "https://www.youtube.com",

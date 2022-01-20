@@ -22,6 +22,7 @@ export class Playlist {
       `;
     });
     window.muzik.$playlistList.innerHTML = html;
+    window.muzik.$songs = window.muzik.$playlistList.querySelectorAll("li");
     this.currentTrack = 0;
     window.muzik.song = null;
     this.load();

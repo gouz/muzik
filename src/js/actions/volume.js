@@ -1,4 +1,4 @@
-import { niceTrackBar } from "../utils";
+import niceTrackBar from "../lib/niceTrackBar";
 
 window.muzik.volume = (value) => {
   if (0 == value) {

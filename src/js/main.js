@@ -27,7 +27,7 @@ import "./actions/volume";
 import { Playlist } from "./Playlist";
 import { Youtube } from "./Youtube";
 import { SoundCloud } from "./SoundCloud";
-import { niceTrackBar } from "./utils";
+import niceTrackBar from "./lib/niceTrackBar";
 
 const ready = (fn) => {
   if (document.readyState != "loading") {

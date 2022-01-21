@@ -1,5 +1,5 @@
 import sha1 from "../lib/js-sha1";
-import { convertHMS } from "../utils";
+import convertHMS from "../lib/convertHMS";
 
 window.muzik.loadMeta = (meta) => {
   window.muzik.play();

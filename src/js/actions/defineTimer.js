@@ -1,4 +1,5 @@
-import { convertHMS, niceTrackBar } from "../utils";
+import convertHMS from "../lib/convertHMS";
+import niceTrackBar from "../lib/niceTrackBar";
 
 window.muzik.defineTimer = () => {
   clearInterval(window.muzik.timer);

@@ -1,4 +1,6 @@
-import { getAverageRGB, LightenDarkenColor, luma } from "../utils";
+import getAverageRGB from "../lib/getAverageRGB";
+import LightenDarkenColor from "../lib/LightenDarkenColor";
+import luma from "../lib/luma";
 
 window.muzik.changeAmbiance = (imageUrl) => {
   if ("youtube" != window.muzik.song.type) {

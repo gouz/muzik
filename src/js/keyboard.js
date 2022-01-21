@@ -20,13 +20,13 @@ document.addEventListener(
       e.stopImmediatePropagation();
       e.preventDefault();
       switch (e.key) {
-        case "v":
+        case "b":
           window.muzik.previous();
           break;
         case "n":
           window.muzik.next();
           break;
-        case "b":
+        case " ":
           if (!window.muzik.$pause.classList.contains("hide")) {
             window.muzik.pause();
           } else {

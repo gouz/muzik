@@ -6,9 +6,9 @@ Website : https://gouz.github.io/muzik/
 
 ## Keyboard shortcuts
 
-- `v` : previous track
+- `b` : previous track
 - `n` : next track
-- `b` : play / pause
+- `space` : play / pause
 - `s` : search in playlist
 - `+` : pump up the volume
 - `-` : pump down the volume
@@ -16,7 +16,7 @@ Website : https://gouz.github.io/muzik/
 
 ## Development
 
-To build you own, change the `static/list.v2.json` file and run
+To build you own, change the `static/list.v2.json` file and run after the usual `npm install`
 
 ```sh
 npm run dev

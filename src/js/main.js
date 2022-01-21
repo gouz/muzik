@@ -50,14 +50,12 @@ ready(() => {
     })
     .then((json) => {
       let list = [];
-      json.list.youtube.forEach(function (y) {
-        y.type = "youtube";
-        list.push(y);
-      });
-      json.list.soundcloud.forEach(function (y) {
-        y.type = "soundcloud";
-        list.push(y);
-      });
+      for (const [type, songs] of Object.entries(json.list)) {
+        songs.forEach((song) => {
+          song.type = type;
+          list.push(song);
+        });
+      }
       window.muzik.playlist = new Playlist(
         list,
         window.location.hash.substring(1)

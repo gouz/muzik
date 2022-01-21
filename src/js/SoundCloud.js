@@ -13,8 +13,8 @@ export class SoundCloud {
         artwork_url = currentSound.artwork_url;
       else artwork_url = currentSound.user.avatar_url;
       window.muzik.loadMeta({
-        img: artwork_url,
-        size: "100x100",
+        img: artwork_url.replace("-large.jpg", "-t300x300.jpg"),
+        size: "300x300",
         duration: Math.round(currentSound.full_duration / 1000),
         artist: currentSound.user.full_name,
         title: currentSound.title,

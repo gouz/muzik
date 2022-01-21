@@ -2659,6 +2659,311 @@
     ],
     "soundcloud": [
       {
+        "code": "/pyramidhall/omega",
+        "artist": "Pyramid",
+        "title": "Omega"
+      },
+      {
+        "code": "/eigenartig-reloaded/aronv-eigenartig-morgen",
+        "artist": "AronV & EigenARTig",
+        "title": "Morgen"
+      },
+      {
+        "code": "/onandonrecords/phazz-nocturna-2",
+        "artist": "Phazz",
+        "title": "Nocturna"
+      },
+      {
+        "code": "/lykkeli/i-follow-rivers",
+        "artist": "Lykke Li",
+        "title": "I Follow Rivers"
+      },
+      {
+        "code": "/georgewhyman/george-whyman-monuments-original",
+        "artist": "George Whyman",
+        "title": "Monuments"
+      },
+      {
+        "code": "/reubenkeeney/reubenkeeney-x-jasminethompson-sweet-child-of-mine",
+        "artist": "Reuben Keeney x Jasmine Thompson",
+        "title": "Sweet Child O Mine"
+      },
+      {
+        "code": "/myrabelution/ellie-goulding-burn-remix",
+        "artist": "Ellie Goulding",
+        "title": "Burn [Remix]"
+      },
+      {
+        "code": "/metastaz/simpsong-feat-mss",
+        "artist": "Metastaz",
+        "title": "Simpsong (Feat. Mamelo Sound System)"
+      },
+      {
+        "code": "/metastaz/01-ghost-assassin",
+        "artist": "Metastaz",
+        "title": "Ghost & Assassin"
+      },
+      {
+        "code": "/beat-torrent/birdy-nam-nam-abesses-beat",
+        "artist": "Birdy Nam Nam",
+        "title": "Abesses (Beat Torrent Remix)"
+      },
+      {
+        "code": "/torsmusic/heikki",
+        "artist": "Tor",
+        "title": "Heikki"
+      },
+      {
+        "code": "/robot-heart/thievery-giving-thievery-corporation-robot-heart-burning-man-2014-1",
+        "artist": "Thievery Corporation and Robot Heart",
+        "title": "Burning Man 2014"
+      },
+      {
+        "code": "/giorgiomoroder/74-is-the-new-24",
+        "artist": "Giorgio Moroder",
+        "title": "74 Is The New 24"
+      },
+      {
+        "code": "/dirk-maassen-official/an-island-exclusive-album-pre-release-httpsdirkmaassenbandcampcomalbumeinklang-cd1",
+        "artist": "Dirk Maassen",
+        "title": "An Island"
+      },
+      {
+        "code": "/cma-music/youre-alive-original-mix",
+        "artist": "CMA Music",
+        "title": "You're Alive"
+      },
+      {
+        "code": "/labellemusiqueofficial/le-belle-mixtape-summer",
+        "artist": "La Belle Musique",
+        "title": "La Belle Mixtape - Summer Memories"
+      },
+      {
+        "code": "/teemid/seven-nation-army-teemid-cover",
+        "artist": "Teemid",
+        "title": "Seven Nation Army (Teemid Cover)"
+      },
+      {
+        "code": "/citticringle/shine-on-you-crazy-diamond-parts-i-ix",
+        "artist": "Pink Floyd",
+        "title": "Shine On You Crazy Diamond"
+      },
+      {
+        "code": "/mind-and-travel/high-hopes-pink-floyd-piano-cover-by-mindtraveller",
+        "artist": "Pink Floyd",
+        "title": "High Hopes (Piano Cover by Mindtraveller)"
+      },
+      {
+        "code": "/cma-music/03-it-is-what-it-is",
+        "artist": "CMA Music",
+        "title": "It Is What It Is"
+      },
+      {
+        "code": "/user4858932/ashley-beedle-township-funk-dj-mujava-re-edit",
+        "artist": "Ashley Beedle",
+        "title": "Township Funk"
+      },
+      {
+        "code": "/skrillard/freestyler-cinematic-remix-bomfunk-mcs-dr-skrillard-remix",
+        "artist": "Bomfunk MC'S",
+        "title": "Freestyler Cinematic Remix"
+      },
+      {
+        "code": "/brassland/the-national-about-today",
+        "artist": "The National",
+        "title": "About Today"
+      },
+      {
+        "code": "/factmag/alex-banks-initiate",
+        "artist": "Alex Banks",
+        "title": "Initiate"
+      },
+      {
+        "code": "/heartcake/roman-damour-diese-irae",
+        "artist": "ROMAN D'AMOUR",
+        "title": "Dièse Irae"
+      },
+      {
+        "code": "/silverpennies/rockets-dna",
+        "artist": "Silverpennies",
+        "title": "Rockets & DNA"
+      },
+      {
+        "code": "/son-of-a-p/nuska-instrumental-version",
+        "artist": "Son Of A Pitch",
+        "title": "Nuska"
+      },
+      {
+        "code": "/giorgiomoroder/giorgios-theme",
+        "artist": "Giorgio Moroder",
+        "title": "Giorgio's Theme"
+      },
+      {
+        "code": "/cindy-jo/damien-saez-fils-de-france",
+        "artist": "Saez",
+        "title": "Fils de France"
+      },
+      {
+        "code": "/m83/midnight-city",
+        "artist": "M83",
+        "title": "Midnight city"
+      },
+      {
+        "code": "/faul-official/changes-feat-wad-ad",
+        "artist": "Faul & Wad",
+        "title": "Changes"
+      },
+      {
+        "code": "/giorgiomoroder/knights-in-white-satin",
+        "artist": "Giorgio Moroder",
+        "title": "Knights In White Satin"
+      },
+      {
+        "code": "/giorgiomoroder/giorgio-moroder-rac",
+        "artist": "Giorgio Moroder",
+        "title": "Racer"
+      },
+      {
+        "code": "/tycho/spectre",
+        "artist": "Tycho",
+        "title": "Spectre"
+      },
+      {
+        "code": "/kitsunemusique/pyramid-astral",
+        "artist": "Pyramid",
+        "title": "Astral"
+      },
+      {
+        "code": "/m-we-1/m-we-feat-clari-happiness",
+        "artist": "MÖWE feat. Clari",
+        "title": "Happiness"
+      },
+      {
+        "code": "/daataa/mitch-murder-glass-cities",
+        "artist": "mitch murder",
+        "title": "glass cities"
+      },
+      {
+        "code": "/delicieuse-musique/trashlagoon-struggle-viken",
+        "artist": "Trashlagoon",
+        "title": "Struggle (Viken Arman Remix)"
+      },
+      {
+        "code": "/sebastienfaure/se-bastien-faure-silver-cloud",
+        "artist": "Sébastien Faure",
+        "title": "Silver Cloud"
+      },
+      {
+        "code": "/kidmachinemusic/solar-drift-demo",
+        "artist": "Kid Machine",
+        "title": "Solar Drift"
+      },
+      {
+        "code": "/elzist/popof-serenity",
+        "artist": "Popof",
+        "title": "Serenity"
+      },
+      {
+        "code": "/sandrine-idrac/sympathy-for-the-devil",
+        "artist": "Orchestre National de Barbes",
+        "title": "Symphathy for the Devil"
+      },
+      {
+        "code": "/butchclancy/band-of-horses-the-funeral-1",
+        "artist": "Band of Horses",
+        "title": "The Funeral (Butch Clancy Remix)"
+      },
+      {
+        "code": "/visualsmusic/levitation",
+        "artist": "VISUALS",
+        "title": "levitation"
+      },
+      {
+        "code": "/blocksarchitects/children",
+        "artist": "Block's Architects",
+        "title": "Children"
+      },
+      {
+        "code": "/spankrock/car-song-feat-santigold",
+        "artist": "Spank Rock",
+        "title": "Car Song (feat. Santigold)"
+      },
+      {
+        "code": "/thevoyager12/in-the-end",
+        "artist": "Traxx",
+        "title": "In the end"
+      },
+      {
+        "code": "/thevoyager12/dawn",
+        "artist": "Traxx",
+        "title": "Dawn"
+      },
+      {
+        "code": "/thevoyager12/a-distant-quiet",
+        "artist": "Traxx",
+        "title": "A distant quiet"
+      },
+      {
+        "code": "/starcadian/heart",
+        "artist": "ST∆RC∆DI∆N",
+        "title": "HE^RT"
+      },
+      {
+        "code": "/pyramidhall/wolf",
+        "artist": "Pyramid",
+        "title": "Wolf"
+      },
+      {
+        "code": "/deadcruiser/protovision-boys-noize-remix",
+        "artist": "Kavisnsky",
+        "title": "ProtoVision (Boys Noize Remix)"
+      },
+      {
+        "code": "/andrew-valles/the-chemical-brothers",
+        "artist": "The Chemical Brothers",
+        "title": "The Sunshine Underground (Extended Mix)"
+      },
+      {
+        "code": "/sebastienfaure/s-bastien-faure-ephemeral",
+        "artist": "Sébastien Faure",
+        "title": "Ephemeral Story"
+      },
+      {
+        "code": "/cassian88/on-on",
+        "artist": "cassian",
+        "title": "On & On"
+      },
+      {
+        "code": "/pyramidhall/black-road",
+        "artist": "Pyramid",
+        "title": "Black Road"
+      },
+      {
+        "code": "/zebramix/zebra-bagad-karaez-plus-rien",
+        "artist": "ZEBRA & BAGAD KARAEZ",
+        "title": "Plus rien ne m'arrête"
+      },
+      {
+        "code": "/m83/midnight-city-trentemoller",
+        "artist": "M83",
+        "title": "Midnight City (Trentemøller Remix)"
+      },
+      {
+        "code": "/themagician/rac-feat-penguin-prison",
+        "artist": "RAC feat. Penguin Prison",
+        "title": "Hollywood (The Magician Remix)"
+      },
+      {
+        "code": "/themagician/sam-sparro-happiness-the",
+        "artist": "Sam Sparro",
+        "title": "Happiness (The Magician Remix)"
+      },
+      {
+        "code": "/latenighttales/hypnose-radio-version-1",
+        "artist": "Metronomy",
+        "title": "Hypnose"
+      },
+      {
         "code": "/rac/depechemoderac",
         "artist": "Depeche Mode",
         "title": "Enjoy The Silence (RAC Mix)"

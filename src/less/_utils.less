@@ -2,23 +2,14 @@
   @apply flex items-center justify-between w-full mt-8 relative;
 
   a {
-    @apply w-8;
+    @apply w-8 text-slate-500;
 
-    svg {
-      @apply fill-slate-500;
-
-      &:hover {
-        @apply fill-slate-50;
-      }
-    }
     &.active {
-      svg {
-        @apply fill-slate-100;
-      }
+      @apply text-slate-100;
+    }
 
-      &:hover {
-        @apply fill-slate-50;
-      }
+    &:hover {
+      @apply text-slate-50;
     }
   }
 }

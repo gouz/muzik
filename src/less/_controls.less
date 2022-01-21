@@ -1,17 +1,13 @@
 #controls {
   @apply flex justify-center items-center;
+  color: var(--muzik-thumb-color);
 
-  svg {
-    fill: var(--muzik-thumb-color);
-
-    &:hover {
-      fill: var(--muzik-thumb-color-hover);
-    }
+  a:hover {
+    color: var(--muzik-thumb-color-hover);
   }
+
   .disabled {
-    svg {
-      @apply fill-slate-700;
-    }
+    @apply text-slate-700;
   }
 }
 

@@ -8,11 +8,10 @@ export class Playlist {
     }
     let html = "";
     this.list.forEach((s) => {
+      const code = sha1(s.code);
       html += `
-        <li>
-          <a href="javascript:window.muzik.playlist.playSong('${sha1(
-            s.code
-          )}');">
+        <li id="${code}">
+          <a href="javascript:window.muzik.playlist.playSong('${code}');">
             ${s.artist} | ${s.title}
           </a>
         </li>

@@ -17,7 +17,7 @@
 }
 
 #video {
-  @apply w-8 absolute bottom-1 right-1 z-50;
+  @apply w-8 absolute top-1 right-1 z-50;
 
   svg {
     @apply fill-slate-300;
@@ -26,6 +26,14 @@
   &:hover {
     svg {
       @apply fill-slate-800;
+    }
+  }
+
+  &.active {
+    @apply opacity-10;
+
+    &:hover {
+      @apply opacity-100;
     }
   }
 }

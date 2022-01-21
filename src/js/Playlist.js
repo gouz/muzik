@@ -75,9 +75,12 @@ export class Playlist {
     this.load();
   };
 
-  next = (force) => {
+  next = (force, chosen) => {
+    if (typeof chosen == undefined) {
+      chosen = false;
+    }
     if (force || 2 != window.muzik.repeat_mode) {
-      if (window.muzik.$shuffle.classList.contains("active")) {
+      if (window.muzik.$shuffle.classList.contains("active") && !chosen) {
         this.currentTrack = Math.floor(Math.random() * this.list.length);
       } else {
         this.currentTrack++;
@@ -97,6 +100,6 @@ export class Playlist {
     const index = this.list.findIndex((x) => sha1(x.code) == slug);
     console.log(index);
     this.currentTrack = index - 1;
-    this.next(true);
+    this.next(true, true);
   };
 }

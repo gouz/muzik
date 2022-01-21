@@ -20,12 +20,14 @@
   a#muted.hide(href="javascript:window.muzik.showVolume();", title="volume")
     include icons/mute
   #volume-wrapper.hide
-    input#volume-range(
-      type="range",
-      min="0",
-      max="100",
-      step="1",
-      value="50",
-      oninput="window.muzik.volume(this.value);",
-      onchange="window.muzik.volume(this.value);"
-    )
+    label
+      span.hide Volume
+      input#volume-range(
+        type="range",
+        min="0",
+        max="100",
+        step="1",
+        value="50",
+        oninput="window.muzik.volume(this.value);",
+        onchange="window.muzik.volume(this.value);"
+      )

@@ -1,14 +1,16 @@
 #timeline
-  input#timestamp(
-    type="range",
-    min="0",
-    max="100",
-    step="1",
-    value="0",
-    oninput="window.muzik.seek(this.value, false);",
-    onmouseup="window.muzik.seek(this.value, true);",
-    ontouchend="window.muzik.seek(this.value, true);"
-  )
+  label
+    span.hide Progress
+    input#timestamp(
+      type="range",
+      min="0",
+      max="100",
+      step="1",
+      value="0",
+      oninput="window.muzik.seek(this.value, false);",
+      onmouseup="window.muzik.seek(this.value, true);",
+      ontouchend="window.muzik.seek(this.value, true);"
+    )
   #time
     #time-current 00:00
     #time-total 00:00

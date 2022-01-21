@@ -2,12 +2,9 @@ import sha1 from "./lib/js-sha1";
 export class Playlist {
   constructor(list, id) {
     this.list = list;
-    this.shuffle(this.list);
+    this.currentTrack = 0;
     if (id != "") {
-      const index = this.list.findIndex((x) => sha1(x.code) == id);
-      const song = this.list[index];
-      this.list.splice(index, 1);
-      this.list.unshift(song);
+      this.currentTrack = this.list.findIndex((x) => sha1(x.code) == id);
     }
     let html = "";
     this.list.forEach((s) => {
@@ -23,17 +20,9 @@ export class Playlist {
     });
     window.muzik.$playlistList.innerHTML = html;
     window.muzik.$songs = window.muzik.$playlistList.querySelectorAll("li");
-    this.currentTrack = 0;
     window.muzik.song = null;
     this.load();
   }
-
-  shuffle = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  };
 
   load = () => {
     const $clip = window.muzik.$video;

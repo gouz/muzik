@@ -50,6 +50,20 @@ document.addEventListener(
         case "r":
           window.muzik.repeat();
           break;
+        case "v":
+          window.muzik.showClip();
+          break;
+        case "x":
+          window.muzik.shuffle();
+          break;
+        case "c":
+          window.muzik.share();
+          break;
+        case "q":
+          if (!window.muzik.$playlistWrapper.classList.contains("hide")) {
+            window.muzik.togglePlaylist();
+          }
+          break;
       }
       return false;
     }

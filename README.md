@@ -13,6 +13,10 @@ Website : https://gouz.github.io/muzik/
 - `+` : pump up the volume
 - `-` : pump down the volume
 - `r` : repeat mode
+- `v` : show clip if youtube song
+- `x` : shuffle on/off
+- `c` : copy link into clipboard
+- `q` : quit the playlist view
 
 ## Development
 

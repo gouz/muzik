@@ -1,23 +1,26 @@
 #utils
   a#playlist(
     href="javascript:window.muzik.togglePlaylist();",
-    title="playlist"
+    title="playlist (s)"
   )
     include icons/playlist
-  a#repeat(href="javascript:window.muzik.repeat();", title="repeat")
+  a#repeat(href="javascript:window.muzik.repeat();", title="repeat (r)")
     include icons/repeat
   a#repeat1.hide.active(
     href="javascript:window.muzik.repeat();",
-    title="repeat one"
+    title="repeat one (r)"
   )
     include icons/repeat1
-  a#shuffle(href="javascript:window.muzik.shuffle();", title="shuffle")
+  a#shuffle(href="javascript:window.muzik.shuffle();", title="shuffle (x)")
     include icons/shuffle
-  a#share(href="javascript:window.muzik.share();", title="share")
+  a#share(href="javascript:window.muzik.share();", title="share (c)")
     include icons/share
-  a#volume(href="javascript:window.muzik.showVolume();", title="volume")
+  a#volume(href="javascript:window.muzik.showVolume();", title="volume (+/-)")
     include icons/volume
-  a#muted.hide(href="javascript:window.muzik.showVolume();", title="volume")
+  a#muted.hide(
+    href="javascript:window.muzik.showVolume();",
+    title="volume (+/-)"
+  )
     include icons/mute
   #volume-wrapper.hide
     label

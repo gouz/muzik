@@ -32,19 +32,7 @@ export class Playlist {
       $clip.classList.remove("hide");
       document.getElementById("youtube-player").classList.remove("hide");
     }
-    if (this.currentTrack == 0) {
-      window.$muzik.$previous.classList.add("disabled");
-    } else if (
-      this.currentTrack == this.list.length - 1 &&
-      1 != window.$muzik.repeat_mode
-    ) {
-      window.$muzik.$next.classList.add("disabled");
-    } else {
-      if (!window.$muzik.$shuffle.classList.contains("active")) {
-        window.$muzik.$previous.classList.remove("disabled");
-      }
-      window.$muzik.$next.classList.remove("disabled");
-    }
+    window.$muzik.manageControls();
     if (
       null != window.$muzik.song &&
       window.$muzik.player[window.$muzik.song.type].isReady

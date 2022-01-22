@@ -12,4 +12,5 @@ window.$muzik.repeat = () => {
     window.$muzik.$repeat1.classList.add("hide");
     window.$muzik.$repeat.classList.remove("hide");
   }
+  window.$muzik.manageControls();
 };

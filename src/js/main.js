@@ -8,6 +8,7 @@ import "./actions/defineTimer";
 import "./actions/initMediaSessionHandler";
 import "./actions/loadMeta";
 import "./actions/loadPlaylist";
+import "./actions/manageControls";
 import "./actions/next";
 import "./actions/notify";
 import "./actions/pause";

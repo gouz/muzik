@@ -1,6 +1,7 @@
 window.$muzik = {
   repeat_mode: 0, // 1 = all, 2 = one
   track_keypress: true,
+  playlist: null,
   $artist: document.getElementById("artist"),
   $artwork: document.getElementById("artwork"),
   $colors: document.getElementById("colors"),

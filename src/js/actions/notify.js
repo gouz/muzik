@@ -1,4 +1,4 @@
-window.muzik.notify = (obj) => {
+window.$muzik.notify = (obj) => {
   if (window.Notification) {
     if (Notification.permission === "granted") {
       new Notification(obj.artist, {

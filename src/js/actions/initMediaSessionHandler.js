@@ -1,22 +1,22 @@
-window.muzik.initMediaSessionHandler = () => {
+window.$muzik.initMediaSessionHandler = () => {
   if ("mediaSession" in navigator) {
     navigator.mediaSession.setActionHandler("play", function () {
-      window.muzik.play();
+      window.$muzik.play();
     });
     navigator.mediaSession.setActionHandler("pause", function () {
-      window.muzik.pause();
+      window.$muzik.pause();
     });
     navigator.mediaSession.setActionHandler("stop", function () {
-      window.muzik.pause();
+      window.$muzik.pause();
     });
     navigator.mediaSession.setActionHandler("seekto", function (details) {
-      window.muzik.seek(details.seekTime);
+      window.$muzik.seek(details.seekTime);
     });
     navigator.mediaSession.setActionHandler("previoustrack", function () {
-      window.muzik.previous();
+      window.$muzik.previous();
     });
     navigator.mediaSession.setActionHandler("nexttrack", function () {
-      window.muzik.next();
+      window.$muzik.next();
     });
   }
 };

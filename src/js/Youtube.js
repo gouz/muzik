@@ -11,17 +11,17 @@ export class Youtube {
 
   onPlayerStateChange = (event) => {
     if (YT.PlayerState.PLAYING == event.data) {
-      window.muzik.loadMeta({
-        img: `https://i.ytimg.com/vi/${window.muzik.song.code}/hqdefault.jpg`,
+      window.$muzik.loadMeta({
+        img: `https://i.ytimg.com/vi/${window.$muzik.song.code}/hqdefault.jpg`,
         size: "480x360",
         duration: this.player.getDuration(),
         artist: this.player.getVideoData().artist,
         title: this.player.getVideoData().title,
       });
       this.isPlaying = true;
-      this.setVolume(window.muzik.$volumeRange.value);
+      this.setVolume(window.$muzik.$volumeRange.value);
     } else if (YT.PlayerState.ENDED == event.data) {
-      window.muzik.next(false);
+      window.$muzik.next(false);
     } else if (YT.PlayerState.PAUSED == event.data) {
       this.isPlaying = false;
     }
@@ -29,7 +29,7 @@ export class Youtube {
 
   load = () => {
     if (this.isReady) {
-      this.player.loadVideoById(window.muzik.song.code);
+      this.player.loadVideoById(window.$muzik.song.code);
     } else {
       this.init();
     }
@@ -71,7 +71,7 @@ export class Youtube {
           origin: window.location.origin,
           width: 320,
         },
-        videoId: window.muzik.song.code,
+        videoId: window.$muzik.song.code,
         host: "https://www.youtube.com",
       });
     };

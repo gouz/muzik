@@ -12,14 +12,14 @@ export class SoundCloud {
       if (currentSound.artwork_url !== null)
         artwork_url = currentSound.artwork_url;
       else artwork_url = currentSound.user.avatar_url;
-      window.muzik.loadMeta({
+      window.$muzik.loadMeta({
         img: artwork_url.replace("-large.jpg", "-t300x300.jpg"),
         size: "300x300",
         duration: Math.round(currentSound.full_duration / 1000),
         artist: currentSound.user.full_name,
         title: currentSound.title,
       });
-      this.setVolume(window.muzik.$volumeRange.value);
+      this.setVolume(window.$muzik.$volumeRange.value);
       this.player.play();
     });
   };
@@ -30,7 +30,7 @@ export class SoundCloud {
       .getElementById("soundcloud-player")
       .setAttribute(
         "src",
-        `https://w.soundcloud.com/player/?url=https%3A//soundcloud.com${window.muzik.song.code}&amp;auto_play=true`
+        `https://w.soundcloud.com/player/?url=https%3A//soundcloud.com${window.$muzik.song.code}&amp;auto_play=true`
       );
     this.player = SC.Widget("soundcloud-player");
 
@@ -41,7 +41,7 @@ export class SoundCloud {
         });
       });
       this.player.bind(SC.Widget.Events.FINISH, () => {
-        window.muzik.next(false);
+        window.$muzik.next(false);
       });
       this.player.bind(SC.Widget.Events.PAUSE, () => {
         this.isPlaying = false;
@@ -58,7 +58,7 @@ export class SoundCloud {
 
   load = () => {
     if (this.isReady) {
-      this.player.load(window.muzik.song.code, {
+      this.player.load(window.$muzik.song.code, {
         auto_play: "true",
         callback: () => {
           this.loaded();

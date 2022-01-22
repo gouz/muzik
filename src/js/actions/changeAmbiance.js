@@ -2,13 +2,13 @@ import getAverageRGB from "../lib/getAverageRGB";
 import LightenDarkenColor from "../lib/LightenDarkenColor";
 import luma from "../lib/luma";
 
-window.muzik.changeAmbiance = (imageUrl) => {
-  if ("youtube" != window.muzik.song.type) {
+window.$muzik.changeAmbiance = (imageUrl) => {
+  if ("youtube" != window.$muzik.song.type) {
     getAverageRGB(imageUrl).then((color) => {
       if (luma(color)) {
         color = LightenDarkenColor(color, 70);
       }
-      window.muzik.$colors.innerHTML = `
+      window.$muzik.$colors.innerHTML = `
       :root {
           --muzik-track-color: ${LightenDarkenColor(color, 30)};
           --muzik-thumb-color: ${color};
@@ -23,11 +23,11 @@ window.muzik.changeAmbiance = (imageUrl) => {
         padding-bottom: 100% !important;
       }
     `;
-      window.muzik.$themeColor.content = color;
+      window.$muzik.$themeColor.content = color;
     });
   } else {
     let color = "#f1f5f9";
-    window.muzik.$colors.innerHTML = `
+    window.$muzik.$colors.innerHTML = `
       :root {
           --muzik-track-color: ${LightenDarkenColor(color, 30)};
           --muzik-thumb-color: ${color};
@@ -38,6 +38,6 @@ window.muzik.changeAmbiance = (imageUrl) => {
         background-color: #475577;
       }
     `;
-    window.muzik.$themeColor.content = "#475577";
+    window.$muzik.$themeColor.content = "#475577";
   }
 };

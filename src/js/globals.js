@@ -1,4 +1,4 @@
-window.muzik = {
+window.$muzik = {
   repeat_mode: 0, // 1 = all, 2 = one
   track_keypress: true,
   $artist: document.getElementById("artist"),

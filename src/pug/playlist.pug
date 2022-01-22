@@ -4,16 +4,16 @@
       ul#playlist-list
     #playlist-bottom
       a#playlist-close(
-        href="javascript:window.muzik.togglePlaylist();",
+        href="javascript:window.$muzik.togglePlaylist();",
         title="close"
       )
         include icons/close
       #search-wrapper
         input#search-field(
           type="text",
-          oninput="javascript:window.muzik.search(this.value);",
-          onfocus="javascript:window.muzik.toggleKeyTrack();",
-          onblur="javascript:window.muzik.toggleKeyTrack();"
+          oninput="javascript:window.$muzik.search(this.value);",
+          onfocus="javascript:window.$muzik.toggleKeyTrack();",
+          onblur="javascript:window.$muzik.toggleKeyTrack();"
         )
         #search
           include icons/search

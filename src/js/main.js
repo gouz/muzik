@@ -7,6 +7,7 @@ import "./actions/changeAmbiance";
 import "./actions/defineTimer";
 import "./actions/initMediaSessionHandler";
 import "./actions/loadMeta";
+import "./actions/loadPlaylist";
 import "./actions/next";
 import "./actions/notify";
 import "./actions/pause";
@@ -23,7 +24,6 @@ import "./actions/toggleKeyTrack";
 import "./actions/togglePlaylist";
 import "./actions/volume";
 
-import { Playlist } from "./Playlist";
 import { Youtube } from "./Youtube";
 import { SoundCloud } from "./SoundCloud";
 import niceTrackBar from "./lib/niceTrackBar";
@@ -37,27 +37,11 @@ const ready = (fn) => {
 };
 
 ready(() => {
-  window.muzik.player = {
+  window.$muzik.player = {
     youtube: new Youtube(),
     soundcloud: new SoundCloud(),
   };
-  window.muzik.initMediaSessionHandler();
-  niceTrackBar(window.muzik.$volumeRange, 50);
-  fetch("./list.v2.json")
-    .then((response) => {
-      return response.json();
-    })
-    .then((json) => {
-      let list = [];
-      for (const [type, songs] of Object.entries(json.list)) {
-        songs.forEach((song) => {
-          song.type = type;
-          list.push(song);
-        });
-      }
-      window.muzik.playlist = new Playlist(
-        list,
-        window.location.hash.substring(1)
-      );
-    });
+  window.$muzik.initMediaSessionHandler();
+  niceTrackBar(window.$muzik.$volumeRange, 50);
+  window.$muzik.loadPlaylist("list.v2.json");
 });

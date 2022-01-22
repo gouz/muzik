@@ -1,24 +1,24 @@
 #utils
   a#playlist(
-    href="javascript:window.muzik.togglePlaylist();",
+    href="javascript:window.$muzik.togglePlaylist();",
     title="playlist (s)"
   )
     include icons/playlist
-  a#repeat(href="javascript:window.muzik.repeat();", title="repeat (r)")
+  a#repeat(href="javascript:window.$muzik.repeat();", title="repeat (r)")
     include icons/repeat
   a#repeat1.hide.active(
-    href="javascript:window.muzik.repeat();",
+    href="javascript:window.$muzik.repeat();",
     title="repeat one (r)"
   )
     include icons/repeat1
-  a#shuffle(href="javascript:window.muzik.shuffle();", title="shuffle (x)")
+  a#shuffle(href="javascript:window.$muzik.shuffle();", title="shuffle (x)")
     include icons/shuffle
-  a#share(href="javascript:window.muzik.share();", title="share (c)")
+  a#share(href="javascript:window.$muzik.share();", title="share (c)")
     include icons/share
-  a#volume(href="javascript:window.muzik.showVolume();", title="volume (+/-)")
+  a#volume(href="javascript:window.$muzik.showVolume();", title="volume (+/-)")
     include icons/volume
   a#muted.hide(
-    href="javascript:window.muzik.showVolume();",
+    href="javascript:window.$muzik.showVolume();",
     title="volume (+/-)"
   )
     include icons/mute
@@ -31,6 +31,6 @@
         max="100",
         step="1",
         value="50",
-        oninput="window.muzik.volume(this.value);",
-        onchange="window.muzik.volume(this.value);"
+        oninput="window.$muzik.volume(this.value);",
+        onchange="window.$muzik.volume(this.value);"
       )

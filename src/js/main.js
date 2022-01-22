@@ -43,5 +43,5 @@ ready(() => {
   };
   window.$muzik.initMediaSessionHandler();
   niceTrackBar(window.$muzik.$volumeRange, 50);
-  window.$muzik.loadPlaylist("list.v2.json");
+  window.$muzik.loadPlaylist("list.json");
 });

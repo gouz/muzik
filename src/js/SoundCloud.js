@@ -70,7 +70,7 @@ export class SoundCloud {
   };
 
   play = () => {
-    this.player.play();
+    this.seek(0);
     this.isPlaying = true;
   };
 

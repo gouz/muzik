@@ -3,12 +3,14 @@ import LightenDarkenColor from "../lib/LightenDarkenColor";
 import luma from "../lib/luma";
 
 window.$muzik.changeAmbiance = (imageUrl) => {
-  if ("youtube" != window.$muzik.song.type) {
-    getAverageRGB(imageUrl).then((color) => {
-      if (luma(color)) {
-        color = LightenDarkenColor(color, 70);
-      }
-      window.$muzik.$colors.innerHTML = `
+  if ("youtube" == window.$muzik.song.type) {
+    imageUrl = `//images.weserv.nl/?url=${imageUrl}&w=300&h=300`;
+  }
+  getAverageRGB(imageUrl).then((color) => {
+    if (luma(color)) {
+      color = LightenDarkenColor(color, 70);
+    }
+    window.$muzik.$colors.innerHTML = `
       :root {
           --muzik-track-color: ${LightenDarkenColor(color, 30)};
           --muzik-thumb-color: ${color};
@@ -18,26 +20,7 @@ window.$muzik.changeAmbiance = (imageUrl) => {
       body {
         background-color: ${color};
       }
-
-      #artwork::after {
-        padding-bottom: 100% !important;
-      }
     `;
-      window.$muzik.$themeColor.content = color;
-    });
-  } else {
-    let color = "#f1f5f9";
-    window.$muzik.$colors.innerHTML = `
-      :root {
-          --muzik-track-color: ${LightenDarkenColor(color, 30)};
-          --muzik-thumb-color: ${color};
-          --muzik-thumb-color-hover: ${LightenDarkenColor(color, -30)};
-      }
-
-      body {
-        background-color: #475577;
-      }
-    `;
-    window.$muzik.$themeColor.content = "#475577";
-  }
+    window.$muzik.$themeColor.content = color;
+  });
 };

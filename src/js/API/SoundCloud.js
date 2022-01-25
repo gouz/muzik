@@ -20,7 +20,7 @@ export class SoundCloud {
         title: currentSound.title,
       });
       this.setVolume(window.$muzik.$volumeRange.value);
-      this.player.play();
+      this.player.seek(0);
     });
   };
 
@@ -70,7 +70,7 @@ export class SoundCloud {
   };
 
   play = () => {
-    this.seek(0);
+    this.player.play();
     this.isPlaying = true;
   };
 
@@ -80,6 +80,7 @@ export class SoundCloud {
   };
 
   seek = (time) => {
+    this.isPlaying = true;
     this.position = time * 1000;
     this.player.isPaused((p) => {
       if (p == true) {

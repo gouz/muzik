@@ -25,8 +25,10 @@ import "./actions/toggleKeyTrack";
 import "./actions/togglePlaylist";
 import "./actions/volume";
 
-import { Youtube } from "./Youtube";
-import { SoundCloud } from "./SoundCloud";
+import { Youtube } from "./API/Youtube";
+import { SoundCloud } from "./API/SoundCloud";
+import { Deezer } from "./API/Deezer";
+
 import niceTrackBar from "./lib/niceTrackBar";
 
 const ready = (fn) => {
@@ -41,6 +43,7 @@ ready(() => {
   window.$muzik.player = {
     youtube: new Youtube(),
     soundcloud: new SoundCloud(),
+    deezer: new Deezer(),
   };
   window.$muzik.initMediaSessionHandler();
   niceTrackBar(window.$muzik.$volumeRange, 50);

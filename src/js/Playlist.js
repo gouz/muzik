@@ -85,7 +85,6 @@ export class Playlist {
 
   playSong = (slug) => {
     const index = this.list.findIndex((x) => sha1(x.code) == slug);
-    console.log(index);
     this.currentTrack = index - 1;
     this.next(true, true);
   };

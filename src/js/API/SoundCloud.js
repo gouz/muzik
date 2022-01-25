@@ -20,7 +20,7 @@ export class SoundCloud {
         title: currentSound.title,
       });
       this.setVolume(window.$muzik.$volumeRange.value);
-      this.player.seek(0);
+      this.player.seekTo(0);
     });
   };
 

@@ -19,6 +19,7 @@ export class Deezer {
     });
     this.duration = information.duration;
     this.setVolume(window.$muzik.$volumeRange.value);
+    this.player.seek(0);
   };
 
   init = () => {

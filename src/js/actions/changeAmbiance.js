@@ -3,9 +3,6 @@ import LightenDarkenColor from "../lib/LightenDarkenColor";
 import luma from "../lib/luma";
 
 window.$muzik.changeAmbiance = (imageUrl) => {
-  if ("youtube" == window.$muzik.song.type) {
-    imageUrl = `//images.weserv.nl/?url=${imageUrl}&w=300&h=300`;
-  }
   getAverageRGB(imageUrl).then((color) => {
     if (luma(color)) {
       color = LightenDarkenColor(color, 70);

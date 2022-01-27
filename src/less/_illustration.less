@@ -7,10 +7,10 @@
 }
 
 #artwork {
-  @apply bg-white w-full overflow-hidden rounded-lg shadow-slate-50 shadow z-10 relative transition-all duration-500 bg-cover bg-center;
+  @apply bg-black w-full overflow-hidden rounded-lg shadow-slate-50 shadow-lg z-10 relative bg-contain bg-center bg-no-repeat;
 
   &:after {
-    @apply block transition-all duration-500;
+    @apply block;
     padding-bottom: 100%;
     content: "";
   }

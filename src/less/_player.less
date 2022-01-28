@@ -14,21 +14,21 @@
 }
 
 #title {
-  @apply text-white font-bold tracking-wider leading-5 mb-2 w-full text-xl h-6 truncate transition-transform cursor-default;
-  transition-duration: 1000ms;
-
-  &:hover {
-    @apply text-clip -translate-x-full overflow-visible;
-    transition-duration: 10000ms;
-  }
+  @apply text-white font-bold tracking-wider leading-5 mb-2 text-xl h-6;
 }
 
 #artist {
-  @apply text-gray-200 uppercase text-sm w-full truncate mb-2 h-5 transition-transform cursor-default;
-  transition-duration: 1000ms;
+  @apply text-gray-200 uppercase text-sm mb-2 h-5;
+}
 
-  &:hover {
-    @apply text-clip -translate-x-full overflow-visible;
-    transition-duration: 10000ms;
+.over {
+  @apply w-full cursor-default overflow-hidden;
+  span {
+    @apply truncate transition-transform w-full block;
+    transition-duration: 1000ms;
+    &:hover {
+      @apply text-clip -translate-x-full overflow-visible;
+      transition-duration: 10000ms;
+    }
   }
 }

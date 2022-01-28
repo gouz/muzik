@@ -25,7 +25,7 @@ export class Playlist {
 
   load = () => {
     const $clip = window.$muzik.$video;
-    if ("soundcloud" == this.list[this.currentTrack].type) {
+    if ("youtube" != this.list[this.currentTrack].type) {
       $clip.classList.add("hide");
       document.getElementById("youtube-player").classList.add("hide");
     } else if ("youtube" == this.list[this.currentTrack].type) {

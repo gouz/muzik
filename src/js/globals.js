@@ -2,7 +2,7 @@ window.$muzik = {
   repeat_mode: 0, // 1 = all, 2 = one
   track_keypress: true,
   playlist: null,
-  $artist: document.getElementById("artist"),
+  $artist: document.querySelector("#artist span"),
   $artwork: document.getElementById("artwork"),
   $colors: document.getElementById("colors"),
   $muted: document.getElementById("muted"),
@@ -20,7 +20,7 @@ window.$muzik = {
   $timeCurrent: document.getElementById("time-current"),
   $timestamp: document.getElementById("timestamp"),
   $timeTotal: document.getElementById("time-total"),
-  $title: document.getElementById("title"),
+  $title: document.querySelector("#title span"),
   $video: document.getElementById("video"),
   $volume: document.getElementById("volume"),
   $volumeRange: document.getElementById("volume-range"),

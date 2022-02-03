@@ -57,6 +57,7 @@ export class SoundCloud {
   };
 
   load = () => {
+    this.position = 0;
     if (this.isReady) {
       this.player.load(window.$muzik.song.code, {
         auto_play: "true",

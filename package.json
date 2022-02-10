@@ -28,7 +28,7 @@
     "@parcel/optimizer-css": "2.3.1",
     "@parcel/transformer-css-experimental": "2.3.1",
     "@parcel/transformer-less": "2.3.0",
-    "@parcel/transformer-pug": "2.3.0",
+    "@parcel/transformer-pug": "2.3.1",
     "@prettier/plugin-pug": "1.19.2",
     "eslint": "8.8.0",
     "parcel": "2.3.0",

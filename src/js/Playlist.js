@@ -1,4 +1,4 @@
-import sha1 from "./lib/js-sha1";
+import sha1 from "sha1";
 export class Playlist {
   constructor(list, id) {
     this.list = list;

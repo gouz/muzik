@@ -27,7 +27,7 @@ import "./actions/volume";
 
 import { Youtube } from "./API/Youtube";
 import { SoundCloud } from "./API/SoundCloud";
-import { Deezer } from "./API/Deezer";
+// import { Deezer } from "./API/Deezer";
 
 import niceTrackBar from "./lib/niceTrackBar";
 
@@ -43,9 +43,16 @@ ready(() => {
   window.$muzik.player = {
     youtube: new Youtube(),
     soundcloud: new SoundCloud(),
-    deezer: new Deezer(),
+    // deezer: new Deezer(),
   };
   window.$muzik.initMediaSessionHandler();
   niceTrackBar(window.$muzik.$volumeRange, 50);
   window.$muzik.loadPlaylist("list.json");
 });
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register(
+    new URL("../service-worker.js", import.meta.url),
+    { type: "module" }
+  );
+}

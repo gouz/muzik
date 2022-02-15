@@ -47,7 +47,7 @@
   "pwaManifest": {
     "name": "Muzik",
     "shortName": "Muzik",
-    "startURL": "/muzik",
+    "startURL": "/muzik/",
     "theme": "#f1f5f9",
     "generateIconOptions": {
       "baseIcon": "./src/img/favicon.svg",

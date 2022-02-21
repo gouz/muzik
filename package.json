@@ -49,6 +49,7 @@
     "shortName": "Muzik",
     "startURL": "/muzik/",
     "theme": "#f1f5f9",
+    "display": "fullscreen",
     "generateIconOptions": {
       "baseIcon": "./src/img/favicon.svg",
       "sizes": [

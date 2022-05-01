@@ -15,9 +15,12 @@ window.$muzik.changeAmbiance = (imageUrl) => {
       }
 
       body {
-        background-color: ${color};
+        background: linear-gradient(0deg, ${LightenDarkenColor(
+          color,
+          -15
+        )} 0%, ${color} 50%, ${LightenDarkenColor(color, 15)} 100%);
       }
     `;
-    window.$muzik.$themeColor.content = color;
+    document.querySelector('meta[name="theme-color"]').content = color;
   });
 };

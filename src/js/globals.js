@@ -16,7 +16,6 @@ window.$muzik = {
   $repeat1: document.getElementById("repeat1"),
   $searchField: document.getElementById("search-field"),
   $shuffle: document.getElementById("shuffle"),
-  $themeColor: document.getElementById("theme-color"),
   $timeCurrent: document.getElementById("time-current"),
   $timestamp: document.getElementById("timestamp"),
   $timeTotal: document.getElementById("time-total"),

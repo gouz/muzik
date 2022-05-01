@@ -7,8 +7,8 @@ window.$muzik.changeAmbiance = (imageUrl) => {
     if (luma(color)) {
       color = LightenDarkenColor(color, 70);
     }
-    const lightColor = LightenDarkenColor(color, -30);
-    const darkColor = LightenDarkenColor(color, 30);
+    const darkColor = LightenDarkenColor(color, -30);
+    const lightColor = LightenDarkenColor(color, 30);
     window.$muzik.$colors.innerHTML = `
       :root {
           --muzik-track-color: ${darkColor};

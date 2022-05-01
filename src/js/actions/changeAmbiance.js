@@ -7,18 +7,19 @@ window.$muzik.changeAmbiance = (imageUrl) => {
     if (luma(color)) {
       color = LightenDarkenColor(color, 70);
     }
+    const lightColor = LightenDarkenColor(color, -30);
+    const darkColor = LightenDarkenColor(color, 30);
     window.$muzik.$colors.innerHTML = `
       :root {
-          --muzik-track-color: ${LightenDarkenColor(color, 30)};
+          --muzik-track-color: ${darkColor};
           --muzik-thumb-color: ${color};
-          --muzik-thumb-color-hover: ${LightenDarkenColor(color, -30)};
+          --muzik-thumb-color-hover: ${lightColor};
       }
 
       body {
-        background: linear-gradient(0deg, ${LightenDarkenColor(
-          color,
-          -15
-        )} 0%, ${color} 50%, ${LightenDarkenColor(color, 15)} 100%);
+        background: linear-gradient(${Math.floor(
+          Math.random() * 360
+        )}deg, ${lightColor} 0%, ${color} 50%, ${darkColor} 100%);
       }
     `;
     document.querySelector('meta[name="theme-color"]').content = color;

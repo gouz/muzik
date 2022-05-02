@@ -46,10 +46,11 @@ ready(() => {
     // deezer: new Deezer(),
   };
   window.$muzik.initMediaSessionHandler();
-  niceTrackBar(window.$muzik.$volumeRange, 50);
+  niceTrackBar(window.$muzik.$volumeRange, 90);
   window.$muzik.loadPlaylist(
     "https://raw.githubusercontent.com/gouz/muzik/main/songs/list.json"
   );
+  window.$muzik.shuffle();
 });
 
 if ("serviceWorker" in navigator) {

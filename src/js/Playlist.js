@@ -63,12 +63,17 @@ export class Playlist {
   };
 
   next = (force, chosen) => {
-    if (typeof chosen == undefined) {
+    if (typeof chosen == "undefined") {
       chosen = false;
     }
     if (force || 2 != window.$muzik.repeat_mode) {
       if (window.$muzik.$shuffle.classList.contains("active") && !chosen) {
-        this.currentTrack = Math.floor(Math.random() * this.list.length);
+        let songsPlayed = JSON.parse(sessionStorage.getItem("songsplayed"));
+        do {
+          this.currentTrack = Math.floor(Math.random() * this.list.length);
+        } while (songsPlayed.includes(this.currentTrack));
+        songsPlayed.push(this.currentTrack);
+        sessionStorage.setItem("songsplayed", JSON.stringify(songsPlayed));
       } else {
         this.currentTrack++;
       }

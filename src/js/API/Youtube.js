@@ -12,7 +12,7 @@ export class Youtube {
   onPlayerStateChange = (event) => {
     if (YT.PlayerState.PLAYING == event.data) {
       window.$muzik.loadMeta({
-        img: `//images.weserv.nl/?url=https://i.ytimg.com/vi/${window.$muzik.song.code}/hqdefault.jpg&w=300&h=300`,
+        img: `//images.weserv.nl/?url=https://i.ytimg.com/vi/${window.$muzik.song.code}/hqdefault.jpg&w=300`,
         size: "300x300",
         duration: this.player.getDuration(),
         artist: this.player.getVideoData().artist,

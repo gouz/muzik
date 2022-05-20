@@ -11,9 +11,7 @@ window.$muzik.changeAmbiance = (imageUrl) => {
     const lightColor = LightenDarkenColor(color, 30);
     window.$muzik.$colors.innerHTML = `
       :root {
-          --muzik-track-color: ${darkColor};
-          --muzik-thumb-color: ${color};
-          --muzik-thumb-color-hover: ${lightColor};
+          --muzik-track-color: ${lightColor};
       }
 
       body {

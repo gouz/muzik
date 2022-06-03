@@ -20,14 +20,14 @@ Website : https://gouz.github.io/muzik/
 
 ## Development
 
-To build you own, change the `static/list.v2.json` file and run after the usual `npm install`
+To build you own, change the `songs/list.json` file and run after the usual `pnpm install`
 
 ```sh
-npm run dev
+pnpm run dev
 ```
 
 To publish
 
 ```sh
-npm run build
+pnpm run build
 ```

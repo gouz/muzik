@@ -32,7 +32,11 @@ window.$muzik.changeAmbiance = (imageUrl) => {
     const color = colors[1][1];
     window.$muzik.$colors.innerHTML = `
       body {
-        background: linear-gradient(to bottom right, ${colors[0][0]} 0%, ${colors[1][1]} 50%, ${colors[2][2]} 100%);
+        background:
+          linear-gradient(  0deg, ${colors[2][1]}80 0%, ${colors[1][1]}80 50%, ${colors[0][1]}80 100%),
+          linear-gradient( 90deg, ${colors[1][0]}80 0%, ${colors[1][1]}80 50%, ${colors[2][0]}80 100%),
+          linear-gradient( 45deg, ${colors[2][0]}80 0%, ${colors[1][1]}80 50%, ${colors[0][2]}80 100%),
+          linear-gradient(135deg, ${colors[0][0]}80 0%, ${colors[1][1]}80 50%, ${colors[2][0]}80 100%);
       }
     `;
     document.querySelector('meta[name="theme-color"]').content = color;

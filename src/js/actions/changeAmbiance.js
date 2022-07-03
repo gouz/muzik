@@ -1,6 +1,4 @@
 import getAverageRGB from "../lib/getAverageRGB";
-import LightenDarkenColor from "../lib/LightenDarkenColor";
-import luma from "../lib/luma";
 
 const faviconPaths = [
   "M26.52 8.36a13 13 0 1 0-5.77 19.73l3.57.57a1 1 0 0 0 1.15-.83l.61-3.83a1 1 0 0 0-2-.31l-.45 2.87-2.87-.46a1 1 0 0 0-.54.07 11 11 0 1 1 6.18-6.63 1 1 0 1 0 1.89.64 13 13 0 0 0-1.77-11.82Z",
@@ -30,24 +28,14 @@ function changeFavicon(color) {
 }
 
 window.$muzik.changeAmbiance = (imageUrl) => {
-  getAverageRGB(imageUrl).then((color) => {
-    if (luma(color)) {
-      color = LightenDarkenColor(color, 70);
-    }
-    const darkColor = LightenDarkenColor(color, -30);
-    const lightColor = LightenDarkenColor(color, 30);
+  getAverageRGB(imageUrl).then((colors) => {
+    const color = colors[1][1];
     window.$muzik.$colors.innerHTML = `
-      :root {
-          --muzik-track-color: ${lightColor};
-      }
-
       body {
-        background: linear-gradient(${Math.floor(
-          Math.random() * 360
-        )}deg, ${lightColor} 0%, ${color} 50%, ${darkColor} 100%);
+        background: linear-gradient(to bottom right, ${colors[0][0]} 0%, ${colors[1][1]} 50%, ${colors[2][2]} 100%);
       }
     `;
     document.querySelector('meta[name="theme-color"]').content = color;
-    changeFavicon(lightColor);
+    changeFavicon(color);
   });
 };

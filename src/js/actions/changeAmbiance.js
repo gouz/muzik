@@ -29,14 +29,38 @@ function changeFavicon(color) {
 
 window.$muzik.changeAmbiance = (imageUrl) => {
   getAverageRGB(imageUrl).then((colors) => {
-    const color = colors[1][1];
+    const midy = Math.floor(colors.length / 2);
+    const midx = Math.floor(colors[midy].length / 2);
+    const color = colors[midy][midx];
+    const gradients = {
+      0: [],
+      90: [],
+      45: [],
+      135: [],
+    };
+    const nb = colors.length;
+    const percent = "80";
+    for (let j = 0; j < nb; j++) {
+      gradients[0].push(
+        `${colors[nb - j - 1][midx]}${percent} ${Math.floor((j / nb) * 100)}%`
+      );
+      gradients[90].push(
+        `${colors[midy][j]}${percent} ${Math.floor((j / nb) * 100)}%`
+      );
+      gradients[45].push(
+        `${colors[nb - j - 1][j]}${percent} ${Math.floor((j / nb) * 100)}%`
+      );
+      gradients[135].push(
+        `${colors[j][j]}${percent} ${Math.floor((j / nb) * 100)}%`
+      );
+    }
     window.$muzik.$colors.innerHTML = `
       body {
         background:
-          linear-gradient(  0deg, ${colors[2][1]}80 0%, ${colors[1][1]}80 50%, ${colors[0][1]}80 100%),
-          linear-gradient( 90deg, ${colors[1][0]}80 0%, ${colors[1][1]}80 50%, ${colors[2][0]}80 100%),
-          linear-gradient( 45deg, ${colors[2][0]}80 0%, ${colors[1][1]}80 50%, ${colors[0][2]}80 100%),
-          linear-gradient(135deg, ${colors[0][0]}80 0%, ${colors[1][1]}80 50%, ${colors[2][0]}80 100%);
+          linear-gradient(  0deg, ${gradients[0].join(",")}),
+          linear-gradient( 90deg, ${gradients[90].join(",")}),
+          linear-gradient( 45deg, ${gradients[45].join(",")}),
+          linear-gradient(135deg, ${gradients[135].join(",")});
       }
     `;
     document.querySelector('meta[name="theme-color"]').content = color;

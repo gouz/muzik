@@ -9,11 +9,12 @@ export default async function getAverageRGB(src) {
     img.crossOrigin = "Anonymous";
 
     img.onload = () => {
-      context.drawImage(img, 0, 0, 3, 3);
+      const precision = 3;
+      context.drawImage(img, 0, 0, precision, precision);
       let results = [];
-      for (let y = 0; y < 3; y++) {
+      for (let y = 0; y < precision; y++) {
         results[y] = [];
-        for (let x = 0; x < 3; x++) {
+        for (let x = 0; x < precision; x++) {
           const col = context.getImageData(x, y, 1, 1).data.slice(0, 3);
           results[y][x] =
             "#" +

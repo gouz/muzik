@@ -1,7 +1,15 @@
 export default async function getAverageRGB(src) {
   // https://stackoverflow.com/questions/2541481/get-average-color-of-image-via-javascript
   return new Promise((resolve) => {
-    const context = document.createElement("canvas").getContext("2d");
+    const precision = 5;
+    const canvas = document.createElement("canvas");
+    canvas.width = precision;
+    canvas.height = precision;
+    canvas.style.position = "absolute";
+    canvas.style.top = 0;
+    canvas.style.left = 0;
+    //document.body.appendChild(canvas);
+    const context = canvas.getContext("2d");
     context.imageSmoothingEnabled = true;
 
     const img = new Image();
@@ -9,7 +17,6 @@ export default async function getAverageRGB(src) {
     img.crossOrigin = "Anonymous";
 
     img.onload = () => {
-      const precision = 3;
       context.drawImage(img, 0, 0, precision, precision);
       let results = [];
       for (let y = 0; y < precision; y++) {

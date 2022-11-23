@@ -22,6 +22,7 @@ window.$muzik.loadMeta = (meta) => {
     title = window.$muzik.song.title;
   window.$muzik.$artist.textContent = artist;
   window.$muzik.$title.textContent = title;
+  window.$muzik.$metaTitle.textContent = `${artist} - ${title}`;
   window.$muzik.changeAmbiance(meta.img);
   window.$muzik.notify({
     artwork: meta.img,

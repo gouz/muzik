@@ -20,6 +20,7 @@ window.$muzik = {
   $timestamp: document.getElementById("timestamp"),
   $timeTotal: document.getElementById("time-total"),
   $title: document.querySelector("#title span"),
+  $metaTitle: document.querySelector('title'),
   $video: document.getElementById("video"),
   $volume: document.getElementById("volume"),
   $volumeRange: document.getElementById("volume-range"),

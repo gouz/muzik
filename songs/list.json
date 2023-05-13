@@ -2,6 +2,11 @@
   "list": {
     "soundcloud": [
       {
+        "code": "/gouz/tenebrae",
+        "artist": "Sylvain Gougouzian",
+        "title": "Tenebrae"
+      },
+      {
         "code": "/gouz/children",
         "artist": "Sylvain Gougouzian",
         "title": "Children"
@@ -540,11 +545,6 @@
         "code": "/metasonica/metasonica-blade-runner",
         "artist": "Metasonica",
         "title": "Blade Runner [Soundtrack]"
-      },
-      {
-        "code": "/gouz/tenebrae-musesound",
-        "artist": "Sylvain Gougouzian",
-        "title": "Tenebrae"
       }
     ],
     "youtube": [
